@@ -24,7 +24,5 @@ public class mainApp {
 			student = myStudentList.get(i);
 			System.out.println(String.format("%-35s %-25s %-20s", student.getLastName(), student.getFirstName(), student.getStudentID()));
 		}
-		
-		System.out.println("Hello");
 	}
 }

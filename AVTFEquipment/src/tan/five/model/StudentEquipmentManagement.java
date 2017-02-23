@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class StudentEquipmentManagement {
 
+	//hello
 /// STUDENT ///	
 	
 	//Creates accessible ArrayList for students

@@ -1,21 +1,26 @@
 package tan.five;
 import java.util.ArrayList;
 
+import javafx.collections.ObservableList;
 import tan.five.model.Equipment;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
+import tan.five.model.StudentFinal;
 
 public class mainApp {
 
-	
-	static ArrayList<Student> myStudentList = new ArrayList();
-	static ArrayList<Equipment> myEquipmentList = new ArrayList();
+/*	
+	static ArrayList<Student> myStudentList = StudentEquipmentManagement.getStudentList();
+	//static ArrayList<Equipment> myEquipmentList = new ArrayList();
 
 	static StudentEquipmentManagement studentEquipmentManagement = new StudentEquipmentManagement();
-
+*/
+	
+	static ObservableList<Student> myStudentList = StudentEquipmentManagement.getStudentList();
+	
 	public static void main(String[] args) {
 
-		myStudentList = studentEquipmentManagement.getStudentList();
+		myStudentList = StudentEquipmentManagement.getStudentList();
 
 		Student student = new Student();
 

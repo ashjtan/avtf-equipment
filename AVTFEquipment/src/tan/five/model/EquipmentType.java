@@ -1,0 +1,5 @@
+package tan.five.model;
+
+public enum EquipmentType {
+	CAMERA, TRIPOD, MICROPHONE, MICROPHONE_ACCESSORY, LAPTOP, LIGHT, LIGHT_ACCESSORY, CABLE, OTHER
+}

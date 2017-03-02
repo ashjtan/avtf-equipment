@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public abstract class DragAndDrop {
-
+/*
 
 	//source is the menuitem
 	source.setOnDragDetected(new EventHandler <MouseEvent>() {
@@ -106,6 +106,6 @@ public abstract class DragAndDrop {
 
 }
 
-
+*/
 }
 

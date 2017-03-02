@@ -46,7 +46,7 @@ public class RootLayoutController {
 
 
 	//So the main can reference itself to the controllers
-	private MainApp mainApp;
+	private tan.five.mainApp mainApp;
 
 
 	public RootLayoutController() {
@@ -61,11 +61,11 @@ public class RootLayoutController {
 
 
 	// @param mainApp
-	public void setMainApp(MainApp mainApp) {
+	public void setMainApp(tan.five.mainApp mainApp2) {
 
 		//This sets the field for this controller to the application passed in:  
 		//This allows the main application to have a pointer to itself by setting its own pointer into the controller's field
-		this.mainApp = mainApp;
+		this.mainApp = mainApp2;
 	}
 }
 

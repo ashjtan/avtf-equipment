@@ -12,7 +12,7 @@ public class StudentEquipmentManagement {
 
 /// STUDENT ///	
 
-	/*
+	
 	//Creates accessible ArrayList for students
 	static ArrayList<Student> studentList = new ArrayList(); 
 
@@ -45,7 +45,7 @@ public class StudentEquipmentManagement {
 		}
 		reader.close();
 	}
-*/
+
 	
 	 static ObservableList<Student> studentList; 
 	 static ArrayList<Student> stList = new ArrayList();

@@ -21,6 +21,13 @@ import chapman.five.view.RootLayoutController;
 
 public class MainApp extends Application {
 
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/*
 	//private fields of a stage that will be the primary stage, and the root layout of our main window
 	private Stage primaryStage;
 	private BorderPane rootLayout;
@@ -118,7 +125,7 @@ public class MainApp extends Application {
 	
 	
 	
-	
+	*/
 	
 }	
 

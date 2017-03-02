@@ -42,8 +42,6 @@ public class LoginScreenController {
 
 	//Controls
 	@FXML
-	private Label lblWelcome;
-	@FXML
 	private Button btnStudentScreen;
 	@FXML
 	private Button btnAdminScreen;
@@ -51,13 +49,21 @@ public class LoginScreenController {
 	private Button btnGoBack;
 	@FXML
 	private TextField txtPassword;
+	@FXML
+	private Label lblWelcome;
+	@FXML
+	private Label lblAskStudentID;
+	@FXML
+	private TextField txtStudentIDField;
+	@FXML
+	private Label lblErrorMessage;
 
 	//testing the password
 	String passwordTest = "2000006852";
 
 
 	//So the main can reference itself to the controllers
-	private MainApp mainApp;
+	private tan.five.mainApp mainApp;
 
 	public LoginScreenController() {
 		//loader needs this
@@ -66,10 +72,37 @@ public class LoginScreenController {
 	//to initialize anything on start
 	@FXML 
 	private void initialize(){
-
+		lblErrorMessage.setVisible(false);
 	}
 
-	//Method for handling user passwords
+	//Event Handlers
+	@FXML
+	private void handleInput() {
+		if (isInputValid()) {
+
+		}
+	}
+
+	private boolean isInputValid(){
+		boolean inputValidity = false;
+		if (txtStudentIDField.getText() == null || txtStudentIDField.getText().length() != 10) {				//Checks if TextField is filled
+			lblErrorMessage.setVisible(true);
+		}
+
+		for (int i=0; i<=10; i++) {
+			if (txtStudentIDField.getText().charAt(i) < 0 || txtStudentIDField.getText().charAt(i) > 9) {		//Checks if TextField is all numbers
+				lblErrorMessage.setVisible(true);
+			}
+		}
+
+		if (lblErrorMessage.isVisible() == false) {
+			inputValidity = true;
+		}
+		return inputValidity;
+	}
+
+
+	//Method for updating the buttons when users input a correct password
 	public void handlePassword(ActionEvent event) {
 
 		if(txtPassword.getText().equals(passwordTest))
@@ -113,10 +146,10 @@ public class LoginScreenController {
 	}
 
 	// @param mainApp
-	public void setMainApp(MainApp mainApp) {
+	public void setMainApp(tan.five.mainApp mainApp2) {
 
 		//This sets the field for this controller to the application passed in:  
 		//This allows the main application to have a pointer to itself by setting its own pointer into the controller's field
-		this.mainApp = mainApp;
+		this.mainApp = mainApp2;
 	}
 }

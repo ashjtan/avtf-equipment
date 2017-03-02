@@ -28,7 +28,7 @@ public class StudentEquipmentManagement {
 
 	//CSV File Loader
 	static void loadStudentFile() throws IOException {
-		FileReader file = new FileReader("/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv");
+		FileReader file = new FileReader("AVTF Student List.csv");
 		BufferedReader reader = new BufferedReader(file);
 		String line;
 
@@ -101,7 +101,7 @@ public class StudentEquipmentManagement {
 
 	//CSV File Loader
 	static void loadEquipmentFile() throws IOException {
-		FileReader file = new FileReader("/Users/ashleytan/Desktop/avtf files/Sample Equipment.csv");
+		FileReader file = new FileReader("Sample Equipment.csv");
 		BufferedReader reader = new BufferedReader(file);
 		String line;
 

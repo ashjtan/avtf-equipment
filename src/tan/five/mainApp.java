@@ -115,7 +115,7 @@ public class mainApp extends Application{
 			FXMLLoader loader = new FXMLLoader();
 
 			//Provides the file access location for the FXML file
-			loader.setLocation(MainApp.class.getResource("/chapman/five/view/LoginScreen.fxml"));
+			loader.setLocation(MainApp.class.getResource("/tan/five/view/Login.fxml"));
 
 			//Loads the AnchorPane into the itemOverview object
 			AnchorPane loginScreen = (AnchorPane) loader.load();

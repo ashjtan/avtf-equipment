@@ -26,7 +26,6 @@ public class MainApp extends Application {
 		// TODO Auto-generated method stub
 		
 	}
-	//test DO NOT DELETE ME EVERYTHING WIL BREAK
 
 	/*
 	//private fields of a stage that will be the primary stage, and the root layout of our main window

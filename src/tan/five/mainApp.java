@@ -26,6 +26,10 @@ public class mainApp extends Application{
 	static StudentEquipmentManagement studentEquipmentManagement = new StudentEquipmentManagement();
 	 */
 
+	
+	
+	
+/*	
 	static ObservableList<Student> myStudentList = StudentEquipmentManagement.getStudentList();
 
 	public static void main(String[] args) {
@@ -40,8 +44,9 @@ public class mainApp extends Application{
 			System.out.println(String.format("%-35s %-25s %-20s", student.getLastName(), student.getFirstName(), student.getStudentID()));
 		}
 	}
+*/
 
-
+	
 	//GUI Stuff
 
 

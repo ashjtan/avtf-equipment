@@ -67,17 +67,22 @@ public class Equipment {
 		return holder;
 	}
 
-	public void setHolder(Student holder) {
+	public void setHolder(Student holder) {						//WRITTEN FROM SCRATCH FOR INITIATION
 		this.holder = holder;
 	}
 
-	public EquipmentType getEquipmentType() {
+	public EquipmentType getEquipmentType() {					
 		return equipmentType;
 	}
 
 	public void setEquipmentType(EquipmentType equipmentType) {
 		this.equipmentType = equipmentType;
 	}
+	
+	public void setEquipmentType() {							//Default Setter: WRITTEN FROM SCRATCH FOR INITIATION
+		this.equipmentType = EquipmentType.OTHER;
+	}
+
 }
 
 

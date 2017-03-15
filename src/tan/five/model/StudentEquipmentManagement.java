@@ -9,7 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class StudentEquipmentManagement {
-
+/*
 /// STUDENT ///	
 
 	
@@ -46,18 +46,18 @@ public class StudentEquipmentManagement {
 		reader.close();
 	}
 
-	
+*/
 	 static ObservableList<Student> studentList; 
 	 static ArrayList<Student> stList = new ArrayList();
 	 
 	 //Student List Getter
-		static public ObservableList<Student> getStudentList() {
+		static public ArrayList<Student> getStudentList() {
 			try {
 				loadStudentFile();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return studentList;
+			return stList;
 		}
 		
 		//CSV File Loader

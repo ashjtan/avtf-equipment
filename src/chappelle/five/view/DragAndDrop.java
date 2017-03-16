@@ -1,4 +1,4 @@
-package chapman.five.view;
+package chappelle.five.view;
 
 import chapman.five.view.StudentWelcomeScreenController;
 import javafx.event.EventHandler;

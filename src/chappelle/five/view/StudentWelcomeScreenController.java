@@ -1,10 +1,10 @@
 /*Chappelle, Chapman
  * Period 5
- * PSET 9999999
- * Febuary 16,2017 
+ * PSET 4-0
+ * December 7, 2016
  */
 
-package chapman.five.view;
+package chappelle.five.view;
 
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -22,7 +22,9 @@ import javafx.scene.text.Text;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+
 import java.io.IOException;
+
 import chapman.five.MainApp;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -38,79 +40,35 @@ import javafx.beans.value.ChangeListener;
 
 
 
-public class LoginScreenController {
+public class StudentWelcomeScreenController  {
 
 	//Controls
 	@FXML
-	private Button btnStudentScreen;
+	private Label lblHello;
 	@FXML
-	private Button btnAdminScreen;
+	private Button btnCheckIn;
+	@FXML
+	private Button btnCheckOut;
 	@FXML
 	private Button btnGoBack;
-	@FXML
-	private TextField txtPassword;
-	@FXML
-	private Label lblWelcome;
-	@FXML
-	private Label lblAskStudentID;
-	@FXML
-	private TextField txtStudentIDField;
-	@FXML
-	private Label lblErrorMessage;
-
-	//testing the password
-	String passwordTest = "2000006852";
-
+	
+	//testing student names
+	String studentName = "Chapman";
 
 	//So the main can reference itself to the controllers
-	private tan.five.mainApp mainApp;
+	private MainApp mainApp;
 
-	public LoginScreenController() {
+	public StudentWelcomeScreenController() {
 		//loader needs this
 	}
 
 	//to initialize anything on start
 	@FXML 
 	private void initialize(){
-		lblErrorMessage.setVisible(false);
-	}
 
-	//Event Handlers
-	@FXML
-	private void handleInput() {
-		if (isInputValid()) {
+		//Sets the Hello, statement to add their name 
+		lblHello.setText(("Hello, "  + studentName ));
 
-		}
-	}
-
-	private boolean isInputValid(){
-		boolean inputValidity = false;
-		if (txtStudentIDField.getText() == null || txtStudentIDField.getText().length() != 10) {				//Checks if TextField is filled
-			lblErrorMessage.setVisible(true);
-		}
-
-		for (int i=0; i<=10; i++) {
-			if (txtStudentIDField.getText().charAt(i) < 0 || txtStudentIDField.getText().charAt(i) > 9) {		//Checks if TextField is all numbers
-				lblErrorMessage.setVisible(true);
-			}
-		}
-
-		if (lblErrorMessage.isVisible() == false) {
-			inputValidity = true;
-		}
-		return inputValidity;
-	}
-
-
-	//Method for updating the buttons when users input a correct password
-	public void handlePassword(ActionEvent event) {
-
-		if(txtPassword.getText().equals(passwordTest))
-		{
-			btnStudentScreen.setVisible(true);
-		}else {
-
-		}             
 	}
 
 	//Method for switching scenes
@@ -119,19 +77,19 @@ public class LoginScreenController {
 		Stage stage; 
 		Parent root;
 		//Setting the scene to the check in menu
-		if(event.getSource()==btnStudentScreen){
+		if(event.getSource()==btnCheckIn){
 			//get reference to the button's stage         
-			stage=(Stage) btnStudentScreen.getScene().getWindow();
+			stage=(Stage) btnCheckIn.getScene().getWindow();
 			//load up OTHER FXML document
-			root = FXMLLoader.load(getClass().getResource("StudentWelcomeScreen.fxml"));
+			root = FXMLLoader.load(getClass().getResource("CHECK IN MENU"));
 		}
 		//Setting the scene to the check out menu
 		else {
-			if(event.getSource()==btnAdminScreen){
+			if(event.getSource()==btnCheckOut){
 				//get reference to the button's stage         
-				stage=(Stage) btnAdminScreen.getScene().getWindow();
+				stage=(Stage) btnCheckOut.getScene().getWindow();
 				//load up OTHER FXML document
-				root = FXMLLoader.load(getClass().getResource("AdminWelcomeScreen.fxml"));
+				root = FXMLLoader.load(getClass().getResource("CHECK OUT MENU"));
 			}
 			//So it may set the root scene again
 			else{
@@ -139,17 +97,17 @@ public class LoginScreenController {
 				root = FXMLLoader.load(getClass().getResource("chapman/five/view/RootLayout.fxml"));
 			}
 			//create a new scene with root and set the stage
-			Scene newScene = new Scene(root);
-			stage.setScene(newScene);
+			Scene checkInMenu = new Scene(root);
+			stage.setScene(checkInMenu);
 			stage.show();
 		}
 	}
 
 	// @param mainApp
-	public void setMainApp(tan.five.mainApp mainApp2) {
+	public void setMainApp(MainApp mainApp) {
 
 		//This sets the field for this controller to the application passed in:  
 		//This allows the main application to have a pointer to itself by setting its own pointer into the controller's field
-		this.mainApp = mainApp2;
+		this.mainApp = mainApp;
 	}
 }

@@ -1,27 +1,25 @@
 package tan.five.model;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class CSVWriter {
-    public static void main(String[]args) throws FileNotFoundException{
-        PrintWriter pw = new PrintWriter("Sample Equipment.csv");
-        StringBuilder sb = new StringBuilder();
-        sb.append("id");
-        sb.append(',');
-        sb.append("Name");
-        sb.append('\n');
-
-        sb.append("1");
-        sb.append(',');
-        sb.append("Prashant Ghimire");
-        sb.append('\n');
-
-        pw.write(sb.toString());
-        pw.close();
-        System.out.println("done!");
-    }
+	
+	public static void updateCSV(String[] arrayToWrite) throws IOException {
+		FileWriter fw = new FileWriter("Sample Equipment.csv");
+		BufferedWriter bw = new BufferedWriter(fw);
+		
+		String writableString = "";
+		
+		for(String item : arrayToWrite){											//adds strings to write to CSV file
+			writableString += item + ",";
+		};
+		
+		writableString = writableString.substring(0, writableString.length() - 1);
+		
+		bw.write(writableString);
+		
+		
+	}
 }

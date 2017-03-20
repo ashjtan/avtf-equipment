@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import tan.five.model.Equipment;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
-import tan.five.model.StudentFinal;
 
 public class mainApp extends Application{
 
@@ -29,12 +28,10 @@ public class mainApp extends Application{
 	
 	
 	
-/*	
-	static ObservableList<Student> myStudentList = StudentEquipmentManagement.getStudentList();
 
 	public static void main(String[] args) {
 
-		myStudentList = StudentEquipmentManagement.getStudentList();
+		ArrayList<Student> myStudentList = StudentEquipmentManagement.getStudentListA();
 
 		Student student = new Student();
 
@@ -44,9 +41,9 @@ public class mainApp extends Application{
 			System.out.println(String.format("%-35s %-25s %-20s", student.getLastName(), student.getFirstName(), student.getStudentID()));
 		}
 	}
-*/
 
-	
+
+
 	//GUI Stuff
 
 

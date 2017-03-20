@@ -74,13 +74,13 @@ public class Equipment {
 	public EquipmentType getEquipmentType() {					
 		return equipmentType;
 	}
-
-	public void setEquipmentType(EquipmentType equipmentType) {
-		this.equipmentType = equipmentType;
+	
+	public void setEquipmentType() {							//Default EquipmentType Setter: WRITTEN FROM SCRATCH FOR INITIATION
+		this.equipmentType = EquipmentType.OTHER;
 	}
 	
-	public void setEquipmentType() {							//Default Setter: WRITTEN FROM SCRATCH FOR INITIATION
-		this.equipmentType = EquipmentType.OTHER;
+	public void setEquipmentType(EquipmentType equipmentType) {
+		this.equipmentType = equipmentType;
 	}
 
 }

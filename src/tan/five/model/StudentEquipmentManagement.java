@@ -51,7 +51,7 @@ public class StudentEquipmentManagement {
 	 static ArrayList<Student> stList = new ArrayList();
 	 
 	 //Student List Getter
-		static public ArrayList<Student> getStudentList() {
+		public static ArrayList<Student> getStudentListA() {
 			try {
 				loadStudentFile();
 			} catch (IOException e) {
@@ -60,8 +60,19 @@ public class StudentEquipmentManagement {
 			return stList;
 		}
 		
-		//CSV File Loader
-		static void loadStudentFile() throws IOException {
+		
+		public static ObservableList<Student> getStudentListO() {
+			try {
+				loadStudentFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return studentList;
+		}
+		
+		
+		//Student CSV File Loader
+		public static void loadStudentFile() throws IOException {
 			FileReader file = new FileReader("/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv");
 			BufferedReader reader = new BufferedReader(file);
 			
@@ -99,7 +110,7 @@ public class StudentEquipmentManagement {
 	}
 
 
-	//CSV File Loader
+	//Equipment CSV File Loader
 	static void loadEquipmentFile() throws IOException {
 		FileReader file = new FileReader("Sample Equipment.csv");
 		BufferedReader reader = new BufferedReader(file);

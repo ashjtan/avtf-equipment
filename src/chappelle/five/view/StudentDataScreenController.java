@@ -1,4 +1,4 @@
-package chapelle.five.view;
+package chappelle.five.view;
 
 
 import java.util.ArrayList;
@@ -22,11 +22,6 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import tan.five.model.Student;
 
-
-/**
- *
- * @author Peggy Fisher
- */
 public class StudentDataScreenController extends Application {
 
 	static ObservableList<Student> mySl;

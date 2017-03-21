@@ -1,4 +1,4 @@
-package chapelle.five.view;
+package chappelle.five.view;
 
 
 import java.util.ArrayList;

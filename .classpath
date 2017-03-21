@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="chapman/five/view/" kind="src" path="src"/>
-	<classpathentry kind="src" path="src/chapman/five/view"/>
+	<classpathentry excluding="chapman/five/view/|chapman.five.view/" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/Users/ashleytan/Desktop/opencsv-3.9.jar"/>
 	<classpathentry kind="output" path="bin"/>

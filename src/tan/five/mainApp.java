@@ -3,8 +3,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import chapman.five.MainApp;
-import chapman.five.view.LoginScreenController;
-import chapman.five.view.RootLayoutController;
+import chappelle.five.view.LoginScreenController;
+import chappelle.five.view.RootLayoutController;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +30,7 @@ public class mainApp extends Application{
 	
 
 	public static void main(String[] args) {
-
+/*
 		ArrayList<Student> myStudentList = StudentEquipmentManagement.getStudentListA();
 
 		Student student = new Student();
@@ -41,7 +41,7 @@ public class mainApp extends Application{
 			System.out.println(String.format("%-35s %-25s %-20s", student.getLastName(), student.getFirstName(), student.getStudentID()));
 		}
 	}
-
+*/
 
 
 	//GUI Stuff

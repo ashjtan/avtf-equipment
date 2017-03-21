@@ -8,9 +8,9 @@ import javafx.collections.ObservableList;
 public class Student {
 
 	//Fields
-	private SimpleStringProperty lastName;
-	private SimpleStringProperty firstName;
-	private SimpleStringProperty studentID;
+	private SimpleStringProperty lastName = new SimpleStringProperty();
+	private SimpleStringProperty firstName = new SimpleStringProperty();
+	private SimpleStringProperty studentID = new SimpleStringProperty();
 	private ObservableList<Equipment> checkedOutEquipment;
 	
 	
@@ -35,6 +35,8 @@ public class Student {
 
 	public void setLastName(String lastName) {						//Takes String
 		this.lastName.set(lastName);
+		
+		
 	}
 
 	public String getFirstName() {									//Returns String

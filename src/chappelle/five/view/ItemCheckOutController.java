@@ -1,4 +1,4 @@
-package chapman.five.view;
+package chappelle.five.view;
 
 public class ItemCheckOutController  {
 

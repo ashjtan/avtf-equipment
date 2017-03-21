@@ -124,9 +124,9 @@ public class StudentEquipmentManagement {
 			equipment.setEquipmentName(equipmentInfo[0]);			//Sets fields based on CSV file array
 			equipment.setEquipmentID(equipmentInfo[1]);
 			equipment.setCountyID(equipmentInfo[2]);
-			equipment.setCheckedOut(equipmentInfo[3]);
-			equipment.setHolder(equipmentInfo[4]);
-			equipment.setEquipmentType(equipmentInfo[5]);
+//			equipment.setCheckedOut(equipmentInfo[3]);
+//			equipment.setHolder(equipmentInfo[4]);
+//			equipment.setEquipmentType(equipmentInfo[5]);
 
 			equipmentList.add(equipment);							//Adds Equipment to equipmentList ArrayList
 		}

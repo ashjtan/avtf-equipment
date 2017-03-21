@@ -4,7 +4,7 @@
  * December 7, 2016
  */
 
-package chapman.five.view;
+package chappelle.five.view;
 
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;

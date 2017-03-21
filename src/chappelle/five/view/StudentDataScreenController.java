@@ -21,6 +21,7 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import tan.five.model.Student;
+import tan.five.model.StudentEquipmentManagement;
 
 public class StudentDataScreenController extends Application {
 
@@ -39,31 +40,10 @@ public class StudentDataScreenController extends Application {
 
 		Scene scene = new Scene(root, 700, 700);
 
-		mySl = .getStudentList();
+		mySl = StudentEquipmentManagement.getStudentListO();
 		Student stu = new Student();
 
-		/*
-		for (int i = 0; i < mySl.size(); i ++)
-		{
-		    stu = mySl.get(i);
-		    System.out.println(stu.getId()+" "+stu.getFirstName()+" "+stu.getLastName());
 
-		}
-		 */  
-		//static ArrayList<People> myAl = new ArrayList();
-		//        ObservableList<Student> myStudentList;
-		//        = FXCollections.observableArrayList(
-		//                new Contact("Peggy", "Fisher", "717-555-1212"), 
-		//                new Contact("Jim", "Freed", "441-456-1345"), 
-		//                new Contact("Pat", "Keegan", "717-363-1432"), 
-		//                new Contact("Jane", "Slattery", "441-478-4488"), 
-		//                new Contact("Cy", "Young", "970-554-1265"), 
-		//                new Contact("Rob", "Jones", "570-655-1587"), 
-		//                new Contact("Carol", "King", "215-547-5958"), 
-		//                new Contact("Bob", "Kauffman", "215-456-6345"), 
-		//                new Contact("Gloria", "Shilling", "717-785-6092"), 
-		//                new Contact("Bill", "Sigler", "441-444-1345")
-		//                );
 
 		TableView<Student> tvStudents;
 
@@ -95,12 +75,4 @@ public class StudentDataScreenController extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args) {
-		launch(args);
-	}
-
 }

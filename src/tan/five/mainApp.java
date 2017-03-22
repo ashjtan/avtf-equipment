@@ -18,21 +18,11 @@ import tan.five.model.StudentEquipmentManagement;
 
 public class mainApp extends Application{
 
+	
+	
 	public static void main(String[] args) {
-		/*
-		ArrayList<Student> myStudentList = StudentEquipmentManagement.getStudentListA();
-
-		Student student = new Student();
-
-		for (int i = 0; i < myStudentList.size(); i++)
-		{
-			student = myStudentList.get(i);
-			System.out.println(String.format("%-35s %-25s %-20s", student.getLastName(), student.getFirstName(), student.getStudentID()));
-		}
-		 */
+		launch(args);
 	}
-
-	//GUI Stuff
 
 
 	//private fields of a stage that will be the primary stage, and the root layout of our main window
@@ -71,7 +61,7 @@ public class mainApp extends Application{
 			FXMLLoader loader = new FXMLLoader();
 
 			//Point the loader at the FXML file to load
-			loader.setLocation(MainApp.class.getResource("/chapman/five/view/RootLayout.fxml"));
+			loader.setLocation(MainApp.class.getResource("/chappelle/five/view/RootLayout.fxml"));
 
 			//Sets the rootlayout field to the BorderPane FXM file injected via @FXML
 			rootLayout = (BorderPane) loader.load();

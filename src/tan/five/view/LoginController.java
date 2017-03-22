@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 import tan.five.mainApp;
+import tan.five.model.Student;
+import tan.five.model.StudentEquipmentManagement;
 
 public class LoginController {
 
@@ -33,7 +35,7 @@ public class LoginController {
 	//Initialize
 	@FXML
 	private void initialize(){
-		errorMessage.setVisible(false);
+		//errorMessage.setVisible(false);
 	}
 
 
@@ -43,26 +45,19 @@ public class LoginController {
 	@FXML
 	private void handleInput() {
 		if (isInputValid()) {
-			
+
 		}
 	}
 
 
-
-	private boolean isInputValid(){
+	@FXML	
+	private boolean isInputValid(){		//INCOMPLETE
 		boolean inputValidity = false;
-		if (studentIDField.getText() == null || studentIDField.getText().length() != 10) {				//Checks if TextField is filled
-			errorMessage.setVisible(true);
-		}
-
-		for (int i=0; i<=10; i++) {
-			if (studentIDField.getText().charAt(i) < 0 || studentIDField.getText().charAt(i) > 9) {		//Checks if TextField is all numbers
+		for (Student student : StudentEquipmentManagement.getStudentListA()) {
+			if (studentIDField.getText() != student.getStudentID()) {
 				errorMessage.setVisible(true);
 			}
-		}
-
-		if (errorMessage.isVisible() == false) {
-			inputValidity = true;
+			else {inputValidity = true;}
 		}
 		return inputValidity;
 	}

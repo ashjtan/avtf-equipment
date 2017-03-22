@@ -35,8 +35,6 @@ public class Student {
 
 	public void setLastName(String lastName) {						//Takes String
 		this.lastName.set(lastName);
-		
-		
 	}
 
 	public String getFirstName() {									//Returns String

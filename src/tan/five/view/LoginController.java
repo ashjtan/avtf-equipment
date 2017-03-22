@@ -49,7 +49,7 @@ public class LoginController {
 	}
 
 
-
+	@FXML
 	private boolean isInputValid(){
 		boolean inputValidity = false;
 		if (studentIDField.getText() == null || studentIDField.getText().length() != 10) {				//Checks if TextField is filled

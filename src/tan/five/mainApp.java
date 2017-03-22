@@ -25,12 +25,17 @@ public class mainApp extends Application{
 	static StudentEquipmentManagement studentEquipmentManagement = new StudentEquipmentManagement();
 	 */
 
-	
-	
-	
+	//private fields of a stage that will be the primary stage, and the root layout of our main window
+//	private static Stage primaryStage;
+//	private BorderPane rootLayout;
 
-	public static void main(String[] args) {
-/*
+public static void main(String[] args) {
+
+
+
+
+/*	
+
 		ArrayList<Student> myStudentList = StudentEquipmentManagement.getStudentListA();
 
 		Student student = new Student();
@@ -41,8 +46,8 @@ public class mainApp extends Application{
 			System.out.println(String.format("%-35s %-25s %-20s", student.getLastName(), student.getFirstName(), student.getStudentID()));
 		}
 	}
-*/
 
+*/	
 
 	//GUI Stuff
 
@@ -72,7 +77,7 @@ public class mainApp extends Application{
 			e.printStackTrace();
 		}
 	}
-
+	
 
 	public void initRootLayout() {
 
@@ -141,3 +146,6 @@ public class mainApp extends Application{
 		//GUI Stuff END
 	}
 }
+
+
+

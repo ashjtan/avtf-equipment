@@ -17,8 +17,8 @@
             <Font name="Helvetica Neue Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="studentIDField" layoutX="153.0" layoutY="187.0" prefHeight="27.0" prefWidth="295.0" promptText="Student ID" />
-      <Label layoutX="180.0" layoutY="263.0" prefHeight="17.0" prefWidth="241.0" text="Not a valid student ID. Please re-enter." textFill="RED">
+      <TextField fx:id="studentIDField" layoutX="153.0" layoutY="187.0" onAction="#isInputValid" prefHeight="27.0" prefWidth="295.0" promptText="Student ID" />
+      <Label fx:id="errorMessage" layoutX="180.0" layoutY="263.0" prefHeight="17.0" prefWidth="241.0" text="Not a valid student ID. Please re-enter." textFill="RED" visible="false">
          <font>
             <Font name="Helvetica Neue Bold" size="13.0" />
          </font>

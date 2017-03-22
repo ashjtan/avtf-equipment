@@ -18,32 +18,16 @@ import tan.five.model.StudentEquipmentManagement;
 
 public class mainApp extends Application{
 
-	/*	
-	static ArrayList<Student> myStudentList = StudentEquipmentManagement.getStudentList();
-	//static ArrayList<Equipment> myEquipmentList = new ArrayList();
 
-	static StudentEquipmentManagement studentEquipmentManagement = new StudentEquipmentManagement();
-	 */
 
-	
-	
-	
+
+
 
 	public static void main(String[] args) {
-		
-/*
-		ArrayList<Student> myStudentList = StudentEquipmentManagement.getStudentListA();
+		launch(args);
 
-		Student student = new Student();
 
-		for (int i = 0; i < myStudentList.size(); i++)
-		{
-			student = myStudentList.get(i);
-			System.out.println(String.format("%-35s %-25s %-20s", student.getLastName(), student.getFirstName(), student.getStudentID()));
-		}
-		*/
 	}
-
 
 
 	//GUI Stuff
@@ -85,7 +69,7 @@ public class mainApp extends Application{
 			FXMLLoader loader = new FXMLLoader();
 
 			//Point the loader at the FXML file to load
-			loader.setLocation(MainApp.class.getResource("/chapman/five/view/RootLayout.fxml"));
+			loader.setLocation(MainApp.class.getResource("/chappelle/five/view/RootLayout.fxml"));
 
 			//Sets the rootlayout field to the BorderPane FXM file injected via @FXML
 			rootLayout = (BorderPane) loader.load();
@@ -141,6 +125,6 @@ public class mainApp extends Application{
 
 
 		//GUI Stuff END
-		
+
 	}
 }

@@ -1,6 +1,6 @@
 package chappelle.five.view;
 
-import chapman.five.view.StudentWelcomeScreenController;
+import chappelle.five.view.StudentWelcomeScreenController;
 import javafx.event.EventHandler;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;

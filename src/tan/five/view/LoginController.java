@@ -33,7 +33,7 @@ public class LoginController {
 	//Initialize
 	@FXML
 	private void initialize(){
-		errorMessage.setVisible(false);
+		//errorMessage.setVisible(false);
 	}
 
 

@@ -18,24 +18,8 @@ import tan.five.model.StudentEquipmentManagement;
 
 public class mainApp extends Application{
 
-	/*	
-	static ArrayList<Student> myStudentList = StudentEquipmentManagement.getStudentList();
-	//static ArrayList<Equipment> myEquipmentList = new ArrayList();
-
-	static StudentEquipmentManagement studentEquipmentManagement = new StudentEquipmentManagement();
-	 */
-
-	//private fields of a stage that will be the primary stage, and the root layout of our main window
-//	private static Stage primaryStage;
-//	private BorderPane rootLayout;
-
-public static void main(String[] args) {
-
-
-
-
-/*	
-
+	public static void main(String[] args) {
+		/*
 		ArrayList<Student> myStudentList = StudentEquipmentManagement.getStudentListA();
 
 		Student student = new Student();
@@ -45,9 +29,8 @@ public static void main(String[] args) {
 			student = myStudentList.get(i);
 			System.out.println(String.format("%-35s %-25s %-20s", student.getLastName(), student.getFirstName(), student.getStudentID()));
 		}
+		 */
 	}
-
-*/	
 
 	//GUI Stuff
 
@@ -77,7 +60,7 @@ public static void main(String[] args) {
 			e.printStackTrace();
 		}
 	}
-	
+
 
 	public void initRootLayout() {
 
@@ -144,6 +127,7 @@ public static void main(String[] args) {
 
 
 		//GUI Stuff END
+
 	}
 }
 

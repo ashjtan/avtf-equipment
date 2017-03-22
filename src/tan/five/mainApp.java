@@ -30,6 +30,7 @@ public class mainApp extends Application{
 	
 
 	public static void main(String[] args) {
+		
 /*
 		ArrayList<Student> myStudentList = StudentEquipmentManagement.getStudentListA();
 
@@ -40,8 +41,9 @@ public class mainApp extends Application{
 			student = myStudentList.get(i);
 			System.out.println(String.format("%-35s %-25s %-20s", student.getLastName(), student.getFirstName(), student.getStudentID()));
 		}
+		*/
 	}
-*/
+
 
 
 	//GUI Stuff
@@ -139,5 +141,6 @@ public class mainApp extends Application{
 
 
 		//GUI Stuff END
+		
 	}
 }

@@ -84,7 +84,7 @@ public class mainApp extends Application{
 			e.printStackTrace();
 		}
 
-	}
+	
 
 /*
 	//Loads the login page
@@ -121,10 +121,8 @@ public class mainApp extends Application{
 		//GUI Stuff END
 
 	}
-<<<<<<< HEAD
+
 }
 
 
 
-=======
->>>>>>> refs/remotes/origin/master

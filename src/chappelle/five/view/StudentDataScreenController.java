@@ -21,6 +21,7 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import tan.five.model.Student;
+import tan.five.model.StudentEquipmentManagement;
 
 public class StudentDataScreenController extends Application {
 
@@ -39,7 +40,7 @@ public class StudentDataScreenController extends Application {
 
 		Scene scene = new Scene(root, 700, 700);
 
-		mySl = .getStudentList();
+		mySl = StudentEquipmentManagement.getStudentListO();
 		Student stu = new Student();
 
 		/*

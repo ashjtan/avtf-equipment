@@ -1,8 +1,4 @@
 package chappelle.five.view;
-/*
-
-
-package chapman.five.view;
 
 import java.io.IOException;
 
@@ -11,10 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public abstract class SceneSwitcher {
-
+/*
 	//Method for switching scenes
 		@FXML
 		private void handleSceneSwitch(ActionEvent event) throws IOException{
@@ -46,7 +43,48 @@ public abstract class SceneSwitcher {
 				stage.show();
 			}
 		}
+		
+		*/
+		
+		
+		
+	/*	
+		public static void handleSceneSwitch(ActionEvent event, Button btn, Button btnGoBack, String fxmlScene) throws IOException{
+			Stage stage; 
+			Parent root;
+			//Setting the scene to the check in menu
+			if(event.getSource()==btn){
+				//get reference to the button's stage         
+				stage=(Stage) btn.getScene().getWindow();
+				//load up OTHER FXML document
+				root = FXMLLoader.load(SceneSwitcher.class.getResource(fxmlScene));		//String name of FXML file
+			}
+				//So it may set the root scene again
+				else{
+					stage=(Stage) btnGoBack.getScene().getWindow();
+					root = FXMLLoader.load(SceneSwitcher.class.getResource("chappelle/five/view/RootLayout.fxml"));
+				}
+				//create a new scene with root and set the stage
+				Scene checkInMenu = new Scene(root);
+				stage.setScene(checkInMenu);
+				stage.show();
+			}
+	*/
 	
+
+	
+	public static void handleSceneSwitch(Button btn, String fxmlScene) throws IOException{
+		Stage stage; 
+		Parent root;
+		//Setting the scene to the check in menu
+			//get reference to the button's stage         
+			stage=(Stage) btn.getScene().getWindow();
+			//load up OTHER FXML document
+			root = FXMLLoader.load(SceneSwitcher.class.getResource(fxmlScene));		//String name of FXML file
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		}
 	
 	
 	
@@ -56,4 +94,3 @@ public abstract class SceneSwitcher {
 
 
 
-*/

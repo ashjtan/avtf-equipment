@@ -1,15 +1,20 @@
 package tan.five.view;
 
+import java.io.IOException;
+
 import chapman.five.MainApp;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import tan.five.mainApp;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
+import chappelle.five.view.SceneSwitcher;
 
 public class LoginController {
 
@@ -22,6 +27,14 @@ public class LoginController {
 	private TextField studentIDField;
 	@FXML
 	private Label errorMessage;
+	@FXML
+	private Button btnStudent;
+	@FXML
+	private Button btnAdmin;
+	@FXML
+	private Button btnGoBack;
+	
+	
 
 	private mainApp mainApp;
 
@@ -44,9 +57,14 @@ public class LoginController {
 
 	//Event Handlers
 	@FXML
-	private void handleInput() {
+	private void handleInput() throws IOException {
 		if (isInputValid()) {
+			
+			
 
+			//Student Scene Switch
+			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml" );
+			
 		}
 	}
 
@@ -54,12 +72,15 @@ public class LoginController {
 	@FXML	
 	private boolean isInputValid(){		//INCOMPLETE
 		boolean inputValidity = false;
-		for (Student student : StudentEquipmentManagement.getStudentListA()) {
+		/*for (Student student : StudentEquipmentManagement.getStudentListA()) {
 			if (studentIDField.getText() != student.getStudentID()) {
 				errorMessage.setVisible(true);
-			}
-			else {inputValidity = true;}
-		}
+			}*/
+		
+		if (studentIDField.getText() != "1100237044"){
+			errorMessage.setVisible(true);}
+			
+		else {inputValidity = true;}
 		return inputValidity;
 	}
 	

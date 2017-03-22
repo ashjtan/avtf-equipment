@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import tan.five.model.Equipment;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
+import tan.five.view.LoginController;
 
 public class mainApp extends Application{
 
@@ -35,7 +36,7 @@ public class mainApp extends Application{
 
 	//private fields of a stage that will be the primary stage, and the root layout of our main window
 	private Stage primaryStage;
-	private BorderPane rootLayout;
+	private AnchorPane rootLayout;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -51,7 +52,7 @@ public class mainApp extends Application{
 			initRootLayout();
 
 			//to load the login screen
-			showLoginScreen();
+			//showLoginScreen();
 
 
 		} catch(Exception e) {
@@ -69,16 +70,16 @@ public class mainApp extends Application{
 			FXMLLoader loader = new FXMLLoader();
 
 			//Point the loader at the FXML file to load
-			loader.setLocation(MainApp.class.getResource("/chappelle/five/view/RootLayout.fxml"));
+			loader.setLocation(mainApp.class.getResource("/tan/five/view/Login.fxml"));
 
 			//Sets the rootlayout field to the BorderPane FXM file injected via @FXML
-			rootLayout = (BorderPane) loader.load();
+			rootLayout = (AnchorPane) loader.load();
 
 			//Sets a Scene object to this rootLayout
 			Scene scene = new Scene(rootLayout);
 
 			//Give the controller access to the main app.
-			RootLayoutController controller = loader.getController();
+			LoginController controller = loader.getController();
 			controller.setMainApp(this);
 
 			//Sets the primaryScene Scene object to scene
@@ -93,7 +94,7 @@ public class mainApp extends Application{
 
 	}
 
-
+/*
 	//Loads the login page
 	public void showLoginScreen() {
 
@@ -122,9 +123,9 @@ public class mainApp extends Application{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		*/
 
 
 		//GUI Stuff END
 
 	}
-}

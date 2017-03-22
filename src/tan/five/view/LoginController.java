@@ -1,5 +1,6 @@
 package tan.five.view;
 
+import chapman.five.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -66,4 +67,17 @@ public class LoginController {
 		}
 		return inputValidity;
 	}
+	
+	
+	public void setMainApp(tan.five.mainApp mainApp) {
+
+		//This sets the field for this controller to the application passed in:  
+		//This allows the main application to have a pointer to itself by setting its own pointer into the controller's field
+		this.mainApp = mainApp;
+	}
+	
+	
+	
+	
+	
 }

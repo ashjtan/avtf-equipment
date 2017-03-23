@@ -23,7 +23,6 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import java.io.IOException;
-import chapman.five.MainApp;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

@@ -2,8 +2,6 @@ package tan.five.view;
 
 import java.io.IOException;
 
-import chapman.five.MainApp;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -33,8 +31,8 @@ public class LoginController {
 	private Button btnAdmin;
 	@FXML
 	private Button btnGoBack;
-	
-	
+
+
 
 	private mainApp mainApp;
 
@@ -59,41 +57,35 @@ public class LoginController {
 	@FXML
 	private void handleInput() throws IOException {
 		if (isInputValid()) {
-			
-			
-
 			//Student Scene Switch
-			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml" );
-			
+			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");		//"/chappelle/five/view/StudentWelcomeScreen.fxml"
+
 		}
 	}
 
 
 	@FXML	
-	private boolean isInputValid(){		//INCOMPLETE
+	private boolean isInputValid(){			//INCOMPLETE
 		boolean inputValidity = false;
-		/*for (Student student : StudentEquipmentManagement.getStudentListA()) {
-			if (studentIDField.getText() != student.getStudentID()) {
-				errorMessage.setVisible(true);
-			}*/
+		int studentIDCheck = 0;
 		
-		if (studentIDField.getText() != "1100237044"){
-			errorMessage.setVisible(true);}
-			
-		else {inputValidity = true;}
+		for (Student student : StudentEquipmentManagement.getStudentListA()) {
+			if (studentIDField.getText() == student.getStudentID()) {
+				studentIDCheck++;
+			}
+		}
+
+		if (studentIDCheck == 1){
+			inputValidity = true;
+		}
+		else {errorMessage.setVisible(true);}
 		return inputValidity;
 	}
-	
-	
-	public void setMainApp(tan.five.mainApp mainApp) {
 
+
+	public void setMainApp(tan.five.mainApp mainApp) {
 		//This sets the field for this controller to the application passed in:  
 		//This allows the main application to have a pointer to itself by setting its own pointer into the controller's field
 		this.mainApp = mainApp;
 	}
-	
-	
-	
-	
-	
 }

@@ -73,14 +73,14 @@ public abstract class SceneSwitcher {
 	
 
 	
-	public static void handleSceneSwitch(Button btn, String fxmlScene) throws IOException{
+	public static void handleSceneSwitch(Button btn, String filePath) throws IOException{
 		Stage stage; 
 		Parent root;
 		//Setting the scene to the check in menu
 			//get reference to the button's stage         
 			stage=(Stage) btn.getScene().getWindow();
 			//load up OTHER FXML document
-			root = FXMLLoader.load(SceneSwitcher.class.getResource(fxmlScene));		//String name of FXML file
+			root = FXMLLoader.load(SceneSwitcher.class.getResource(filePath));		//String name of FXML file location
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();

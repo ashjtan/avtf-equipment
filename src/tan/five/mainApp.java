@@ -1,8 +1,8 @@
 package tan.five;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
-import chapman.five.MainApp;
 import chappelle.five.view.LoginScreenController;
 import chappelle.five.view.RootLayoutController;
 import javafx.application.Application;
@@ -123,6 +123,3 @@ public class mainApp extends Application{
 	}
 
 }
-
-
-

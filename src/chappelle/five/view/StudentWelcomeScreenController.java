@@ -7,6 +7,7 @@
 package chappelle.five.view;
 
 import javafx.beans.value.ObservableValue;
+
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -94,7 +95,7 @@ public class StudentWelcomeScreenController  {
 			//So it may set the root scene again
 			else{
 				stage=(Stage) btnGoBack.getScene().getWindow();
-				root = FXMLLoader.load(getClass().getResource("chapman/five/view/RootLayout.fxml"));
+				root = FXMLLoader.load(getClass().getResource("chappelle/five/view/RootLayout.fxml"));
 			}
 			//create a new scene with root and set the stage
 			Scene checkInMenu = new Scene(root);

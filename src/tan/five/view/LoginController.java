@@ -13,6 +13,7 @@ import tan.five.mainApp;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 import chappelle.five.view.SceneSwitcher;
+import chappelle.five.view.StudentWelcomeScreenController;
 
 public class LoginController {
 
@@ -70,16 +71,13 @@ public class LoginController {
 		int studentIDCheck = 0;
 		
 		for (Student student : StudentEquipmentManagement.getStudentListA()) {
-			if (studentIDField.getText() == student.getStudentID()) {
-				studentIDCheck++;
-			}
+			if (studentIDField.getText().equals(student.getStudentID())) {
+				return true;
+			}		
 		}
-
-		if (studentIDCheck == 1){
-			inputValidity = true;
-		}
-		else {errorMessage.setVisible(true);}
-		return inputValidity;
+		
+		errorMessage.setVisible(true);
+		return false;
 	}
 
 

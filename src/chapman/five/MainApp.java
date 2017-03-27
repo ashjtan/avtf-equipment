@@ -24,7 +24,7 @@ public class MainApp extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/*
@@ -44,7 +44,7 @@ public class MainApp extends Application {
 
 			//a method to set up the Root Layout
 			initRootLayout();
-			
+
 			//to load the login screen
 			showLoginScreen();
 
@@ -90,42 +90,42 @@ public class MainApp extends Application {
 		}
 
 	}
-	
-	
+
+
 	//Loads the login page
 	public void showLoginScreen() {
-		
+
 		try {
-			
+
 			//Instantiates the loader class
 			FXMLLoader loader = new FXMLLoader();
-			
+
 			//Provides the file access location for the FXML file
 			loader.setLocation(MainApp.class.getResource("/chapman/five/view/LoginScreen.fxml"));
-			
+
 			//Loads the AnchorPane into the itemOverview object
 			AnchorPane loginScreen = (AnchorPane) loader.load();
-			
+
 			//Centers the itemOverview in the root layout screen
 			rootLayout.setCenter(loginScreen);
-					
+
 			//Sets the controller for the ItemOverview View
 			LoginScreenController controller = loader.getController();
-			
+
 			//Provides the reference to the main application for the controller
 			controller.setMainApp(this);
-			
-			
+
+
 		  //Again, standard debug crash dump with errors.  NOT used in production code releases
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-			
+
 	}
-	
-	
-	
-	*/
-	
+
+
+
+	 */
+
 }	
 

@@ -70,7 +70,7 @@ public class StudentWelcomeScreenController  {
 
 
 	}
-	
+
 	//Methods for switching scenes
 	@FXML
 	public void checkIn() throws IOException {
@@ -80,13 +80,6 @@ public class StudentWelcomeScreenController  {
 	public void checkOut() throws IOException {
 		SceneSwitcher.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/ItemCheckOut.fxml");
 	}
-
-			
-	
-
-
-
-
 
 	// @param mainApp
 	public void setMainApp(MainApp mainApp) {

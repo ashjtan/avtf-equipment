@@ -61,16 +61,13 @@ public class LoginController {
 			//Student Scene Switch
 			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");		//"/chappelle/five/view/StudentWelcomeScreen.fxml"
 		}
-	}
-	
-	//Admin Login
-	private void handleAdmin() throws IOException {
 		if (isInputValid() && studentIDField.getText().equals("0123456789")) {
-			
+			//Reveal Admin button & 
 		}
 	}
-	
-	
+
+
+
 
 	//to test if the student ID is correct
 	@FXML	
@@ -81,7 +78,7 @@ public class LoginController {
 				return true;
 			}		
 		}
-		
+
 		errorMessage.setVisible(true);
 		return false;
 	}

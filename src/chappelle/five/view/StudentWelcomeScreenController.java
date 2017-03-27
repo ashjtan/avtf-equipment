@@ -65,7 +65,7 @@ public class StudentWelcomeScreenController  {
 	private void initialize() throws IOException{
 
 		//Sets the Hello, statement to add their name 
-		lblHello.setText(("Hello, "  + Student.SELECTED_STUDENT.getFirstName()));
+		lblHello.setText(("Hello "  + Student.SELECTED_STUDENT.getFirstName()));
 
 
 

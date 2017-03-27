@@ -7,20 +7,25 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.StudentWelcomeScreenController">
    <children>
-      <Label fx:id="lblHello" alignment="CENTER" layoutX="161.0" layoutY="104.0" prefHeight="30.0" prefWidth="279.0">
+      <Label fx:id="lblHello" alignment="CENTER" layoutX="161.0" layoutY="44.0" prefHeight="30.0" prefWidth="279.0">
          <font>
             <Font name="Helvetica Neue" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="btnCheckIn" layoutX="114.0" layoutY="194.0" mnemonicParsing="false" onAction="#checkIn" prefHeight="62.0" prefWidth="106.0" text="Check In" textOverrun="CLIP">
+      <Button fx:id="btnCheckIn" layoutX="73.0" layoutY="194.0" mnemonicParsing="false" onAction="#checkIn" prefHeight="62.0" prefWidth="177.0" text="Check In Equipment" textOverrun="CLIP">
          <font>
             <Font name="Helvetica Neue" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnCheckOut" layoutX="390.0" layoutY="194.0" mnemonicParsing="false" onAction="#checkOut" prefHeight="62.0" prefWidth="106.0" text="Check Out">
+      <Button fx:id="btnCheckOut" layoutX="347.0" layoutY="194.0" mnemonicParsing="false" onAction="#checkOut" prefHeight="62.0" prefWidth="187.0" text="Check Out Equipment">
          <font>
             <Font name="Helvetica Neue" size="16.0" />
          </font>
       </Button>
+      <Label layoutX="220.0" layoutY="129.0" prefHeight="25.0" prefWidth="177.0" text="Would you like to.....">
+         <font>
+            <Font name="Helvetica Neue" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

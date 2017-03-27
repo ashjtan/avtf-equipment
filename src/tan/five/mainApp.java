@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import chappelle.five.view.LoginScreenController;
 import chappelle.five.view.RootLayoutController;
+import chappelle.five.view.StudentDataScreenController;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -62,7 +63,7 @@ public class mainApp extends Application{
 			FXMLLoader loader = new FXMLLoader();
 
 			//Point the loader at the FXML file to load
-			loader.setLocation(mainApp.class.getResource("/tan/five/view/Login.fxml"));
+			loader.setLocation(mainApp.class.getResource("/chappelle/five/view/Login.fxml"));
 
 			//Sets the rootlayout field to the BorderPane FXM file injected via @FXML
 			rootLayout = (AnchorPane) loader.load();
@@ -71,7 +72,7 @@ public class mainApp extends Application{
 			Scene scene = new Scene(rootLayout);
 
 			//Give the controller access to the main app.
-			LoginController controller = loader.getController();
+			StudentDataScreenController controller = loader.getController();
 			controller.setMainApp(this);
 
 			//Sets the primaryScene Scene object to scene

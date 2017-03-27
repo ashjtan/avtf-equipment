@@ -73,8 +73,10 @@ public class StudentEquipmentManagement {
 		
 		//Student CSV File Loader
 		public static void loadStudentFile() throws IOException {
-			FileReader file = new FileReader("/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"); 	//"/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"
-			BufferedReader reader = new BufferedReader(file);													//"/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv"
+			
+			//FileReader file = new FileReader("/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"); //"/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"
+			FileReader file = new FileReader("/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv");	//"/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv"
+			BufferedReader reader = new BufferedReader(file);													
 			
 			String line;
 			while ((line = reader.readLine()) != null) {

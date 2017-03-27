@@ -10,10 +10,10 @@ import javafx.collections.ObservableList;
 
 public class StudentEquipmentManagement {
 
-///STUDENT///
+	///STUDENT///
 
-	static ObservableList<Student> studentList; 
-	static ArrayList<Student> stList = new ArrayList();
+	static ArrayList<Student> studentListA = new ArrayList();
+	static ObservableList<Student> studentListO; 
 
 	//Student List Getter (ArrayList)
 	public static ArrayList<Student> getStudentListA() {
@@ -22,7 +22,7 @@ public class StudentEquipmentManagement {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return stList;
+		return studentListA;
 	}
 
 	//Student List Getter (ObservableList)
@@ -32,7 +32,7 @@ public class StudentEquipmentManagement {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return studentList;
+		return studentListO;
 	}
 
 
@@ -51,34 +51,45 @@ public class StudentEquipmentManagement {
 			student.setFirstName(studentInfo[1]);
 			student.setStudentID(studentInfo[2]);
 
-			stList.add(student);
+			studentListA.add(student);
 		}
-		studentList = FXCollections.observableArrayList(stList);
+		studentListO = FXCollections.observableArrayList(studentListA);
 		reader.close();
 	}
 
 
-	
 
-/// EQUIPMENT ///
+
+	/// EQUIPMENT ///
 
 	//Creates accessible ArrayList for equipment
-	static ArrayList<Equipment> equipmentList = new ArrayList();
-
-	//Equipment List Getter
-	public ArrayList<Equipment> getEquipmentList() {
+	static ArrayList<Equipment> equipmentListA = new ArrayList();
+	static ObservableList<Equipment> equipmentListO; 
+	
+	//Equipment List Getter (ArrayList)
+	public static ArrayList<Equipment> getEquipmentListA() {
 		try {
 			loadEquipmentFile();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return equipmentList;
+		return equipmentListA;
 	}
+	
+	//Equipment List Getter (ObservableList)
+		public static ObservableList<Equipment> getEquipmentList() {
+			try {
+				loadEquipmentFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return equipmentListO;
+		}
 
 
 	//Equipment CSV File Loader
 	public static void loadEquipmentFile() throws IOException {
-		FileReader file = new FileReader("Sample Equipment.csv");
+		FileReader file = new FileReader("/Users/ashleytan/Desktop/Sample Equipment.csv");
 		BufferedReader reader = new BufferedReader(file);
 		String line;
 
@@ -94,10 +105,9 @@ public class StudentEquipmentManagement {
 			equipment.setHolder(equipmentInfo[4]);
 			equipment.setEquipmentType(equipmentInfo[5]);
 
-			//System.out.println(String.format("%-35s %-25s %-20s", "Student [last=" + equipmentInfo[0], "first=" + student[1], "id=" + student[2] + "] "));
-			
-			equipmentList.add(equipment);							//Adds Equipment to equipmentList ArrayList
+			equipmentListA.add(equipment);							//Adds Equipment to equipmentList ArrayList
 		}
+		equipmentListO = FXCollections.observableArrayList(equipmentListA);
 		reader.close();
 	}
 }

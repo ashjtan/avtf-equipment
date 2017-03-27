@@ -1,15 +1,15 @@
 package tan.five.model;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 public class Equipment {
 
 	//Fields
-	private StringProperty equipmentName;
-	private StringProperty equipmentID;
-	private StringProperty countyID;
-	private BooleanProperty checkedOut;
+	private SimpleStringProperty equipmentName = new SimpleStringProperty();
+	private SimpleStringProperty equipmentID = new SimpleStringProperty();
+	private SimpleStringProperty countyID = new SimpleStringProperty();
+	private SimpleBooleanProperty checkedOut = new SimpleBooleanProperty();
 	private Student holder;
 	private EquipmentType equipmentType;
 

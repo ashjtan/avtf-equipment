@@ -37,7 +37,6 @@ import tan.five.mainApp;
 
 public class StudentDataScreenController extends Application {
 
-
 	@FXML
 	private Button btnCheckIn;
 	@FXML
@@ -45,13 +44,13 @@ public class StudentDataScreenController extends Application {
 	@FXML
 	private Button btnGoBack;
 
-	static ObservableList<Student> mySl;
+	static ObservableList<Student> myStudentList;
 
 	@Override
 	public void start(Stage primaryStage) {
 		Label response = new Label("");
-		Label title = new Label("Student List Using a TableView\n");
-		title.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+		Label title = new Label("Student List\n");
+		title.setFont(Font.font("Helvetica Neue", FontWeight.BOLD, 20));
 		title.setTextFill(Color.CADETBLUE);
 
 
@@ -60,12 +59,12 @@ public class StudentDataScreenController extends Application {
 
 		Scene scene = new Scene(root, 700, 700);
 
-		mySl = StudentEquipmentManagement.getStudentListO();
+		myStudentList = StudentEquipmentManagement.getStudentListO();
 		Student stu = new Student();
 
 		TableView<Student> tvStudents;
 
-		tvStudents = new TableView<Student>(mySl);
+		tvStudents = new TableView<Student>(myStudentList);
 
 		TableColumn<Student, String> lName = new TableColumn<>("Last Name");
 		lName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -137,8 +136,6 @@ public class StudentDataScreenController extends Application {
 			stage.show();
 		}
 	}
-
-
 
 	public void setMainApp(mainApp mainApp) {
 		// TODO Auto-generated method stub

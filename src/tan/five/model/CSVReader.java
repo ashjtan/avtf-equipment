@@ -7,10 +7,6 @@ import java.io.IOException;
 
 public class CSVReader {
 
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master
 	public static void main(String[] args) throws IOException {
 /*
 		String csvFile = "/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv";

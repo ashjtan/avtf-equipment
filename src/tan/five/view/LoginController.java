@@ -45,7 +45,7 @@ public class LoginController {
 	//Initialize
 	@FXML
 	private void initialize(){
-		//errorMessage.setVisible(false);
+		
 	}
 
 
@@ -53,38 +53,36 @@ public class LoginController {
 	//Event Handlers
 	@FXML
 	private void handleInput() throws IOException {
-		if (isInputValid()) {
+		if (isStudentInputValid()) {
 			//Student Scene Switch
 			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");		//"/chappelle/five/view/StudentWelcomeScreen.fxml"
 		}
-		if (isInputValid() && studentIDField.getText().equals("0123456789")) {
+		else if (studentIDField.getText().equals("0123456789")) {
 			//Reveal Admin button
 			btnAdmin.setVisible(true);
 			SceneSwitcher.handleSceneSwitch(btnAdmin, "/chappelle/five/view/AdminWelcomeScreen.fxml");
 		}
+		else {errorMessage.setVisible(true);}
 	}
 
 
-
-
-	//to test if the student ID is correct
+	
+	//Tests if student ID is correct
 	@FXML	
-	private boolean isInputValid(){			//INCOMPLETE
+	private boolean isStudentInputValid(){
 		for (Student student : StudentEquipmentManagement.getStudentListA()) {
 			if (studentIDField.getText().equals(student.getStudentID())) {
 				Student.SELECTED_STUDENT = student;
 				return true;
-			}		
+			}
 		}
-
-		errorMessage.setVisible(true);
 		return false;
 	}
-
+	
 
 	public void setMainApp(tan.five.mainApp mainApp) {
-		//This sets the field for this controller to the application passed in:  
-		//This allows the main application to have a pointer to itself by setting its own pointer into the controller's field
+		//Sets the field for this controller to the application passed in:  
+		//Allows the main application to have a pointer to itself by setting its own pointer into the controller's field
 		this.mainApp = mainApp;
 	}
 }

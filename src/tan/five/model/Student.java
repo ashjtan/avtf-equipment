@@ -6,21 +6,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Student {
-	
+
 	public static Student SELECTED_STUDENT = new Student();
-	
+
 	//Fields
 	private SimpleStringProperty lastName = new SimpleStringProperty();
 	private SimpleStringProperty firstName = new SimpleStringProperty();
 	private SimpleStringProperty studentID = new SimpleStringProperty();
 	private ObservableList<Equipment> checkedOutEquipment;
-	
-	
+
+
 	//Default Constructor
 	public Student() {
 		this("", "", "", new ArrayList<Equipment>());
 	}
-	
+
 	//Overloaded Constructor
 	public Student(String lastName1, String firstName1, String studentID1, ArrayList<Equipment> checkedOutEquipment1) {
 		setLastName(lastName1);
@@ -29,7 +29,7 @@ public class Student {
 		setCheckedOutEquipment(checkedOutEquipment1);
 	}
 
-	
+
 	//Getters + Setters
 	public String getLastName() {									//Returns String
 		return lastName.get();

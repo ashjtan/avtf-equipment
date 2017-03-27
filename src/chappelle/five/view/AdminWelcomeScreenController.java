@@ -1,7 +1,6 @@
 package chappelle.five.view;
 
 import java.io.IOException;
-
 import chapman.five.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,7 +8,7 @@ import javafx.scene.control.Label;
 import tan.five.model.Student;
 
 public class AdminWelcomeScreenController {
-	
+
 	//Controls
 	@FXML
 	private Label lblHello;
@@ -31,8 +30,6 @@ public class AdminWelcomeScreenController {
 	@FXML 
 	private void initialize() throws IOException{
 
-
-
 	}
 
 	//Methods for switching scenes
@@ -52,5 +49,4 @@ public class AdminWelcomeScreenController {
 		//This allows the main application to have a pointer to itself by setting its own pointer into the controller's field
 		this.mainApp = mainApp;
 	}
-
 }

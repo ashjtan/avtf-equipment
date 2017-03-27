@@ -78,7 +78,6 @@ public class StudentDataScreenController extends Application {
 		iD.setCellValueFactory(new PropertyValueFactory<>("id"));
 		tvStudents.getColumns().add(iD);
 
-
 		tvStudents.setPrefWidth(600);
 		tvStudents.setPrefHeight(300);
 
@@ -139,6 +138,6 @@ public class StudentDataScreenController extends Application {
 
 	public void setMainApp(mainApp mainApp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

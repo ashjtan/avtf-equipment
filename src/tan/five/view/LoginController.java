@@ -58,7 +58,9 @@ public class LoginController {
 			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");		//"/chappelle/five/view/StudentWelcomeScreen.fxml"
 		}
 		if (isInputValid() && studentIDField.getText().equals("0123456789")) {
-			//Reveal Admin button & 
+			//Reveal Admin button
+			btnAdmin.setVisible(true);
+			SceneSwitcher.handleSceneSwitch(btnAdmin, "/chappelle/five/view/AdminWelcomeScreen.fxml");
 		}
 	}
 

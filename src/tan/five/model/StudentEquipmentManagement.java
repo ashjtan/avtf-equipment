@@ -11,7 +11,7 @@ import javafx.collections.ObservableList;
 public class StudentEquipmentManagement {
 
 	///STUDENT///
-<<<<<<< HEAD
+
 
 	static ArrayList<Student> studentListA = new ArrayList();
 	static ObservableList<Student> studentListO; 
@@ -59,67 +59,13 @@ public class StudentEquipmentManagement {
 	}
 
 
-=======
-	
->>>>>>> origin/master
-	 static ObservableList<Student> studentList; 
-	 static ArrayList<Student> stList = new ArrayList();
-	 
-	 //Student List Getter
-		public static ArrayList<Student> getStudentListA() {
-			try {
-				loadStudentFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return stList;
-		}
-		
-		
-		public static ObservableList<Student> getStudentListO() {
-			try {
-				loadStudentFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return studentList;
-		}
-		
-		
-		//Student CSV File Loader
-		public static void loadStudentFile() throws IOException {
-																											//"/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"
-			FileReader file = new FileReader("/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv");	//"/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv"
-			BufferedReader reader = new BufferedReader(file);													
-			
-			String line;
-			while ((line = reader.readLine()) != null) {
-				String[] studentInfo = line.split(",");					//Splits CSV into array by commas
-
-				Student student = new Student();						//Creates new Student object
-
-				student.setLastName(studentInfo[0]);					//Sets fields based on CSV file array
-				student.setFirstName(studentInfo[1]);
-				student.setStudentID(studentInfo[2]);
-				
-				stList.add(student);
-			}
-			studentList = FXCollections.observableArrayList(stList);
-			reader.close();
-		}
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
-
-
 
 	/// EQUIPMENT ///
 
 	//Creates accessible ArrayList for equipment
 	static ArrayList<Equipment> equipmentListA = new ArrayList();
 	static ObservableList<Equipment> equipmentListO; 
-	
+
 	//Equipment List Getter (ArrayList)
 	public static ArrayList<Equipment> getEquipmentListA() {
 		try {
@@ -129,16 +75,16 @@ public class StudentEquipmentManagement {
 		}
 		return equipmentListA;
 	}
-	
+
 	//Equipment List Getter (ObservableList)
-		public static ObservableList<Equipment> getEquipmentList() {
-			try {
-				loadEquipmentFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return equipmentListO;
+	public static ObservableList<Equipment> getEquipmentList() {
+		try {
+			loadEquipmentFile();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+		return equipmentListO;
+	}
 
 
 	//Equipment CSV File Loader

@@ -1,5 +1,6 @@
 package chappelle.five.view;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -8,8 +9,13 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,6 +30,14 @@ import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 
 public class StudentDataScreenController extends Application {
+
+
+	@FXML
+	private Button btnCheckIn;
+	@FXML
+	private Button btnCheckOut;
+	@FXML
+	private Button btnGoBack;
 
 	static ObservableList<Student> mySl;
 
@@ -43,32 +57,9 @@ public class StudentDataScreenController extends Application {
 		mySl = StudentEquipmentManagement.getStudentListO();
 		Student stu = new Student();
 
-		/*
-		for (int i = 0; i < mySl.size(); i ++)
-		{
-		    stu = mySl.get(i);
-		    System.out.println(stu.getId()+" "+stu.getFirstName()+" "+stu.getLastName());
-
-		}
-		 */  
-		//static ArrayList<People> myAl = new ArrayList();
-		//        ObservableList<Student> myStudentList;
-		//        = FXCollections.observableArrayList(
-		//                new Contact("Peggy", "Fisher", "717-555-1212"), 
-		//                new Contact("Jim", "Freed", "441-456-1345"), 
-		//                new Contact("Pat", "Keegan", "717-363-1432"), 
-		//                new Contact("Jane", "Slattery", "441-478-4488"), 
-		//                new Contact("Cy", "Young", "970-554-1265"), 
-		//                new Contact("Rob", "Jones", "570-655-1587"), 
-		//                new Contact("Carol", "King", "215-547-5958"), 
-		//                new Contact("Bob", "Kauffman", "215-456-6345"), 
-		//                new Contact("Gloria", "Shilling", "717-785-6092"), 
-		//                new Contact("Bill", "Sigler", "441-444-1345")
-		//                );
-
 		TableView<Student> tvStudents;
 
-		tvStudents = new TableView<Student>(mySl);		
+		tvStudents = new TableView<Student>(mySl);
 
 		TableColumn<Student, String> lName = new TableColumn<>("Last Name");
 		lName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -88,10 +79,20 @@ public class StudentDataScreenController extends Application {
 
 		TableView.TableViewSelectionModel<Student> tvSelStudent = 
 				tvStudents.getSelectionModel();
+		/*
+	        tvSelStudent.selectedIndexProperty().addListener(new ChangeListener<Number>()
+	        {
+	            public void changed(ObservableValue<? extends Number> changed, 
+	                    Number oldVal, Number newVal) {
+	                int index = (int)newVal;
+	                response.setText("The cell number for the Student selected is "
+	                        +mySl.get(index).getZip());
+	            }
+	        });
+		 */
 
-
-		response.setFont(Font.font("Arial", 14));
-		root.getChildren().addAll(title,tvStudents, response);
+		response.setFont(Font.font("Helvetica Neue", 14));
+		root.getChildren().addAll(title, tvStudents, response);
 		primaryStage.setTitle("Student List");
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -104,4 +105,35 @@ public class StudentDataScreenController extends Application {
 		launch(args);
 	}
 
+	//Method for switching scenes
+	@FXML
+	private void handleSceneSwitch(ActionEvent event) throws IOException{
+		Stage stage; 
+		Parent root;
+		//Setting the scene to the check in menu
+		if(event.getSource()==btnCheckIn){
+			//get reference to the button's stage         
+			stage=(Stage) btnCheckIn.getScene().getWindow();
+			//load up OTHER FXML document
+			root = FXMLLoader.load(getClass().getResource("CHECK IN MENU"));
+		}
+		//Setting the scene to the check out menu
+		else {
+			if(event.getSource()==btnCheckOut){
+				//get reference to the button's stage         
+				stage=(Stage) btnCheckOut.getScene().getWindow();
+				//load up OTHER FXML document
+				root = FXMLLoader.load(getClass().getResource("CHECK OUT MENU"));
+			}
+			//So it may set the root scene again
+			else{
+				stage=(Stage) btnGoBack.getScene().getWindow();
+				root = FXMLLoader.load(getClass().getResource("chappelle/five/view/RootLayout.fxml"));
+			}
+			//create a new scene with root and set the stage
+			Scene checkInMenu = new Scene(root);
+			stage.setScene(checkInMenu);
+			stage.show();
+		}
+	}
 }

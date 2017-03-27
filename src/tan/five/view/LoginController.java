@@ -60,18 +60,15 @@ public class LoginController {
 		if (isInputValid()) {
 			//Student Scene Switch
 			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");		//"/chappelle/five/view/StudentWelcomeScreen.fxml"
-
 		}
 	}
 
 
 	@FXML	
 	private boolean isInputValid(){			//INCOMPLETE
-		boolean inputValidity = false;
-		int studentIDCheck = 0;
-		
 		for (Student student : StudentEquipmentManagement.getStudentListA()) {
 			if (studentIDField.getText().equals(student.getStudentID())) {
+				Student.SELECTED_STUDENT = student;
 				return true;
 			}		
 		}

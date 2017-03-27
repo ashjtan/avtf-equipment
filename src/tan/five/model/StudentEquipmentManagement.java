@@ -10,11 +10,24 @@ import javafx.collections.ObservableList;
 
 public class StudentEquipmentManagement {
 
+<<<<<<< HEAD
 ///STUDENT///
+=======
+	///STUDENT///
+>>>>>>> refs/remotes/origin/master
 
+<<<<<<< HEAD
+	static ArrayList<Student> studentListA = new ArrayList();
+	static ObservableList<Student> studentListO; 
+=======
+>>>>>>> refs/remotes/origin/master
+
+<<<<<<< HEAD
+=======
 	static ArrayList<Student> studentListA = new ArrayList();
 	static ObservableList<Student> studentListO; 
 
+>>>>>>> refs/remotes/origin/master
 	//Student List Getter (ArrayList)
 	public static ArrayList<Student> getStudentListA() {
 		try {
@@ -64,7 +77,7 @@ public class StudentEquipmentManagement {
 	//Creates accessible ArrayList for equipment
 	static ArrayList<Equipment> equipmentListA = new ArrayList();
 	static ObservableList<Equipment> equipmentListO; 
-	
+
 	//Equipment List Getter (ArrayList)
 	public static ArrayList<Equipment> getEquipmentListA() {
 		try {
@@ -74,16 +87,16 @@ public class StudentEquipmentManagement {
 		}
 		return equipmentListA;
 	}
-	
+
 	//Equipment List Getter (ObservableList)
-		public static ObservableList<Equipment> getEquipmentList() {
-			try {
-				loadEquipmentFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return equipmentListO;
+	public static ObservableList<Equipment> getEquipmentList() {
+		try {
+			loadEquipmentFile();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+		return equipmentListO;
+	}
 
 
 	//Equipment CSV File Loader

@@ -2,8 +2,6 @@ package tan.five;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-import chappelle.five.view.LoginScreenController;
 import chappelle.five.view.RootLayoutController;
 import chappelle.five.view.StudentDataScreenController;
 import javafx.application.Application;

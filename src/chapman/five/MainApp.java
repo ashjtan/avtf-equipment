@@ -16,7 +16,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import chapman.five.MainApp;
-import chappelle.five.view.LoginScreenController;
 import chappelle.five.view.RootLayoutController;
 
 public class MainApp extends Application {

@@ -13,10 +13,16 @@ public class StudentEquipmentManagement {
 
 	///STUDENT///
 
+<<<<<<< HEAD
 
 
 	static ArrayList<Student> studentListA = new ArrayList();
 	static ObservableList<Student> studentListO; 
+=======
+	static ArrayList<Student> studentListA = new ArrayList();
+	static ObservableList<Student> studentListO; 
+
+>>>>>>> origin/master
 
 	//Student List Getter (ArrayList)
 	public static ArrayList<Student> getStudentListA() {
@@ -41,8 +47,13 @@ public class StudentEquipmentManagement {
 
 	//Student CSV File Loader
 	public static void loadStudentFile() throws IOException {
+<<<<<<< HEAD
 		FileReader file = new FileReader("file:resources/AVTF_StudentList2017.csv"); 	//"/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"
 		BufferedReader reader = new BufferedReader(file);													//"/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv"
+=======
+		FileReader file = new FileReader("/Resources/AVTF_StudentList2017.csv"); 	//"/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"
+		BufferedReader reader = new BufferedReader(file);							//"/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv"
+>>>>>>> origin/master
 
 		String line;
 		while ((line = reader.readLine()) != null) {

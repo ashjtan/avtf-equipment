@@ -36,7 +36,7 @@ public class LoginController {
 	private mainApp mainApp;
 
 
-	
+
 	//Empty Constructor
 	public LoginController(){
 
@@ -45,7 +45,7 @@ public class LoginController {
 	//Initialize
 	@FXML
 	private void initialize(){
-		
+
 	}
 
 
@@ -55,13 +55,9 @@ public class LoginController {
 	private void handleInput() throws IOException {
 		if (isStudentInputValid()) {
 			//Student Scene Switch
-			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");		//"/chappelle/five/view/StudentWelcomeScreen.fxml"
+			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 		}
-<<<<<<< HEAD
 		else if (studentIDField.getText().equals("0123456789")) {
-=======
-		if (studentIDField.getText().equals("0123456789")) {
->>>>>>> refs/remotes/origin/master
 			//Reveal Admin button
 			btnAdmin.setVisible(true);
 			SceneSwitcher.handleSceneSwitch(btnAdmin, "/chappelle/five/view/AdminWelcomeScreen.fxml");
@@ -70,7 +66,8 @@ public class LoginController {
 	}
 
 
-	
+
+
 	//Tests if student ID is correct
 	@FXML	
 	private boolean isStudentInputValid(){
@@ -82,7 +79,7 @@ public class LoginController {
 		}
 		return false;
 	}
-	
+
 
 	public void setMainApp(tan.five.mainApp mainApp) {
 		//Sets the field for this controller to the application passed in:  

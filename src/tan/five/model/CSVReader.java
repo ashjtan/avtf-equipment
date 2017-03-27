@@ -7,19 +7,11 @@ import java.io.IOException;
 
 public class CSVReader {
 
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master
 	public static void main(String[] args) throws IOException {
 /*
-		String csvFile = "/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv";
-=======
 	public static void main(String[] args) {
 		
 		String csvFile = "/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv";
-		//String csvFile = "/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv";
->>>>>>> refs/remotes/origin/master
 		String line = "";
 		String cvsSplitBy = ",";
 

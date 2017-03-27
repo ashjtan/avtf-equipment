@@ -53,22 +53,18 @@ public class StudentWelcomeScreenController  {
 	@FXML
 	private Button btnGoBack;
 
-	//So the main can reference itself to the controllers
+	//Main can reference itself to the controllers
 	private MainApp mainApp;
 
 	public StudentWelcomeScreenController() {
-		//loader needs this
+		//Loader needs this
 	}
 
-	//to initialize anything on start
+	//Initializes anything on start
 	@FXML 
 	private void initialize() throws IOException{
-
 		//Sets the Hello, statement to add their name 
 		lblHello.setText(("Hello, "  + Student.SELECTED_STUDENT.getFirstName()));
-
-
-
 	}
 
 	//Methods for switching scenes

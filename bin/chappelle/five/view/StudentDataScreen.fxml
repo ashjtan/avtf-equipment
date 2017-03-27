@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<AnchorPane prefHeight="360.0" prefWidth="445.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.StudentDataScreenController">
+	<children>
+		<TableView fx:id="studentTableView" layoutX="2.0" layoutY="1.0" prefHeight="350.0" prefWidth="600.0">
+			<columns>
 
-<AnchorPane prefHeight="360.0" prefWidth="445.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="chappelle.five.view.StudentDataScreenController">
-   <children>
-      <TableView layoutX="2.0" layoutY="1.0" prefHeight="355.0" prefWidth="439.0">
-        <columns>
-          <TableColumn prefWidth="155.0414535999298" text="Fist Name" />
-          <TableColumn prefWidth="132.90968322753906" text="Last Name" />
-            <TableColumn prefWidth="149.09033203125" text="Student ID" />
-        </columns>
-      </TableView>
-   </children>
+				<TableColumn fx:id="firstName" prefWidth="200.0" text="First Name" />
+
+				<TableColumn fx:id="lastName" prefWidth="200.0" text="Last Name" />
+
+				<TableColumn fx:id="ID" prefWidth="200.0" text="Student ID" />
+
+			</columns>
+
+		</TableView>
+      <Button fx:id="btnUpdate" layoutX="543.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleUpdate" text="Button" />
+	</children>
 </AnchorPane>

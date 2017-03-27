@@ -36,15 +36,11 @@ public class mainApp extends Application{
 			this.primaryStage = primaryStage;
 			this.primaryStage.setTitle("AVTF Equipment Manager");	//Sets the title of the Window
 
-			//set the application icon
+			//Sets application icon
 			//this.primaryStage.getIcons().add(new Image());
 
-			//a method to set up the Root Layout
+			//Sets up Root Layout
 			initRootLayout();
-
-			//to load the login screen
-			//showLoginScreen();
-
 
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -82,10 +78,5 @@ public class mainApp extends Application{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-
-		//GUI Stuff END
-
 	}
-
 }

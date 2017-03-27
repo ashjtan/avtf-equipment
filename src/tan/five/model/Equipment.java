@@ -64,7 +64,7 @@ public class Equipment {
 	}
 
 	public void setCheckedOutI(String equipmentInfo) {			//WRITTEN FROM SCRATCH FOR INSTANTIATION FROM CSV
-		if (equipmentInfo == "y") {
+		if (equipmentInfo == "y" || equipmentInfo == "Y") {
 			this.checkedOut.set(true);
 		}
 		else {

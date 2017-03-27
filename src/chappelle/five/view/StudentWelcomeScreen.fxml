@@ -22,7 +22,7 @@
             <Font name="Helvetica Neue" size="16.0" />
          </font>
       </Button>
-      <Label layoutX="220.0" layoutY="129.0" prefHeight="25.0" prefWidth="177.0" text="Would you like to.....">
+      <Label layoutX="178.0" layoutY="129.0" prefHeight="25.0" prefWidth="244.0" text="What would you like to do?">
          <font>
             <Font name="Helvetica Neue" size="20.0" />
          </font>

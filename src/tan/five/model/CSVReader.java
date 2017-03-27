@@ -7,10 +7,21 @@ import java.io.IOException;
 
 public class CSVReader {
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> refs/remotes/origin/master
 	public static void main(String[] args) throws IOException {
+<<<<<<< HEAD
 /*
+=======
+		/*
+		String csvFile = "/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv";
+=======
+>>>>>>> refs/remotes/origin/master
 	public static void main(String[] args) {
-		
+
 		String csvFile = "/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv";
 		String line = "";
 		String cvsSplitBy = ",";
@@ -24,7 +35,7 @@ public class CSVReader {
 
 				//Each column is array index
 				//Prints last name, first name, student id
-				
+
 				System.out.println(String.format("%-35s %-25s %-20s", "Student [last=" + student[0], "first=" + student[1], "id=" + student[2] + "] "));
 
 			}
@@ -32,6 +43,6 @@ public class CSVReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		*/
+		 */
 	}
 }

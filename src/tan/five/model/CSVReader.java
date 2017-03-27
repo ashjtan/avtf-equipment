@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class CSVReader {
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws IOException {
+/*
 		String csvFile = "/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv";
 		String line = "";
 		String cvsSplitBy = ",";
@@ -30,5 +30,8 @@ public class CSVReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		*/
+		
+		StudentEquipmentManagement.loadEquipmentFile();
 	}
 }

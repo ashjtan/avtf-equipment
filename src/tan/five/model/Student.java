@@ -6,7 +6,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Student {
-
+	
+	public static Student SELECTED_STUDENT = new Student();
+	
 	//Fields
 	private SimpleStringProperty lastName = new SimpleStringProperty();
 	private SimpleStringProperty firstName = new SimpleStringProperty();

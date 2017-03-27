@@ -23,6 +23,7 @@ import javafx.scene.text.Text;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import tan.five.model.Student;
 
 import java.io.IOException;
 
@@ -52,9 +53,6 @@ public class StudentWelcomeScreenController  {
 	private Button btnCheckOut;
 	@FXML
 	private Button btnGoBack;
-	
-	//testing student names
-	String studentName = "Chapman";
 
 	//So the main can reference itself to the controllers
 	private MainApp mainApp;
@@ -68,7 +66,7 @@ public class StudentWelcomeScreenController  {
 	private void initialize(){
 
 		//Sets the Hello, statement to add their name 
-		lblHello.setText(("Hello, "  + studentName ));
+		lblHello.setText(("Hello, "  + Student.SELECTED_STUDENT.getFirstName()));
 
 	}
 

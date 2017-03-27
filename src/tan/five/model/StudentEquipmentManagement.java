@@ -11,55 +11,7 @@ import javafx.collections.ObservableList;
 public class StudentEquipmentManagement {
 
 	///STUDENT///
-
-	static ArrayList<Student> studentListA = new ArrayList();
-	static ObservableList<Student> studentListO; 
-
-	//Student List Getter (ArrayList)
-	public static ArrayList<Student> getStudentListA() {
-		try {
-			loadStudentFile();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return studentListA;
-	}
-
-	//Student List Getter (ObservableList)
-	public static ObservableList<Student> getStudentListO() {
-		try {
-			loadStudentFile();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return studentListO;
-	}
-
-
-	//Student CSV File Loader
-	public static void loadStudentFile() throws IOException {
-		FileReader file = new FileReader("/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"); 	//"/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"
-		BufferedReader reader = new BufferedReader(file);													//"/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv"
-
-		String line;
-		while ((line = reader.readLine()) != null) {
-			String[] studentInfo = line.split(",");					//Splits CSV into array by commas
-
-			Student student = new Student();						//Creates new Student object
-
-			student.setLastName(studentInfo[0]);					//Sets fields based on CSV file array
-			student.setFirstName(studentInfo[1]);
-			student.setStudentID(studentInfo[2]);
-
-			studentListA.add(student);
-		}
-		studentListO = FXCollections.observableArrayList(studentListA);
-		reader.close();
-	}
-
-<<<<<<< HEAD
-=======
-*/
+	
 	 static ObservableList<Student> studentList; 
 	 static ArrayList<Student> stList = new ArrayList();
 	 
@@ -86,8 +38,7 @@ public class StudentEquipmentManagement {
 		
 		//Student CSV File Loader
 		public static void loadStudentFile() throws IOException {
-			
-			//FileReader file = new FileReader("/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"); //"/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"
+																											//"/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"
 			FileReader file = new FileReader("/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv");	//"/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv"
 			BufferedReader reader = new BufferedReader(file);													
 			
@@ -106,7 +57,6 @@ public class StudentEquipmentManagement {
 			studentList = FXCollections.observableArrayList(stList);
 			reader.close();
 		}
->>>>>>> refs/remotes/origin/master
 
 
 

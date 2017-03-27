@@ -24,6 +24,9 @@
             <Font name="Helvetica Neue Bold" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="btnStudent" layoutX="459.0" layoutY="187.0" mnemonicParsing="false" onAction="#handleInput" text="Button" />
+      <Button fx:id="btnStudent" layoutX="459.0" layoutY="187.0" mnemonicParsing="false" onAction="#handleInput" text="Login">
+         <font>
+            <Font name="Helvetica Neue" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

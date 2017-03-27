@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import chappelle.five.view.LoginScreenController;
 import chappelle.five.view.RootLayoutController;
+import chappelle.five.view.StudentDataScreenController;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;

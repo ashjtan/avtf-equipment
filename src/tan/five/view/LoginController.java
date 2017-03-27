@@ -58,8 +58,17 @@ public class LoginController {
 			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");		//"/chappelle/five/view/StudentWelcomeScreen.fxml"
 		}
 	}
+	
+	//Admin Login
+	private void handleAdmin() throws IOException {
+		if (isInputValid() && studentIDField.getText().equals("0123456789")) {
+			
+		}
+	}
+	
+	
 
-
+	//to test if the student ID is correct
 	@FXML	
 	private boolean isInputValid(){			//INCOMPLETE
 		for (Student student : StudentEquipmentManagement.getStudentListA()) {

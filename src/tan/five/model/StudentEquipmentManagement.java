@@ -9,29 +9,39 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class StudentEquipmentManagement {
-/*
-/// STUDENT ///	
 
-	
-	//Creates accessible ArrayList for students
-	static ArrayList<Student> studentList = new ArrayList(); 
+	///STUDENT///
 
-	//Student List Getter
-	static public ArrayList<Student> getStudentList() {
+	static ArrayList<Student> studentListA = new ArrayList();
+	static ObservableList<Student> studentListO; 
+
+	//Student List Getter (ArrayList)
+	public static ArrayList<Student> getStudentListA() {
 		try {
 			loadStudentFile();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return studentList;
+		return studentListA;
 	}
 
-	//CSV File Loader
-	static void loadStudentFile() throws IOException {
-		FileReader file = new FileReader("AVTF Student List.csv");
-		BufferedReader reader = new BufferedReader(file);
-		String line;
+	//Student List Getter (ObservableList)
+	public static ObservableList<Student> getStudentListO() {
+		try {
+			loadStudentFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return studentListO;
+	}
 
+
+	//Student CSV File Loader
+	public static void loadStudentFile() throws IOException {
+		FileReader file = new FileReader("/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"); 	//"/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"
+		BufferedReader reader = new BufferedReader(file);													//"/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv"
+
+		String line;
 		while ((line = reader.readLine()) != null) {
 			String[] studentInfo = line.split(",");					//Splits CSV into array by commas
 
@@ -41,12 +51,13 @@ public class StudentEquipmentManagement {
 			student.setFirstName(studentInfo[1]);
 			student.setStudentID(studentInfo[2]);
 
-			studentList.add(student);								//Adds Student to studentList ArrayList
+			studentListA.add(student);
 		}
+		studentListO = FXCollections.observableArrayList(studentListA);
 		reader.close();
 	}
 
-*/
+
 	 static ObservableList<Student> studentList; 
 	 static ArrayList<Student> stList = new ArrayList();
 	 
@@ -96,25 +107,37 @@ public class StudentEquipmentManagement {
 
 
 
-/// EQUIPMENT ///
+
+	/// EQUIPMENT ///
 
 	//Creates accessible ArrayList for equipment
-	static ArrayList<Equipment> equipmentList = new ArrayList();
-
-	//Equipment List Getter
-	public ArrayList<Equipment> getEquipmentList() {
+	static ArrayList<Equipment> equipmentListA = new ArrayList();
+	static ObservableList<Equipment> equipmentListO; 
+	
+	//Equipment List Getter (ArrayList)
+	public static ArrayList<Equipment> getEquipmentListA() {
 		try {
 			loadEquipmentFile();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return equipmentList;
+		return equipmentListA;
 	}
+	
+	//Equipment List Getter (ObservableList)
+		public static ObservableList<Equipment> getEquipmentList() {
+			try {
+				loadEquipmentFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return equipmentListO;
+		}
 
 
 	//Equipment CSV File Loader
-	static void loadEquipmentFile() throws IOException {
-		FileReader file = new FileReader("Sample Equipment.csv");
+	public static void loadEquipmentFile() throws IOException {
+		FileReader file = new FileReader("/Users/ashleytan/Desktop/Sample Equipment.csv");
 		BufferedReader reader = new BufferedReader(file);
 		String line;
 
@@ -126,12 +149,13 @@ public class StudentEquipmentManagement {
 			equipment.setEquipmentName(equipmentInfo[0]);			//Sets fields based on CSV file array
 			equipment.setEquipmentID(equipmentInfo[1]);
 			equipment.setCountyID(equipmentInfo[2]);
-//			equipment.setCheckedOut(equipmentInfo[3]);
-//			equipment.setHolder(equipmentInfo[4]);
-//			equipment.setEquipmentType(equipmentInfo[5]);
+			equipment.setCheckedOutI(equipmentInfo[3]);
+			equipment.setHolder(equipmentInfo[4]);
+			equipment.setEquipmentType(equipmentInfo[5]);
 
-			equipmentList.add(equipment);							//Adds Equipment to equipmentList ArrayList
+			equipmentListA.add(equipment);							//Adds Equipment to equipmentList ArrayList
 		}
+		equipmentListO = FXCollections.observableArrayList(equipmentListA);
 		reader.close();
 	}
 }

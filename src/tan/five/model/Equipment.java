@@ -1,15 +1,15 @@
 package tan.five.model;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 public class Equipment {
 
 	//Fields
-	private StringProperty equipmentName;
-	private StringProperty equipmentID;
-	private StringProperty countyID;
-	private BooleanProperty checkedOut;
+	private SimpleStringProperty equipmentName = new SimpleStringProperty();
+	private SimpleStringProperty equipmentID = new SimpleStringProperty();
+	private SimpleStringProperty countyID = new SimpleStringProperty();
+	private SimpleBooleanProperty checkedOut = new SimpleBooleanProperty();
 	private Student holder;
 	private EquipmentType equipmentType;
 
@@ -18,7 +18,7 @@ public class Equipment {
 	public Equipment(){
 		this("", "", "", false, null, EquipmentType.OTHER);
 	}
-	
+
 	//Overloaded Constructor
 	public Equipment(String equipmentName1, String equipmentID1, String countyID1, boolean checkedOut1, Student holder1, EquipmentType equipmentType1){
 		setEquipmentName(equipmentName1);
@@ -29,7 +29,7 @@ public class Equipment {
 		setEquipmentType(equipmentType1);
 	}
 
-	
+
 	//Getters + Setters
 	public String getEquipmentName() {							//Returns String
 		return equipmentName.get();
@@ -63,22 +63,70 @@ public class Equipment {
 		this.checkedOut.set(checkedOut);
 	}
 
+	public void setCheckedOutI(String equipmentInfo) {			//WRITTEN FROM SCRATCH FOR INSTANTIATION FROM CSV
+		if (equipmentInfo == "y") {
+			this.checkedOut.set(true);
+		}
+		else {
+			this.checkedOut.set(false);
+		}
+	}
+
 	public Student getHolder() {
 		return holder;
 	}
 
-	public void setHolder(Student holder) {						//WRITTEN FROM SCRATCH FOR INITIATION
+	public void setHolder(Student holder) {						
 		this.holder = holder;
+	}
+
+	public void setHolder(String holder) {						//WRITTEN FROM SCRATCH FOR INSTANTIATION FROM CSV		
+		for (Student student : StudentEquipmentManagement.getStudentListA()) {
+			if (holder.equals(student.getFirstName() + " " + student.getLastName()))
+				this.holder = student;
+		}
 	}
 
 	public EquipmentType getEquipmentType() {					
 		return equipmentType;
 	}
-	
-	public void setEquipmentType() {							//Default EquipmentType Setter: WRITTEN FROM SCRATCH FOR INITIATION
+
+	public void setEquipmentType() {							//Default EquipmentType Setter
 		this.equipmentType = EquipmentType.OTHER;
 	}
-	
+
+	public void setEquipmentType(String equipmentType) {		//WRITTEN FROM SCRATCH FOR INSTANTIATION FROM CSV
+		switch (equipmentType) {
+		case "CAMERA":
+			this.equipmentType = EquipmentType.CAMERA;
+			break;
+		case "TRIPOD":
+			this.equipmentType = EquipmentType.TRIPOD;
+			break;
+		case "MICROPHONE":
+			this.equipmentType = EquipmentType.MICROPHONE;
+			break;
+		case "MICROPHONE_ACCESSORY":
+			this.equipmentType = EquipmentType.MICROPHONE_ACCESSORY;
+			break;
+		case "LAPTOP":
+			this.equipmentType = EquipmentType.LAPTOP;
+			break;
+		case "LIGHT":
+			this.equipmentType = EquipmentType.LIGHT;
+			break;
+		case "LIGHT_ACCESSORY":
+			this.equipmentType = EquipmentType.LIGHT_ACCESSORY;
+			break;
+		case "CABLE":
+			this.equipmentType = EquipmentType.CABLE;
+			break;
+		default:
+			this.equipmentType = EquipmentType.OTHER;
+			break;
+		}
+	}
+
 	public void setEquipmentType(EquipmentType equipmentType) {
 		this.equipmentType = equipmentType;
 	}

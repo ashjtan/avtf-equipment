@@ -33,13 +33,10 @@ public class LoginController {
 	@FXML
 	private Button btnGoBack;
 
-
-
 	private mainApp mainApp;
 
 
-
-
+	
 	//Empty Constructor
 	public LoginController(){
 
@@ -50,7 +47,6 @@ public class LoginController {
 	private void initialize(){
 		//errorMessage.setVisible(false);
 	}
-
 
 
 

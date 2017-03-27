@@ -22,7 +22,7 @@ public class mainApp extends Application{
 	
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		launch(args);
 	}
 
@@ -84,39 +84,6 @@ public class mainApp extends Application{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-	
-
-/*
-	//Loads the login page
-	public void showLoginScreen() {
-
-		try {
-
-			//Instantiates the loader class
-			FXMLLoader loader = new FXMLLoader();
-
-			//Provides the file access location for the FXML file
-			loader.setLocation(MainApp.class.getResource("/tan/five/view/Login.fxml"));
-
-			//Loads the AnchorPane into the itemOverview object
-			AnchorPane loginScreen = (AnchorPane) loader.load();
-
-			//Centers the itemOverview in the root layout screen
-			rootLayout.setCenter(loginScreen);
-
-			//Sets the controller for the ItemOverview View
-			LoginScreenController controller = loader.getController();
-
-			//Provides the reference to the main application for the controller
-			controller.setMainApp(this);
-
-
-			//Again, standard debug crash dump with errors.  NOT used in production code releases
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		*/
 
 
 		//GUI Stuff END

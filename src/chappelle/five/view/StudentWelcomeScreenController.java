@@ -24,9 +24,8 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import tan.five.model.Student;
-
 import java.io.IOException;
-
+import chappelle.five.view.SceneSwitcher;
 import chapman.five.MainApp;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -63,44 +62,31 @@ public class StudentWelcomeScreenController  {
 
 	//to initialize anything on start
 	@FXML 
-	private void initialize(){
+	private void initialize() throws IOException{
 
 		//Sets the Hello, statement to add their name 
 		lblHello.setText(("Hello, "  + Student.SELECTED_STUDENT.getFirstName()));
 
+
+
+	}
+	
+	//Methods for switching scenes
+	@FXML
+	public void checkIn() throws IOException {
+		SceneSwitcher.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/ItemCheckIn.fxml");
+	}
+	@FXML
+	public void checkOut() throws IOException {
+		SceneSwitcher.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/ItemCheckOut.fxml");
 	}
 
-	//Method for switching scenes
-	@FXML
-	private void handleSceneSwitch(ActionEvent event) throws IOException{
-		Stage stage; 
-		Parent root;
-		//Setting the scene to the check in menu
-		if(event.getSource()==btnCheckIn){
-			//get reference to the button's stage         
-			stage=(Stage) btnCheckIn.getScene().getWindow();
-			//load up OTHER FXML document
-			root = FXMLLoader.load(getClass().getResource("CHECK IN MENU"));
-		}
-		//Setting the scene to the check out menu
-		else {
-			if(event.getSource()==btnCheckOut){
-				//get reference to the button's stage         
-				stage=(Stage) btnCheckOut.getScene().getWindow();
-				//load up OTHER FXML document
-				root = FXMLLoader.load(getClass().getResource("CHECK OUT MENU"));
-			}
-			//So it may set the root scene again
-			else{
-				stage=(Stage) btnGoBack.getScene().getWindow();
-				root = FXMLLoader.load(getClass().getResource("chappelle/five/view/RootLayout.fxml"));
-			}
-			//create a new scene with root and set the stage
-			Scene checkInMenu = new Scene(root);
-			stage.setScene(checkInMenu);
-			stage.show();
-		}
-	}
+			
+	
+
+
+
+
 
 	// @param mainApp
 	public void setMainApp(MainApp mainApp) {

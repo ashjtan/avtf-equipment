@@ -9,13 +9,11 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-<<<<<<< HEAD
+
 import javafx.fxml.FXML;
-=======
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
->>>>>>> origin/master
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,11 +33,8 @@ import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 import tan.five.mainApp;
 
-<<<<<<< HEAD
-public class StudentDataScreenController {
 
 
-=======
 public class StudentDataScreenController extends Application {
 
 
@@ -108,7 +103,7 @@ public class StudentDataScreenController extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
->>>>>>> origin/master
+
 
 
 	//Method for switching scenes
@@ -134,7 +129,7 @@ public class StudentDataScreenController extends Application {
 			//So it may set the root scene again
 			else{
 				stage=(Stage) btnGoBack.getScene().getWindow();
-				root = FXMLLoader.load(getClass().getResource("chappelle/five/view/RootLayout.fxml"));
+				root = FXMLLoader.load(getClass().getResource("tan/five/view/Login.fxml"));
 			}
 			//create a new scene with root and set the stage
 			Scene checkInMenu = new Scene(root);
@@ -142,4 +137,14 @@ public class StudentDataScreenController extends Application {
 			stage.show();
 		}
 	}
+
+
+
+	public void setMainApp(mainApp mainApp) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
 }

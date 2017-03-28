@@ -1,7 +1,6 @@
 package chappelle.five.view;
 
 import java.io.IOException;
-import java.io.IOException;
 import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -16,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -38,6 +38,10 @@ public class ItemCheckOutController  {
 
 	@FXML
 	private Button btnBackButton;
+	@FXML
+	private Button btnAddToCart;
+	@FXML 
+	private Button btnClearCart;
 
 	@FXML
 	private TableView<Equipment> equipmentTableView;
@@ -45,6 +49,12 @@ public class ItemCheckOutController  {
 	private TableColumn<Equipment, String> equipmentName;
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
+
+	@FXML
+	private ListView<String> equipmentCart;
+
+	private ObservableList<String> listForCart = FXCollections.observableArrayList();
+
 
 
 	public void start(Stage primaryStage) {
@@ -58,11 +68,24 @@ public class ItemCheckOutController  {
 			if (equipment.isCheckedOut() == false) {
 				equipmentTableView.getItems().add(equipment);
 			}
-
 		}
-
 		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
+	}
+
+	@FXML
+	public void handleAddToCart() {
+		/*for (String itemInCart : equipmentCart.getItems()) {
+			if (!(readSelectedItem().equals(itemInCart))) {
+				cartedItems.add(itemInCart);
+				equipmentCart.setItems(cartedItems);
+			}
+		}*/
+
+		//ADD CHECK SO NO CART DUPLICATES//
+		listForCart.add(readSelectedItem().getEquipmentName());
+		equipmentCart.setItems(listForCart);
+
 	}
 
 	//Method for switching scenes
@@ -74,39 +97,24 @@ public class ItemCheckOutController  {
 
 
 
+
 	//Shopping cart
+	@FXML
+	public Equipment readSelectedItem() {
+		Equipment equipment = equipmentTableView.getSelectionModel().getSelectedItem();
+		return equipment;
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	@FXML
+	public void handleClear() {
+		listForCart.clear();
+		equipmentCart.setItems(listForCart);
+	}
 
 
 
 	public void setMainApp(mainApp mainApp) {
-		// TODO Auto-generated method stub
+		
 
 	}
 

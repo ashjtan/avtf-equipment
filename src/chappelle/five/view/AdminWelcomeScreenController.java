@@ -39,7 +39,7 @@ public class AdminWelcomeScreenController {
 	}
 	@FXML
 	public void equipmentList() throws IOException {
-		SceneSwitcher.handleSceneSwitch(btnEquipmentList, "EQUIPMENT");
+		SceneSwitcher.handleSceneSwitch(btnEquipmentList, "/chappelle/five/view/EquipmentScreen.fxml");
 	}
 
 	// @param mainApp

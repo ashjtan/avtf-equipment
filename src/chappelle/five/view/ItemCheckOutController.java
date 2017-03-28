@@ -20,6 +20,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import tan.five.mainApp;
+import tan.five.model.Equipment;
+import tan.five.model.EquipmentType;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 
@@ -32,17 +34,52 @@ public class ItemCheckOutController  {
 	private Button btnCheckOut;
 	@FXML
 	private Button btnGoBack;
+	
+	@FXML
+	private TableView<Equipment> equipmentTableView;
+	@FXML
+	private TableColumn<Equipment, String> equipmentName;
+	@FXML
+	private TableColumn<Equipment, String> equipmentID;
+	@FXML
+	private TableColumn<Equipment, String> countyID;
+	@FXML
+	private TableColumn<Equipment, Boolean> checkedOut;
+	@FXML 
+	private TableColumn<Equipment, Student> holder;
+	@FXML
+	private TableColumn<Equipment, EquipmentType> equipmentType;
+	
 
-	static ObservableList<Student> mySl;
+	public void start(Stage primaryStage) {
 
+<<<<<<< HEAD
 
+=======
+	}
+>>>>>>> origin/master
 
-	//Method for switching scenes
+	//CURRENTLY HOLDS ALL TABLE INFO BUT ACTUAL CHECKOUT WILL NOT HAVE ALL INFO
+	@FXML
+	public void initialize() {
+		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA()) {
+			equipmentTableView.getItems().add(equipment);
+		}
+		
+		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
+		equipmentID.setCellValueFactory(new PropertyValueFactory<>("equipmentID"));
+		countyID.setCellValueFactory(new PropertyValueFactory<>("countyID"));
+		checkedOut.setCellValueFactory(new PropertyValueFactory<>("checkedOut"));
+		holder.setCellValueFactory(new PropertyValueFactory<>("holder"));
+		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
+	}
+
+	//Switches scenes
 	@FXML
 	private void handleSceneSwitch(ActionEvent event) throws IOException{
 		Stage stage; 
 		Parent root;
-		//Setting the scene to the check in menu
+		//Setting the scene to scene one
 		if(event.getSource()==btnCheckIn){
 			//get reference to the button's stage         
 			stage=(Stage) btnCheckIn.getScene().getWindow();
@@ -69,6 +106,7 @@ public class ItemCheckOutController  {
 		}
 	}
 
+<<<<<<< HEAD
 
 
 	public void start(Stage primaryStage) {
@@ -128,8 +166,10 @@ public class ItemCheckOutController  {
 	}
 
 
+=======
+>>>>>>> origin/master
 	public void setMainApp(mainApp mainApp) {
-		// TODO Auto-generated method stub
+		
 
 	}
 

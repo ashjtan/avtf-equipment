@@ -57,35 +57,16 @@ public class LoginController {
 			//Student Scene Switch
 			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 		}
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master
 		else if (studentIDField.getText().equals("0123456789")) {
-<<<<<<< HEAD
 			//Reveal Admin button
 			btnAdmin.setVisible(true);
 			SceneSwitcher.handleSceneSwitch(btnAdmin, "/chappelle/five/view/AdminWelcomeScreen.fxml");
 		}
 		else {errorMessage.setVisible(true);}
-=======
 
-			if (studentIDField.getText().equals("0123456789")) {
-
-				//Reveal Admin button
-				btnAdmin.setVisible(true);
-				SceneSwitcher.handleSceneSwitch(btnAdmin, "/chappelle/five/view/AdminWelcomeScreen.fxml");
-			}
-			else {errorMessage.setVisible(true);}}
->>>>>>> refs/remotes/origin/master
 	}
 
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/master
 	//Tests if student ID is correct
 	@FXML	
 	private boolean isStudentInputValid(){

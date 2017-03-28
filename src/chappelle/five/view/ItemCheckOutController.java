@@ -35,7 +35,7 @@ public class ItemCheckOutController  {
 
 	static ObservableList<Student> mySl;
 
-<<<<<<< HEAD
+
 
 	//Method for switching scenes
 	@FXML
@@ -70,7 +70,7 @@ public class ItemCheckOutController  {
 	}
 
 
-=======
+
 	public void start(Stage primaryStage) {
 		Label response = new Label("");
 		Label title = new Label("Student List Using a TableView\n");
@@ -126,7 +126,7 @@ public class ItemCheckOutController  {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
->>>>>>> refs/remotes/origin/master
+
 
 	public void setMainApp(mainApp mainApp) {
 		// TODO Auto-generated method stub

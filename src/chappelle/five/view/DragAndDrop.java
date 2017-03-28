@@ -242,6 +242,7 @@ public abstract class DragAndDrop extends Application{
 			return name != null ? name.hashCode() : 0;
 		}
 	}
+}
 
 
 

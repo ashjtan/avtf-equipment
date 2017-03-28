@@ -6,11 +6,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.7040133779264214" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.ItemCheckOutController">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.ItemCheckOutController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="350.0" prefWidth="463.0">
          <children>
-            <TableView fx:id="equipmentTableview" layoutX="-1.0" layoutY="-2.0" prefHeight="366.0" prefWidth="417.0">
+            <TableView fx:id="equipmentTableView" layoutX="-1.0" layoutY="-2.0" prefHeight="366.0" prefWidth="417.0">
               <columns>
                 <TableColumn fx:id="equipmentName" prefWidth="210.0" text="Equipment" />
                   <TableColumn fx:id="equipmentType" prefWidth="210.0" text="Type" />

@@ -82,7 +82,7 @@ public class StudentEquipmentManagement {
 	}
 
 	//Equipment List Getter (ObservableList)
-	public static ObservableList<Equipment> getEquipmentList() {
+	public static ObservableList<Equipment> getEquipmentListO() {
 		try {
 			loadEquipmentFile();
 		} catch (IOException e) {

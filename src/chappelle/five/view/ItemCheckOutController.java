@@ -50,21 +50,23 @@ public class ItemCheckOutController  {
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
 
-	
+
 	public void start(Stage primaryStage) {
 
 	}
 
 	@FXML
 	public void initialize() {
-		for (Equipment equipment : Student.SELECTED_STUDENT.getCheckedOutEquipmentA()) {
+		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA()) {
+			if (equipment.isCheckedOut() == false) {
 				equipmentTableView.getItems().add(equipment);
 			}
-		
+		}
+
 		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
 	}
-	
+
 	//Method for switching scenes
 	@FXML
 	public void backButton() throws IOException {

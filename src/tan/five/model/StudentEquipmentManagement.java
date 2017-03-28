@@ -11,14 +11,12 @@ import javafx.collections.ObservableList;
 public class StudentEquipmentManagement {
 
 
-	///STUDENT///
-
-
-
+///STUDENT///
 
 	static ArrayList<Student> studentListA = new ArrayList();
 	static ObservableList<Student> studentListO; 
 
+	
 	//Student List Getter (ArrayList)
 	public static ArrayList<Student> getStudentListA() {
 		try {
@@ -43,8 +41,8 @@ public class StudentEquipmentManagement {
 	//Student CSV File Loader
 	public static void loadStudentFile() throws IOException {
 
-		FileReader file = new FileReader("Resources/AVTF_StudentList2017.csv"); 	//"/Users/ashleytan/Desktop/avtf files/AVTF_StudentList2017.csv"
-		BufferedReader reader = new BufferedReader(file);							//"/Users/chapmanchappelle/Desktop/AVTF_StudentList2017.csv"
+		FileReader file = new FileReader("Resources/AVTF_StudentList2017.csv"); 	
+		BufferedReader reader = new BufferedReader(file);							
 
 
 		String line;
@@ -65,9 +63,9 @@ public class StudentEquipmentManagement {
 
 
 
-	/// EQUIPMENT ///
+	
+/// EQUIPMENT ///
 
-	//Creates accessible ArrayList for equipment
 	static ArrayList<Equipment> equipmentListA = new ArrayList();
 	static ObservableList<Equipment> equipmentListO; 
 

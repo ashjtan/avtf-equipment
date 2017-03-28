@@ -13,8 +13,7 @@ public class Student {
 	private SimpleStringProperty lastName = new SimpleStringProperty();
 	private SimpleStringProperty firstName = new SimpleStringProperty();
 	private SimpleStringProperty studentID = new SimpleStringProperty();
-	private ObservableList<Equipment> checkedOutEquipmentO;
-	private ArrayList<Equipment> checkedOutEquipmentA;
+	private ObservableList<Equipment> checkedOutEquipment;
 
 
 	//Default Constructor
@@ -27,8 +26,7 @@ public class Student {
 		setLastName(lastName1);
 		setFirstName(firstName1);
 		setStudentID(studentID1);
-		setCheckedOutEquipmentO(checkedOutEquipment1);
-		setCheckedOutEquipmentA(checkedOutEquipment1);
+		setCheckedOutEquipment(checkedOutEquipment1);
 	}
 
 
@@ -57,15 +55,11 @@ public class Student {
 		this.studentID.set(studentID);
 	}
 
-	public void setCheckedOutEquipmentO(ArrayList<Equipment> checkedOutEquipment1) {		//TENTATIVE: takes + converts ArrayList
-		this.checkedOutEquipmentO = FXCollections.observableList(checkedOutEquipment1);
+	public void setCheckedOutEquipment(ArrayList<Equipment> checkedOutEquipment1) {		//TENTATIVE: takes + converts ArrayList
+		this.checkedOutEquipment = FXCollections.observableList(checkedOutEquipment1);
 	}
 	
-	public ArrayList<Equipment> getCheckedOutEquipmentA() {			//TENTATIVE: returns ArrayList by casting
-		return checkedOutEquipmentA;
-	}
-	
-	public void setCheckedOutEquipmentA(ArrayList<Equipment> checkedOutEquipment1) {		//TENTATIVE: takes + converts ArrayList
-		this.checkedOutEquipmentA = checkedOutEquipment1;
+	public ArrayList<Equipment> getCheckedOutEquipment() {			//TENTATIVE: returns ArrayList by casting
+		return (ArrayList<Equipment>)checkedOutEquipment;
 	}
 }

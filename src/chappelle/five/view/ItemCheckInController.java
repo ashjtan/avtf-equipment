@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-<<<<<<< HEAD
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -13,12 +12,9 @@ import tan.five.mainApp;
 import tan.five.model.Equipment;
 import tan.five.model.EquipmentType;
 import tan.five.model.StudentEquipmentManagement;
-=======
->>>>>>> refs/remotes/origin/master
 
 public class ItemCheckInController {
 
-<<<<<<< HEAD
 
 	@FXML
 	private Button btnBackButton;
@@ -37,11 +33,7 @@ public class ItemCheckInController {
 
 	@FXML
 	public void initialize() {
-		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA()) {
-			if (equipment.isCheckedOut() == false) {
-				equipmentTableView.getItems().add(equipment);
-			}
-		}
+		//INCOMPLETE
 		
 		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
@@ -58,16 +50,5 @@ public class ItemCheckInController {
 		// TODO Auto-generated method stub
 
 	}
-=======
-	@FXML
-	private Button btnBackButton;
-
-	//Method for switching scenes
-	@FXML
-	public void backButton() throws IOException {
-		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
-	}
-
->>>>>>> refs/remotes/origin/master
 
 }

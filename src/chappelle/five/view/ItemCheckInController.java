@@ -4,10 +4,9 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
+
+
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,10 +15,7 @@ import tan.five.mainApp;
 import tan.five.model.Equipment;
 import tan.five.model.EquipmentType;
 import tan.five.model.StudentEquipmentManagement;
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
 
 public class ItemCheckInController {
 
@@ -58,9 +54,5 @@ public class ItemCheckInController {
 		// TODO Auto-generated method stub
 
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master
 
 }

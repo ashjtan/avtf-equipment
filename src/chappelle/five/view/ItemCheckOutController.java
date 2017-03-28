@@ -40,14 +40,6 @@ public class ItemCheckOutController  {
 	@FXML
 	private TableColumn<Equipment, String> equipmentName;
 	@FXML
-	private TableColumn<Equipment, String> equipmentID;
-	@FXML
-	private TableColumn<Equipment, String> countyID;
-	@FXML
-	private TableColumn<Equipment, Boolean> checkedOut;
-	@FXML 
-	private TableColumn<Equipment, Student> holder;
-	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
 	
 
@@ -59,14 +51,11 @@ public class ItemCheckOutController  {
 	@FXML
 	public void initialize() {
 		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA()) {
-			equipmentTableView.getItems().add(equipment);
+			if (equipment.isCheckedOut() == false) {
+				equipmentTableView.getItems().add(equipment);
+			}
 		}
-		
 		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
-		equipmentID.setCellValueFactory(new PropertyValueFactory<>("equipmentID"));
-		countyID.setCellValueFactory(new PropertyValueFactory<>("countyID"));
-		checkedOut.setCellValueFactory(new PropertyValueFactory<>("checkedOut"));
-		holder.setCellValueFactory(new PropertyValueFactory<>("holder"));
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
 	}
 

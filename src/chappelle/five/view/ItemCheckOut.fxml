@@ -6,17 +6,18 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.7040133779264214" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.7040133779264214" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.ItemCheckOutController">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="350.0" prefWidth="463.0">
          <children>
-            <TableView fx:id="equipmentTableview" layoutX="-1.0" layoutY="14.0" prefHeight="380.0" prefWidth="417.0">
+            <TableView fx:id="equipmentTableview" layoutX="-1.0" layoutY="-2.0" prefHeight="366.0" prefWidth="417.0">
               <columns>
-                <TableColumn prefWidth="416.0" text="C1" />
+                <TableColumn fx:id="equipmentName" prefWidth="210.0" text="Equipment" />
+                  <TableColumn fx:id="equipmentType" prefWidth="210.0" text="Type" />
               </columns>
             </TableView>
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="401.0" prefWidth="334.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="196.0">
          <children>
             <Label layoutX="73.0" layoutY="24.0" text="Cart" />
          </children></AnchorPane>

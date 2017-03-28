@@ -1,17 +1,13 @@
 package chappelle.five.view;
 
 import java.io.IOException;
-
 import java.io.IOException;
 import java.util.ArrayList;
-
-
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -50,7 +46,7 @@ public class ItemCheckOutController  {
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
 
-	
+
 	public void start(Stage primaryStage) {
 
 	}
@@ -58,18 +54,64 @@ public class ItemCheckOutController  {
 	@FXML
 	public void initialize() {
 		for (Equipment equipment : Student.SELECTED_STUDENT.getCheckedOutEquipmentA()) {
-				equipmentTableView.getItems().add(equipment);
-			}
-		
+			equipmentTableView.getItems().add(equipment);
+		}
+
 		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
 	}
-	
+
 	//Method for switching scenes
 	@FXML
 	public void backButton() throws IOException {
 		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
+
+
+
+
+	//Shopping cart
+	equipmentTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+		@Override
+		public void changed(ObservableValue observableValue, Object oldValue, Object newValue) {
+			//Check whether item is selected and set value of selected item to Label
+			if(equipmentTableView.getSelectionModel().getSelectedItem() != null) 
+			{    
+				TableViewSelectionModel selectionModel = equipmentTableView.getSelectionModel();
+				ObservableList selectedCells = selectionModel.getSelectedCells();
+				TablePosition tablePosition = (TablePosition) selectedCells.get(0);
+				Object val = tablePosition.getTableColumn().getCellData(newValue);
+				System.out.println("Selected Value" + val);
+			}
+		}
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	public void setMainApp(mainApp mainApp) {

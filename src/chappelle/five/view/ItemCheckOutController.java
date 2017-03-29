@@ -139,17 +139,6 @@ public class ItemCheckOutController  {
 =======
 
 
-	
-	
-	
-
-	public ObservableList<String> getListForCart() {
-		return listForCart;
-	}
-
-	public void setListForCart(ObservableList<String> listForCart) {
-		this.listForCart = listForCart;
-	}
 
 	public void setMainApp(mainApp mainApp) {
 

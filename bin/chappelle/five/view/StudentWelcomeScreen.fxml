@@ -7,9 +7,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.StudentWelcomeScreenController">
    <children>
-      <Label fx:id="lblHello" alignment="CENTER" layoutX="161.0" layoutY="44.0" prefHeight="30.0" prefWidth="279.0">
+      <Label fx:id="lblHello" alignment="CENTER" layoutX="111.0" layoutY="49.0" prefHeight="47.0" prefWidth="579.0">
          <font>
-            <Font name="Helvetica Neue" size="25.0" />
+            <Font name="Helvetica Neue" size="40.0" />
          </font>
       </Label>
       <Button fx:id="btnCheckIn" layoutX="440.0" layoutY="312.0" mnemonicParsing="false" onAction="#checkIn" prefHeight="111.0" prefWidth="296.0" text="Check In Equipment" textOverrun="CLIP">

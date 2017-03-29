@@ -32,6 +32,8 @@ public class ItemCheckOutController  {
 	private Button btnAddToCart;
 	@FXML 
 	private Button btnClearCart;
+	@FXML
+	private Button btnCheckOut;
 
 	@FXML
 	private TableView<Equipment> equipmentTableView;
@@ -39,7 +41,7 @@ public class ItemCheckOutController  {
 	private TableColumn<Equipment, String> equipmentName;
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
-	
+
 	@FXML
 	private Label lblMaximumItemsError;
 	@FXML
@@ -94,23 +96,37 @@ public class ItemCheckOutController  {
 		else {
 			listForCart.add(readSelectedItem().getEquipmentName());
 			equipmentCart.setItems(listForCart);
+
 		}
+
 	}
+
+
+
+
 
 	//Method for switching scenes
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
+	@FXML
+	public void handleCheckOut() throws IOException {
+		if (listForCart.size() != 0) {
+			ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutFinal.fxml");
+		}
+		else {
+			//ERROR LABEL NO ITEMS IN CART TO CHECK OUT//
+		}
+	}
 
 	
-
+	
 	@FXML
 	public void handleClear() {
 		listForCart.clear();
 		equipmentCart.setItems(listForCart);
 	}
-
 
 
 	//Gets ArrayList<Equipment> of items in cart checking out
@@ -124,6 +140,8 @@ public class ItemCheckOutController  {
 		}
 		return equipmentToCheckOut;
 	}
+
+
 
 
 

@@ -163,18 +163,22 @@ public class CheckOutFinalController {
 			txtInput6.setVisible(true);
 			break;
 		default:
-			//ERROR//
 			break;
 		}
 	}
 	
-	
+	@FXML
 	public void handleCheckOut() throws FileNotFoundException {
 		for (Equipment equipment : equipmentCheckingOut) {
 			equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
 			Student.SELECTED_STUDENT.getCheckedOutEquipment().add(equipment);	//Adds equipment to student's ArrayList of held equipment
 			PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
 		}
+	}
+	
+	@FXML
+	public void handleBack() {
+		
 	}
 	 
 

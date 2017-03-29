@@ -42,6 +42,8 @@ public class ItemCheckOutController  {
 	private Button btnAddToCart;
 	@FXML 
 	private Button btnClearCart;
+	@FXML
+	private Button btnCheckOut;
 
 	@FXML
 	private TableView<Equipment> equipmentTableView;
@@ -49,7 +51,7 @@ public class ItemCheckOutController  {
 	private TableColumn<Equipment, String> equipmentName;
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
-	
+
 	@FXML
 	private Label lblMaximumItemsError;
 	@FXML
@@ -104,54 +106,64 @@ public class ItemCheckOutController  {
 		else {
 			listForCart.add(readSelectedItem().getEquipmentName());
 			equipmentCart.setItems(listForCart);
+			
 		}
+		
 	}
-
-	//Method for switching scenes
-	@FXML
-	public void handleBack() throws IOException {
-		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
-	}
-
 	
 
-	@FXML
-	public void handleClear() {
-		listForCart.clear();
-		equipmentCart.setItems(listForCart);
+
+
+
+//Method for switching scenes
+@FXML
+public void handleBack() throws IOException {
+	ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
+}
+@FXML
+public void handleCheckOut() throws IOException {
+	ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutFina;.fxml");
+}
+
+
+
+@FXML
+public void handleClear() {
+	listForCart.clear();
+	equipmentCart.setItems(listForCart);
+}
+
+
+
+
+
+
+
+
+//Gets ArrayList<Equipment> of items in cart checking out
+public ArrayList<Equipment> getEquipmentToCheckOut() {
+	ArrayList<Equipment> equipmentToCheckOut = new ArrayList<Equipment>();
+	for (String itemInCart : listForCart) {
+		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA())
+			if (itemInCart.equals(equipment.getEquipmentName())) {
+				equipmentToCheckOut.add(equipment);
+			}
 	}
+	return equipmentToCheckOut;
+}
 
 
 
 
+//HELPER METHODS
+//Reads item clicked/selected in equipmentTableView
+@FXML
+public Equipment readSelectedItem() {
+	Equipment equipment = equipmentTableView.getSelectionModel().getSelectedItem();
+	return equipment;
+}
 
-
-
-
-	//Gets ArrayList<Equipment> of items in cart checking out
-	public ArrayList<Equipment> getEquipmentToCheckOut() {
-		ArrayList<Equipment> equipmentToCheckOut = new ArrayList<Equipment>();
-		for (String itemInCart : listForCart) {
-			for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA())
-				if (itemInCart.equals(equipment.getEquipmentName())) {
-					equipmentToCheckOut.add(equipment);
-				}
-		}
-		return equipmentToCheckOut;
-	}
-
-
-
-
-	//HELPER METHODS
-	//Reads item clicked/selected in equipmentTableView
-	@FXML
-	public Equipment readSelectedItem() {
-		Equipment equipment = equipmentTableView.getSelectionModel().getSelectedItem();
-		return equipment;
-	}
-
-	public void setMainApp(mainApp mainApp) {
-		this.mainApp = mainApp;
-	}
+public void setMainApp(mainApp mainApp) {
+	this.mainApp = mainApp;
+}
 }

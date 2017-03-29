@@ -13,24 +13,25 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="350.0" prefWidth="463.0">
          <children>
-            <TableView fx:id="equipmentTableView" layoutX="-1.0" layoutY="-2.0" prefHeight="600.0" prefWidth="534.0">
+            <TableView fx:id="equipmentTableView" layoutX="-1.0" layoutY="-2.0" prefHeight="552.0" prefWidth="534.0">
               <columns>
                 <TableColumn fx:id="equipmentName" prefWidth="266.667" text="Equipment" />
                   <TableColumn fx:id="equipmentType" prefWidth="266.667" text="Type" />
               </columns>
             </TableView>
+            <Button fx:id="btnBackButton" layoutX="7.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="266.667">
          <children>
-            <ListView fx:id="equipmentCart" layoutX="-2.0" layoutY="23.0" prefHeight="577.0" prefWidth="270.0" />
-            <Button fx:id="btnAddToCart" layoutX="7.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleAddToCart" text="Add To Cart" />
-            <Button fx:id="btnClearCart" layoutX="120.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="27.0" prefWidth="56.0" text="Clear" />
+            <ListView fx:id="equipmentCart" layoutX="-2.0" layoutY="23.0" prefHeight="527.0" prefWidth="270.0" />
+            <Button fx:id="btnAddToCart" layoutX="74.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleAddToCart" text="Add To Cart" />
+            <Button fx:id="btnClearCart" layoutX="7.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="27.0" prefWidth="56.0" text="Clear" />
             <Label layoutX="120.0" layoutY="4.0" text="Cart">
                <padding>
                   <Insets bottom="4.0" />
                </padding>
             </Label>
-            <Button fx:id="btnClearCart1" layoutX="199.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+            <Button layoutX="179.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleAddToCart" text="Check Out" />
          </children></AnchorPane>
   </items>
 </SplitPane>

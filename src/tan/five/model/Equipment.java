@@ -64,10 +64,10 @@ public class Equipment {
 	}
 
 	public void setCheckedOutI(String equipmentInfo) {			//WRITTEN FROM SCRATCH FOR INSTANTIATION FROM CSV
-		if (equipmentInfo == "y" || equipmentInfo == "Y") {
+		if (equipmentInfo.equals("out") || equipmentInfo.equals("OUT")) {
 			this.checkedOut.set(true);
 		}
-		else {
+		else if (equipmentInfo.equals("in") || equipmentInfo.equals("IN")) {
 			this.checkedOut.set(false);
 		}
 	}

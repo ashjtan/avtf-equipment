@@ -171,6 +171,7 @@ public class CheckOutFinalController {
 	public void handleCheckOut() throws FileNotFoundException {
 		for (Equipment equipment : equipmentCheckingOut) {
 			equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
+			PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's booleans
 			Student.SELECTED_STUDENT.getCheckedOutEquipment().add(equipment);	//Adds equipment to student's ArrayList of held equipment
 			PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
 		}

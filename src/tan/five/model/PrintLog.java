@@ -8,10 +8,10 @@ import java.time.LocalDateTime;
 
 public class PrintLog {
 
-	private static File log = new File("test.csv");
+	private static File log = new File("log.csv");
 
 	public static void main(String[] args) throws FileNotFoundException {
-		
+
 		PrintWriter pw = new PrintWriter(new FileOutputStream(log, true));
 		StringBuilder sb = new StringBuilder();
 		sb.append("id");
@@ -30,14 +30,26 @@ public class PrintLog {
 	}
 
 
-	public static void updateLog(StringBuilder sb) {
-		sb.append(LocalDateTime.now());
+	public static void updateLog(Boolean checkIn) throws FileNotFoundException {
+		PrintWriter pw = new PrintWriter(new FileOutputStream(log, true));
+		StringBuilder sb = new StringBuilder();
+		sb.append(LocalDateTime.now()); 			//Date + Time
 		sb.append(',');
-		//IF(CHECKING IN / CHECKING OUT)//
-		sb.append(Student.SELECTED_STUDENT);
+
+		if(checkIn) {								//In / Out
+			sb.append("IN");
+		}
+		else {
+			sb.append("OUT");
+		}
+
 		sb.append(',');
-		//PRINT EQUIPMENT HERE//
+		sb.append(Student.SELECTED_STUDENT.getFirstName() + " " + Student.SELECTED_STUDENT.getLastName());		//Student Name
 		sb.append(',');
+		sb.append(Student.SELECTED_STUDENT.getStudentID());			//Student ID
+		sb.append(',');
+		//PRINT EQUIPMENT HERE//									//Equipment Name
+		sb.append('\n');
 
 	}
 }

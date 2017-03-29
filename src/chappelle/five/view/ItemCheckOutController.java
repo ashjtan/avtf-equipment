@@ -49,11 +49,19 @@ public class ItemCheckOutController  {
 	private TableColumn<Equipment, String> equipmentName;
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
+	
+	@FXML
+	private Label lblMaximumItemsError;
+	@FXML
+	private Label lblDuplicateItemError;
 
 	@FXML
 	private ListView<String> equipmentCart;
 
 	private ObservableList<String> listForCart = FXCollections.observableArrayList();
+
+	private mainApp mainApp;
+
 
 
 
@@ -76,31 +84,27 @@ public class ItemCheckOutController  {
 	@FXML
 	public void handleAddToCart() {
 		boolean duplicate = false;
+		int itemCount = 0;
 
 		for (String itemInCart : listForCart) {
+			itemCount++;
 			if (readSelectedItem().getEquipmentName().equals(itemInCart)) {
-				System.out.println("ERROR");
 				duplicate = true;
 			}
 		}
-		if(!duplicate) {
+
+		if (itemCount > 6) {
+			///ADD MAXIMUM ITEMS ERROR LABEL///
+		}
+
+		else if(duplicate) {
+			///ADD DUPLICATE ERROR LABEL///
+		}
+
+		else {
 			listForCart.add(readSelectedItem().getEquipmentName());
 			equipmentCart.setItems(listForCart);
 		}
-	}
-
-	//Method for switching scenes
-	@FXML
-	public void backButton() throws IOException {
-		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
-	}
-
-	
-	//Shopping cart
-	@FXML
-	public Equipment readSelectedItem() {
-		Equipment equipment = equipmentTableView.getSelectionModel().getSelectedItem();
-		return equipment;
 	}
 
 	@FXML
@@ -108,12 +112,39 @@ public class ItemCheckOutController  {
 		listForCart.clear();
 		equipmentCart.setItems(listForCart);
 	}
-
-
-
-	public void setMainApp(mainApp mainApp) {
-
-
+	
+	
+	//Method for switching scenes
+	@FXML
+	public void handleBack() throws IOException {
+		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
 
+
+	//Gets ArrayList<Equipment> of items in cart checking out
+	public ArrayList<Equipment> getEquipmentToCheckOut() {
+		ArrayList<Equipment> equipmentToCheckOut = new ArrayList<Equipment>();
+		for (String itemInCart : listForCart) {
+			for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA())
+				if (itemInCart.equals(equipment.getEquipmentName())) {
+					equipmentToCheckOut.add(equipment);
+				}
+		}
+		return equipmentToCheckOut;
+	}
+
+
+
+
+	//HELPER METHODS
+	//Reads item clicked/selected in equipmentTableView
+	@FXML
+	public Equipment readSelectedItem() {
+		Equipment equipment = equipmentTableView.getSelectionModel().getSelectedItem();
+		return equipment;
+	}
+
+	public void setMainApp(mainApp mainApp) {
+		this.mainApp = mainApp;
+	}
 }

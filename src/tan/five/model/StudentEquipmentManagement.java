@@ -41,6 +41,7 @@ public class StudentEquipmentManagement {
 	//Student CSV File Loader
 	public static void loadStudentFile() throws IOException {
 
+		studentListA.clear();
 		FileReader file = new FileReader("Resources/AVTF_StudentList2017.csv"); 	
 		BufferedReader reader = new BufferedReader(file);							
 
@@ -92,6 +93,8 @@ public class StudentEquipmentManagement {
 
 	//Equipment CSV File Loader
 	public static void loadEquipmentFile() throws IOException {
+		equipmentListA.clear();
+		
 		FileReader file = new FileReader("Resources/Sample Equipment.csv");
 		BufferedReader reader = new BufferedReader(file);
 		String line;

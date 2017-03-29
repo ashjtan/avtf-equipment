@@ -75,17 +75,18 @@ public class ItemCheckOutController  {
 
 	@FXML
 	public void handleAddToCart() {
-		/*for (String itemInCart : equipmentCart.getItems()) {
-			if (!(readSelectedItem().equals(itemInCart))) {
-				cartedItems.add(itemInCart);
-				equipmentCart.setItems(cartedItems);
+		boolean duplicate = false;
+
+		for (String itemInCart : listForCart) {
+			if (readSelectedItem().getEquipmentName().equals(itemInCart)) {
+				System.out.println("ERROR");
+				duplicate = true;
 			}
-		}*/
-
-		//ADD CHECK SO NO CART DUPLICATES//
-		listForCart.add(readSelectedItem().getEquipmentName());
-		equipmentCart.setItems(listForCart);
-
+		}
+		if(!duplicate) {
+			listForCart.add(readSelectedItem().getEquipmentName());
+			equipmentCart.setItems(listForCart);
+		}
 	}
 
 	//Method for switching scenes
@@ -94,10 +95,7 @@ public class ItemCheckOutController  {
 		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
 
-
-
-
-
+	
 	//Shopping cart
 	@FXML
 	public Equipment readSelectedItem() {
@@ -114,7 +112,7 @@ public class ItemCheckOutController  {
 
 
 	public void setMainApp(mainApp mainApp) {
-		
+
 
 	}
 

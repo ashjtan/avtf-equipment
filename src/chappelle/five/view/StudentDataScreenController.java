@@ -76,7 +76,7 @@ public class StudentDataScreenController extends Application {
 
 
 	public void setMainApp(mainApp mainApp) {
-		// TODO Auto-generated method stub
+		
 
 	}
 }

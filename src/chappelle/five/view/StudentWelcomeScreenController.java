@@ -25,7 +25,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import tan.five.model.Student;
 import java.io.IOException;
-import chappelle.five.view.SceneSwitcher;
+import chapman.five.model.ProjectUtilities;
 import chapman.five.MainApp;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -70,11 +70,11 @@ public class StudentWelcomeScreenController  {
 	//Methods for switching scenes
 	@FXML
 	public void checkIn() throws IOException {
-		SceneSwitcher.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/ItemCheckIn.fxml");
+		ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/ItemCheckIn.fxml");
 	}
 	@FXML
 	public void checkOut() throws IOException {
-		SceneSwitcher.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/ItemCheckOut.fxml");
+		ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/ItemCheckOut.fxml");
 	}
 
 	// @param mainApp

@@ -1,12 +1,8 @@
 package chappelle.five.view;
 
 import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-
-
-
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,6 +11,7 @@ import tan.five.mainApp;
 import tan.five.model.Equipment;
 import tan.five.model.EquipmentType;
 import tan.five.model.StudentEquipmentManagement;
+import chapman.five.model.ProjectUtilities;
 
 
 public class ItemCheckInController {
@@ -46,7 +43,7 @@ public class ItemCheckInController {
 	//Method for switching scenes
 	@FXML
 	public void backButton() throws IOException {
-		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
+		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
 
 

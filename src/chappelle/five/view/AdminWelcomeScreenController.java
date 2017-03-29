@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import tan.five.model.Student;
+import chapman.five.model.ProjectUtilities;
 
 public class AdminWelcomeScreenController {
 
@@ -35,11 +36,11 @@ public class AdminWelcomeScreenController {
 	//Methods for switching scenes
 	@FXML
 	public void studentInfo() throws IOException {
-		SceneSwitcher.handleSceneSwitch(btnStudentInfo, "/chappelle/five/view/StudentDataScreen.fxml");
+		ProjectUtilities.handleSceneSwitch(btnStudentInfo, "/chappelle/five/view/StudentDataScreen.fxml");
 	}
 	@FXML
 	public void equipmentList() throws IOException {
-		SceneSwitcher.handleSceneSwitch(btnEquipmentList, "/chappelle/five/view/EquipmentScreen.fxml");
+		ProjectUtilities.handleSceneSwitch(btnEquipmentList, "/chappelle/five/view/EquipmentScreen.fxml");
 	}
 
 	// @param mainApp

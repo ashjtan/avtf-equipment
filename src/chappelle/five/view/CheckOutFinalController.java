@@ -14,7 +14,7 @@ import tan.five.model.Equipment;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 import chappelle.five.view.ItemCheckOutController;
-import chappelle.five.view.UpdateImage;
+import chapman.five.model.ProjectUtilities;
 
 public class CheckOutFinalController {
 
@@ -70,8 +70,8 @@ public class CheckOutFinalController {
 
 
 
-
-	/*
+/*
+	
 	//Add the equipment name to the label
 	@FXML
 	private void initialize() {
@@ -80,7 +80,7 @@ public class CheckOutFinalController {
 		}
 
 	}
-	 */
-
+	 
+*/
 
 }

@@ -17,6 +17,7 @@ import tan.five.model.Equipment;
 import tan.five.model.EquipmentType;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
+import chapman.five.model.ProjectUtilities;
 
 public class EquipmentScreenController {
 
@@ -61,7 +62,7 @@ public class EquipmentScreenController {
 	//Switches scenes
 	@FXML
 	public void backButton() throws IOException {
-		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/AdminWelcomeScreen.fxml");
+		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/AdminWelcomeScreen.fxml");
 	}
 	
 

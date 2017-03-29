@@ -5,26 +5,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.StudentWelcomeScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.StudentWelcomeScreenController">
    <children>
-      <Label fx:id="lblHello" alignment="CENTER" layoutX="111.0" layoutY="49.0" prefHeight="47.0" prefWidth="579.0">
+      <Label fx:id="lblHello" alignment="CENTER" layoutX="11.0" layoutY="45.0" prefHeight="47.0" prefWidth="579.0">
          <font>
-            <Font name="Helvetica Neue" size="40.0" />
+            <Font name="Helvetica Neue" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="btnCheckIn" layoutX="440.0" layoutY="312.0" mnemonicParsing="false" onAction="#checkIn" prefHeight="111.0" prefWidth="296.0" text="Check In Equipment" textOverrun="CLIP">
+      <Button fx:id="btnCheckIn" layoutX="86.0" layoutY="204.0" mnemonicParsing="false" onAction="#checkIn" prefHeight="70.0" prefWidth="160.0" text="Check In Equipment" textOverrun="CLIP">
          <font>
-            <Font name="Helvetica Neue" size="25.0" />
+            <Font name="Helvetica Neue Thin" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnCheckOut" layoutX="58.0" layoutY="312.0" mnemonicParsing="false" onAction="#checkOut" prefHeight="111.0" prefWidth="296.0" text="Check Out Equipment">
+      <Button fx:id="btnCheckOut" layoutX="349.0" layoutY="204.0" mnemonicParsing="false" onAction="#checkOut" prefHeight="70.0" prefWidth="160.0" text="Check Out Equipment">
          <font>
-            <Font name="Helvetica Neue" size="25.0" />
+            <Font name="Helvetica Neue Thin" size="13.0" />
          </font>
       </Button>
-      <Label layoutX="156.0" layoutY="149.0" prefHeight="47.0" prefWidth="489.0" text="What would you like to do?">
+      <Label layoutX="202.0" layoutY="118.0" prefHeight="47.0" prefWidth="198.0" text="What would you like to do?">
          <font>
-            <Font name="Helvetica Neue" size="40.0" />
+            <Font name="Helvetica Neue" size="16.0" />
          </font>
       </Label>
    </children>

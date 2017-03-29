@@ -20,18 +20,21 @@
                   <TableColumn fx:id="equipmentType" prefWidth="266.667" text="Type" />
               </columns>
             </TableView>
-            <Button fx:id="btnBackButton" layoutX="7.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+            <Button fx:id="btnBackButton" layoutX="7.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleBack" text="Back">
+               <font>
+                  <Font name="Helvetica Neue Thin" size="12.0" />
+               </font></Button>
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="266.667">
          <children>
             <ListView fx:id="equipmentCart" layoutX="-2.0" layoutY="23.0" prefHeight="527.0" prefWidth="270.0" />
             <Button fx:id="btnAddToCart" layoutX="73.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleAddToCart" prefHeight="27.0" prefWidth="90.0" text="Add To Cart" textAlignment="CENTER">
                <font>
-                  <Font size="12.0" />
+                  <Font name="Helvetica Neue Thin" size="12.0" />
                </font></Button>
             <Button fx:id="btnClearCart" layoutX="14.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="27.0" prefWidth="49.0" text="Clear" textAlignment="CENTER">
                <font>
-                  <Font size="12.0" />
+                  <Font name="Helvetica Neue Thin" size="12.0" />
                </font></Button>
             <Label layoutX="120.0" layoutY="4.0" text="Cart">
                <padding>
@@ -40,7 +43,7 @@
             </Label>
             <Button fx:id="btnCheckOut" layoutX="171.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleCheckOut" prefHeight="27.0" prefWidth="77.0" text="Check Out" textAlignment="CENTER">
                <font>
-                  <Font size="12.0" />
+                  <Font name="Helvetica Neue Thin" size="12.0" />
                </font></Button>
             <Label fx:id="lblMaximumItemsError" layoutX="26.0" layoutY="533.0" text="Can only check out up to six items." textFill="#f80000" visible="false">
                <font>

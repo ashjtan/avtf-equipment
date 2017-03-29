@@ -91,7 +91,7 @@ public class ItemCheckOutController  {
 
 	//Method for switching scenes
 	@FXML
-	public void backButton() throws IOException {
+	public void handleBack() throws IOException {
 		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
 
@@ -110,6 +110,17 @@ public class ItemCheckOutController  {
 	}
 
 
+	
+	
+	
+
+	public ObservableList<String> getListForCart() {
+		return listForCart;
+	}
+
+	public void setListForCart(ObservableList<String> listForCart) {
+		this.listForCart = listForCart;
+	}
 
 	public void setMainApp(mainApp mainApp) {
 

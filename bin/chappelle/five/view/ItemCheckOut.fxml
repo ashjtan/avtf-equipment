@@ -9,27 +9,28 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.667" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.ItemCheckOutController">
+<SplitPane dividerPositions="0.667" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.ItemCheckOutController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="350.0" prefWidth="463.0">
          <children>
-            <TableView fx:id="equipmentTableView" layoutX="-1.0" layoutY="-2.0" prefHeight="366.0" prefWidth="395.0">
+            <TableView fx:id="equipmentTableView" layoutX="-1.0" layoutY="-2.0" prefHeight="600.0" prefWidth="534.0">
               <columns>
-                <TableColumn fx:id="equipmentName" prefWidth="210.0" text="Equipment" />
-                  <TableColumn fx:id="equipmentType" prefWidth="210.0" text="Type" />
+                <TableColumn fx:id="equipmentName" prefWidth="266.667" text="Equipment" />
+                  <TableColumn fx:id="equipmentType" prefWidth="266.667" text="Type" />
               </columns>
             </TableView>
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="112.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="266.667">
          <children>
-            <ListView fx:id="equipmentCart" layoutX="-2.0" layoutY="23.0" prefHeight="326.0" prefWidth="200.0" />
-            <Button fx:id="btnAddToCart" layoutX="90.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleAddToCart" text="Add To Cart" />
-            <Button fx:id="btnClearCart" layoutX="31.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleClear" text="Clear" />
-            <Label layoutX="84.0" layoutY="4.0" text="Cart">
+            <ListView fx:id="equipmentCart" layoutX="-2.0" layoutY="23.0" prefHeight="577.0" prefWidth="270.0" />
+            <Button fx:id="btnAddToCart" layoutX="7.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleAddToCart" text="Add To Cart" />
+            <Button fx:id="btnClearCart" layoutX="120.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="27.0" prefWidth="56.0" text="Clear" />
+            <Label layoutX="120.0" layoutY="4.0" text="Cart">
                <padding>
                   <Insets bottom="4.0" />
                </padding>
             </Label>
+            <Button fx:id="btnClearCart1" layoutX="199.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
          </children></AnchorPane>
   </items>
 </SplitPane>

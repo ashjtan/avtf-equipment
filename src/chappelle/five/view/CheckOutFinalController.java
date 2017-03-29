@@ -6,12 +6,18 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import tan.five.model.Equipment;
 import tan.five.model.Student;
+import tan.five.model.StudentEquipmentManagement;
+import chappelle.five.view.ItemCheckOutController;
+import chappelle.five.view.UpdateImage;
 
 public class CheckOutFinalController {
-	
+
 	//Fields
 	@FXML
 	private ImageView imgCheckMark1;
@@ -37,26 +43,44 @@ public class CheckOutFinalController {
 	private Label lblItem5;
 	@FXML
 	private Label lblItem6;
-	
-	
+	Image checkMark = new Image("file:resources/checkmark.png");
 	@FXML
-	private void handleUpdateImage() {
+	private ListView<String> equipmentCart;
+	@FXML
+	private TextField txtImput1;
+	@FXML
+	private TextField txtImput2;
+	@FXML
+	private TextField txtImput3;
+	@FXML
+	private TextField txtImput4;
+	@FXML
+	private TextField txtImput5;
+	@FXML
+	private TextField txtImput6;
 
-		Image check = new Image("file:resources/checkmark.png");
-		imgCheckMark1.setImage(check);
-		imgCheckMark2.setImage(check);
-		imgCheckMark3.setImage(check);
-		imgCheckMark4.setImage(check);
-		imgCheckMark5.setImage(check);
-		imgCheckMark6.setImage(check);
-	}
-	
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
+	//Add the equipment name to the label
 	@FXML
 	private void initialize() {
-		
-		
+		for(Equipment equipment : ItemCheckOutController.get) {
+
+		}
+
 	}
-	
-	
-	
+	 */
+
+
 }

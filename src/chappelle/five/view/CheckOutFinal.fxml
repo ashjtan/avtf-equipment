@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.CheckOutFinalController">
+    <header>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="40.0" prefWidth="480.0">
+         <children>
+            <Label layoutX="136.0" layoutY="14.0" text="Please Enter ID Code">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+    </header>
+    <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="437.0" prefWidth="480.0">
+         <children>
+            <Label fx:id="lblItem1" layoutX="14.0" layoutY="15.0" text="Label" />
+            <Label fx:id="lblItem2" layoutX="14.0" layoutY="61.0" text="Label" />
+            <Label fx:id="lblItem3" layoutX="14.0" layoutY="100.0" text="Label" />
+            <Label fx:id="lblItem4" layoutX="14.0" layoutY="139.0" text="Label" />
+            <Label fx:id="lblItem5" layoutX="14.0" layoutY="175.0" text="Label" />
+            <Label fx:id="lblItem6" layoutX="14.0" layoutY="216.0" text="Label" />
+            <TextField layoutX="157.0" layoutY="10.0" />
+            <TextField layoutX="157.0" layoutY="170.0" />
+            <TextField layoutX="157.0" layoutY="134.0" />
+            <TextField layoutX="157.0" layoutY="95.0" />
+            <TextField layoutX="157.0" layoutY="56.0" />
+            <TextField layoutX="157.0" layoutY="211.0" />
+            <ImageView fx:id="imgCheckMark1" fitHeight="24.0" fitWidth="24.0" layoutX="331.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgCheckMark2" fitHeight="24.0" fitWidth="24.0" layoutX="331.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgCheckMark3" fitHeight="24.0" fitWidth="24.0" layoutX="331.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgCheckMark4" fitHeight="24.0" fitWidth="24.0" layoutX="331.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgCheckMark5" fitHeight="24.0" fitWidth="24.0" layoutX="331.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgCheckMark6" fitHeight="24.0" fitWidth="24.0" layoutX="331.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" />
+         </children></AnchorPane>
+    </content>
+</DialogPane>

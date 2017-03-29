@@ -19,12 +19,9 @@ import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 
 public class EquipmentScreenController {
+
 	@FXML
-	private Button btnCheckIn;
-	@FXML
-	private Button btnCheckOut;
-	@FXML
-	private Button btnGoBack;
+	private Button btnBackButton;
 
 	@FXML
 	private TableView<Equipment> equipmentTableView;
@@ -63,35 +60,10 @@ public class EquipmentScreenController {
 
 	//Switches scenes
 	@FXML
-	private void handleSceneSwitch(ActionEvent event) throws IOException{
-		Stage stage; 
-		Parent root;
-		//Setting the scene to scene one
-		if(event.getSource()==btnCheckIn){
-			//get reference to the button's stage         
-			stage=(Stage) btnCheckIn.getScene().getWindow();
-			//load up OTHER FXML document
-			root = FXMLLoader.load(getClass().getResource("CHECK IN MENU"));
-		}
-		//Setting the scene to the check out menu
-		else {
-			if(event.getSource()==btnCheckOut){
-				//get reference to the button's stage         
-				stage=(Stage) btnCheckOut.getScene().getWindow();
-				//load up OTHER FXML document
-				root = FXMLLoader.load(getClass().getResource("CHECK OUT MENU"));
-			}
-			//So it may set the root scene again
-			else{
-				stage=(Stage) btnGoBack.getScene().getWindow();
-				root = FXMLLoader.load(getClass().getResource("tan/five/view/Login.fxml"));
-			}
-			//create a new scene with root and set the stage
-			Scene checkInMenu = new Scene(root);
-			stage.setScene(checkInMenu);
-			stage.show();
-		}
+	public void backButton() throws IOException {
+		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/AdminWelcomeScreen.fxml");
 	}
+	
 
 	public void setMainApp(mainApp mainApp) {
 

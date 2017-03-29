@@ -4,41 +4,83 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
-
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import tan.five.model.Equipment;
 import tan.five.model.Student;
+import tan.five.model.StudentEquipmentManagement;
+import chappelle.five.view.ItemCheckOutController;
+import chappelle.five.view.UpdateImage;
 
 public class CheckOutFinalController {
-	public static void main(String[]args) throws FileNotFoundException{
-        PrintWriter pw = new PrintWriter(new File("test.csv"));
-        StringBuilder sb = new StringBuilder();
-        sb.append("DATE / TIME");
-        sb.append(',');
-        sb.append("CHECK IN / OUT");
-        sb.append(',');
-        sb.append("STUDENT");
-        sb.append(',');
-        sb.append("EQUIPMENT");
-        sb.append('\n');
-        sb.append("beep beep");
 
-        
-        
-        sb.append('\n');
+	//Fields
+	@FXML
+	private ImageView imgCheckMark1;
+	@FXML
+	private ImageView imgCheckMark2;
+	@FXML
+	private ImageView imgCheckMark3;
+	@FXML
+	private ImageView imgCheckMark4;
+	@FXML
+	private ImageView imgCheckMark5;
+	@FXML
+	private ImageView imgCheckMark6;
+	@FXML
+	private Label lblItem1;
+	@FXML
+	private Label lblItem2;
+	@FXML
+	private Label lblItem3;
+	@FXML
+	private Label lblItem4;
+	@FXML
+	private Label lblItem5;
+	@FXML
+	private Label lblItem6;
+	Image checkMark = new Image("file:resources/checkmark.png");
+	@FXML
+	private ListView<String> equipmentCart;
+	@FXML
+	private TextField txtImput1;
+	@FXML
+	private TextField txtImput2;
+	@FXML
+	private TextField txtImput3;
+	@FXML
+	private TextField txtImput4;
+	@FXML
+	private TextField txtImput5;
+	@FXML
+	private TextField txtImput6;
 
-        pw.write(sb.toString());
-        pw.close();
-        System.out.println("done!");
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
+	//Add the equipment name to the label
+	@FXML
+	private void initialize() {
+		for(Equipment equipment : ItemCheckOutController.get) {
+
+		}
+
 	}
-	
-	
-	
-        public static void updateLog(StringBuilder sb) {
-        	sb.append(LocalDateTime.now());
-            sb.append(',');
-            //IF(CHECKING IN / CHECKING OUT)//
-            sb.append(Student.SELECTED_STUDENT);
-            sb.append(',');
-            //PRINT EQUIPMENT HERE//
-            sb.append(',');
-	}
+	 */
+
+
 }

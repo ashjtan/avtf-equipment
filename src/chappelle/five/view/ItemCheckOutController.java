@@ -105,6 +105,23 @@ public class ItemCheckOutController  {
 			listForCart.add(readSelectedItem().getEquipmentName());
 			equipmentCart.setItems(listForCart);
 		}
+<<<<<<< HEAD
+=======
+	}
+
+	//Method for switching scenes
+	@FXML
+	public void handleBack() throws IOException {
+		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
+	}
+
+	
+	//Shopping cart
+	@FXML
+	public Equipment readSelectedItem() {
+		Equipment equipment = equipmentTableView.getSelectionModel().getSelectedItem();
+		return equipment;
+>>>>>>> refs/remotes/origin/master
 	}
 
 	@FXML
@@ -112,12 +129,32 @@ public class ItemCheckOutController  {
 		listForCart.clear();
 		equipmentCart.setItems(listForCart);
 	}
+<<<<<<< HEAD
 	
 	
 	//Method for switching scenes
 	@FXML
 	public void handleBack() throws IOException {
 		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
+=======
+
+
+	
+	
+	
+
+	public ObservableList<String> getListForCart() {
+		return listForCart;
+	}
+
+	public void setListForCart(ObservableList<String> listForCart) {
+		this.listForCart = listForCart;
+	}
+
+	public void setMainApp(mainApp mainApp) {
+
+
+>>>>>>> refs/remotes/origin/master
 	}
 
 

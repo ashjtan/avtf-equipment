@@ -49,8 +49,7 @@ public class LoginController {
 	//Initialize
 	@FXML
 	private void initialize(){
-		Image image = new Image("file:resources/Camcorder Pro-100.png");
-		imgAppIcon.setImage(image);
+		
 
 	}
 

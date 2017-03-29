@@ -58,7 +58,7 @@ public class ItemCheckOutController  {
 	@FXML
 	private ListView<String> equipmentCart;
 
-	private ObservableList<String> listForCart = FXCollections.observableArrayList();
+	private static ObservableList<String> listForCart = FXCollections.observableArrayList();
 
 	private mainApp mainApp;
 
@@ -122,19 +122,9 @@ public class ItemCheckOutController  {
 	}
 
 
-<<<<<<< HEAD
-=======
-
-	public void setMainApp(mainApp mainApp) {
-
-
->>>>>>> refs/remotes/origin/master
-	}
->>>>>>> refs/remotes/origin/master
-
 
 	//Gets ArrayList<Equipment> of items in cart checking out
-	public ArrayList<Equipment> getEquipmentToCheckOut() {
+	public static ArrayList<Equipment> getEquipmentToCheckOut() {
 		ArrayList<Equipment> equipmentToCheckOut = new ArrayList<Equipment>();
 		for (String itemInCart : listForCart) {
 			for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA())

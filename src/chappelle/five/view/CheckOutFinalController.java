@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import tan.five.model.Equipment;
+import tan.five.model.PrintLog;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 import chappelle.five.view.ItemCheckOutController;
@@ -31,6 +32,8 @@ public class CheckOutFinalController {
 	private ImageView imgCheckMark5;
 	@FXML
 	private ImageView imgCheckMark6;
+	Image checkMark = new Image("file:resources/checkmark.png");
+
 	@FXML
 	private Label lblItem1;
 	@FXML
@@ -43,7 +46,8 @@ public class CheckOutFinalController {
 	private Label lblItem5;
 	@FXML
 	private Label lblItem6;
-	Image checkMark = new Image("file:resources/checkmark.png");
+
+
 	@FXML
 	private ListView<String> equipmentCart;
 	@FXML
@@ -60,27 +64,75 @@ public class CheckOutFinalController {
 	private TextField txtImput6;
 
 
-
-
-
-
-
-
-
-
-
-
-
-	/*
-	//Add the equipment name to the label
 	@FXML
 	private void initialize() {
-		for(Equipment equipment : ItemCheckOutController.get) {
-
+		switch (ItemCheckOutController.getEquipmentToCheckOut().size()) {
+		case 1:
+			lblItem1.setVisible(true);
+			txtImput1.setVisible(true);
+			break;
+		case 2:
+			lblItem1.setVisible(true);
+			txtImput1.setVisible(true);
+			lblItem2.setVisible(true);
+			txtImput2.setVisible(true);
+			break;
+		case 3:
+			lblItem1.setVisible(true);
+			txtImput1.setVisible(true);
+			lblItem2.setVisible(true);
+			txtImput2.setVisible(true);
+			lblItem3.setVisible(true);
+			txtImput3.setVisible(true);
+			break;
+		case 4:
+			lblItem1.setVisible(true);
+			txtImput1.setVisible(true);
+			lblItem2.setVisible(true);
+			txtImput2.setVisible(true);
+			lblItem3.setVisible(true);
+			txtImput3.setVisible(true);
+			lblItem4.setVisible(true);
+			txtImput4.setVisible(true);
+			break;
+		case 5:
+			lblItem1.setVisible(true);
+			txtImput1.setVisible(true);
+			lblItem2.setVisible(true);
+			txtImput2.setVisible(true);
+			lblItem3.setVisible(true);
+			txtImput3.setVisible(true);
+			lblItem4.setVisible(true);
+			txtImput4.setVisible(true);
+			lblItem5.setVisible(true);
+			txtImput5.setVisible(true);
+			break;
+		case 6:
+			lblItem1.setVisible(true);
+			txtImput1.setVisible(true);
+			lblItem2.setVisible(true);
+			txtImput2.setVisible(true);
+			lblItem3.setVisible(true);
+			txtImput3.setVisible(true);
+			lblItem4.setVisible(true);
+			txtImput4.setVisible(true);
+			lblItem5.setVisible(true);
+			txtImput5.setVisible(true);
+			lblItem6.setVisible(true);
+			txtImput6.setVisible(true);
+			break;
+		default:
+			//ERROR//
+			break;
 		}
-
 	}
-	 */
-
+	
+	public void handleCheckOut() throws FileNotFoundException {
+		for (Equipment equipment : ItemCheckOutController.getEquipmentToCheckOut()) {
+			equipment.setCheckedOut(true);
+			PrintLog.updateLog(false, equipment);
+		}
+		
+	}
 
 }

@@ -45,7 +45,7 @@ public class ItemCheckOutController  {
 	@FXML
 	private Label lblMaximumItemsError;
 	@FXML
-	private Label lblDuplicateItemError;
+	private Label lblNoItemsError;
 
 	@FXML
 	private ListView<String> equipmentCart;
@@ -73,6 +73,7 @@ public class ItemCheckOutController  {
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
 	}
 
+	
 	@FXML
 	public void handleAddToCart() {
 		boolean duplicate = false;
@@ -85,15 +86,11 @@ public class ItemCheckOutController  {
 			}
 		}
 
-		if (itemCount > 6) {
-			///ADD MAXIMUM ITEMS ERROR LABEL///
+		if (itemCount >= 6) {
+			lblMaximumItemsError.setVisible(true);
 		}
 
-		else if(duplicate) {
-			///ADD DUPLICATE ERROR LABEL///
-		}
-
-		else {
+		else if (!duplicate) {
 			listForCart.add(readSelectedItem().getEquipmentName());
 			equipmentCart.setItems(listForCart);
 
@@ -116,12 +113,15 @@ public class ItemCheckOutController  {
 			ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutFinal.fxml");
 		}
 		else {
-			//ERROR LABEL NO ITEMS IN CART TO CHECK OUT//
+			if (lblMaximumItemsError.isVisible()) {
+				lblMaximumItemsError.setVisible(false);
+			}
+			lblNoItemsError.setVisible(true);
 		}
 	}
 
-	
-	
+
+
 	@FXML
 	public void handleClear() {
 		listForCart.clear();

@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -51,109 +53,129 @@ public class CheckOutFinalController {
 	@FXML
 	private ListView<String> equipmentCart;
 	@FXML
-	private TextField txtImput1;
+	private TextField txtInput1;
 	@FXML
-	private TextField txtImput2;
+	private TextField txtInput2;
 	@FXML
-	private TextField txtImput3;
+	private TextField txtInput3;
 	@FXML
-	private TextField txtImput4;
+	private TextField txtInput4;
 	@FXML
-	private TextField txtImput5;
+	private TextField txtInput5;
 	@FXML
-	private TextField txtImput6;
-
-
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
-
-
-/*
+	private TextField txtInput6;
 	
+	ArrayList<Equipment> equipmentCheckingOut = ItemCheckOutController.getEquipmentToCheckOut();
+
+
 	//Add the equipment name to the label
->>>>>>> refs/remotes/origin/master
 	@FXML
 	private void initialize() {
-		switch (ItemCheckOutController.getEquipmentToCheckOut().size()) {
+		switch (equipmentCheckingOut.size()) {
 		case 1:
 			lblItem1.setVisible(true);
-			txtImput1.setVisible(true);
+			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
+			txtInput1.setVisible(true);
 			break;
 		case 2:
 			lblItem1.setVisible(true);
-			txtImput1.setVisible(true);
+			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
+			txtInput1.setVisible(true);
+			
 			lblItem2.setVisible(true);
-			txtImput2.setVisible(true);
+			lblItem2.setText(equipmentCheckingOut.get(1).getEquipmentName());
+			txtInput2.setVisible(true);
 			break;
 		case 3:
 			lblItem1.setVisible(true);
-			txtImput1.setVisible(true);
+			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
+			txtInput1.setVisible(true);
+			
 			lblItem2.setVisible(true);
-			txtImput2.setVisible(true);
+			lblItem2.setText(equipmentCheckingOut.get(1).getEquipmentName());
+			txtInput2.setVisible(true);
+			
 			lblItem3.setVisible(true);
-			txtImput3.setVisible(true);
+			lblItem3.setText(equipmentCheckingOut.get(2).getEquipmentName());
+			txtInput3.setVisible(true);
 			break;
 		case 4:
 			lblItem1.setVisible(true);
-			txtImput1.setVisible(true);
+			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
+			txtInput1.setVisible(true);
+			
 			lblItem2.setVisible(true);
-			txtImput2.setVisible(true);
+			lblItem2.setText(equipmentCheckingOut.get(1).getEquipmentName());
+			txtInput2.setVisible(true);
+			
 			lblItem3.setVisible(true);
-			txtImput3.setVisible(true);
+			lblItem3.setText(equipmentCheckingOut.get(2).getEquipmentName());
+			txtInput3.setVisible(true);
+			
 			lblItem4.setVisible(true);
-			txtImput4.setVisible(true);
+			lblItem4.setText(equipmentCheckingOut.get(3).getEquipmentName());
+			txtInput4.setVisible(true);
 			break;
 		case 5:
 			lblItem1.setVisible(true);
-			txtImput1.setVisible(true);
+			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
+			txtInput1.setVisible(true);
+			
 			lblItem2.setVisible(true);
-			txtImput2.setVisible(true);
+			lblItem2.setText(equipmentCheckingOut.get(1).getEquipmentName());
+			txtInput2.setVisible(true);
+			
 			lblItem3.setVisible(true);
-			txtImput3.setVisible(true);
+			lblItem3.setText(equipmentCheckingOut.get(2).getEquipmentName());
+			txtInput3.setVisible(true);
+			
 			lblItem4.setVisible(true);
-			txtImput4.setVisible(true);
+			lblItem4.setText(equipmentCheckingOut.get(3).getEquipmentName());
+			txtInput4.setVisible(true);
+			
 			lblItem5.setVisible(true);
-			txtImput5.setVisible(true);
+			lblItem5.setText(equipmentCheckingOut.get(4).getEquipmentName());
+			txtInput5.setVisible(true);
 			break;
 		case 6:
 			lblItem1.setVisible(true);
-			txtImput1.setVisible(true);
+			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
+			txtInput1.setVisible(true);
+			
 			lblItem2.setVisible(true);
-			txtImput2.setVisible(true);
+			lblItem2.setText(equipmentCheckingOut.get(1).getEquipmentName());
+			txtInput2.setVisible(true);
+			
 			lblItem3.setVisible(true);
-			txtImput3.setVisible(true);
+			lblItem3.setText(equipmentCheckingOut.get(2).getEquipmentName());
+			txtInput3.setVisible(true);
+			
 			lblItem4.setVisible(true);
-			txtImput4.setVisible(true);
+			lblItem4.setText(equipmentCheckingOut.get(3).getEquipmentName());
+			txtInput4.setVisible(true);
+			
 			lblItem5.setVisible(true);
-			txtImput5.setVisible(true);
+			lblItem5.setText(equipmentCheckingOut.get(4).getEquipmentName());
+			txtInput5.setVisible(true);
+			
 			lblItem6.setVisible(true);
-			txtImput6.setVisible(true);
+			lblItem6.setText(equipmentCheckingOut.get(5).getEquipmentName());
+			txtInput6.setVisible(true);
 			break;
 		default:
 			//ERROR//
 			break;
 		}
 	}
-<<<<<<< HEAD
+	
 	
 	public void handleCheckOut() throws FileNotFoundException {
-		for (Equipment equipment : ItemCheckOutController.getEquipmentToCheckOut()) {
-			equipment.setCheckedOut(true);
-			PrintLog.updateLog(false, equipment);
+		for (Equipment equipment : equipmentCheckingOut) {
+			equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
+			Student.SELECTED_STUDENT.getCheckedOutEquipment().add(equipment);	//Adds equipment to student's ArrayList of held equipment
+			PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
 		}
-		
 	}
-=======
 	 
-*/
->>>>>>> refs/remotes/origin/master
 
 }

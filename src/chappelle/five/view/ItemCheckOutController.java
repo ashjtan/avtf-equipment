@@ -60,7 +60,7 @@ public class ItemCheckOutController  {
 	@FXML
 	private ListView<String> equipmentCart;
 
-	private ObservableList<String> listForCart = FXCollections.observableArrayList();
+	private static ObservableList<String> listForCart = FXCollections.observableArrayList();
 
 	private mainApp mainApp;
 
@@ -125,6 +125,8 @@ public void handleCheckOut() throws IOException {
 	ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutFina;.fxml");
 }
 
+<<<<<<< HEAD
+=======
 
 
 @FXML
@@ -135,7 +137,22 @@ public void handleClear() {
 
 
 
+>>>>>>> refs/remotes/origin/master
 
+<<<<<<< HEAD
+=======
+	//Gets ArrayList<Equipment> of items in cart checking out
+	public static ArrayList<Equipment> getEquipmentToCheckOut() {
+		ArrayList<Equipment> equipmentToCheckOut = new ArrayList<Equipment>();
+		for (String itemInCart : listForCart) {
+			for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA())
+				if (itemInCart.equals(equipment.getEquipmentName())) {
+					equipmentToCheckOut.add(equipment);
+				}
+		}
+		return equipmentToCheckOut;
+	}
+>>>>>>> origin/master
 
 
 

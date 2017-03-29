@@ -59,7 +59,7 @@ public class Student {
 		this.checkedOutEquipment = FXCollections.observableList(checkedOutEquipment1);
 	}
 	
-	public ArrayList<Equipment> getCheckedOutEquipment() {			//TENTATIVE: returns ArrayList by casting
-		return (ArrayList<Equipment>)checkedOutEquipment;
+	public ObservableList<Equipment> getCheckedOutEquipment() {			//Returns OBSERVABLELIST, not ArrayList
+		return checkedOutEquipment;
 	}
 }

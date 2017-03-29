@@ -30,7 +30,7 @@ public class PrintLog {
 	}
 
 
-	public static void updateLog(Boolean checkIn) throws FileNotFoundException {
+	public static void updateLog(Boolean checkIn, Equipment equipment) throws FileNotFoundException {
 		PrintWriter pw = new PrintWriter(new FileOutputStream(log, true));
 		StringBuilder sb = new StringBuilder();
 		sb.append(LocalDateTime.now()); 			//Date + Time
@@ -48,7 +48,7 @@ public class PrintLog {
 		sb.append(',');
 		sb.append(Student.SELECTED_STUDENT.getStudentID());			//Student ID
 		sb.append(',');
-		//PRINT EQUIPMENT HERE//									//Equipment Name
+		sb.append(equipment.getEquipmentName());					//Equipment Name
 		sb.append('\n');
 
 	}

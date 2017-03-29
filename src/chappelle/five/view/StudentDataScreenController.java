@@ -32,7 +32,7 @@ import javafx.stage.Stage;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 import tan.five.mainApp;
-import chappelle.five.view.SceneSwitcher;
+import chapman.five.model.ProjectUtilities;
 
 
 
@@ -71,7 +71,7 @@ public class StudentDataScreenController extends Application {
 	//Switching scenes
 	@FXML
 	public void backButton() throws IOException {
-		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/AdminWelcomeScreen.fxml");
+		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/AdminWelcomeScreen.fxml");
 	}
 
 

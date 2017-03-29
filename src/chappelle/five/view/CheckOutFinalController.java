@@ -15,7 +15,7 @@ import tan.five.model.PrintLog;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 import chappelle.five.view.ItemCheckOutController;
-import chappelle.five.view.UpdateImage;
+import chapman.five.model.ProjectUtilities;
 
 public class CheckOutFinalController {
 
@@ -64,6 +64,22 @@ public class CheckOutFinalController {
 	private TextField txtImput6;
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+/*
+	
+	//Add the equipment name to the label
+>>>>>>> refs/remotes/origin/master
 	@FXML
 	private void initialize() {
 		switch (ItemCheckOutController.getEquipmentToCheckOut().size()) {
@@ -126,6 +142,7 @@ public class CheckOutFinalController {
 			break;
 		}
 	}
+<<<<<<< HEAD
 	
 	public void handleCheckOut() throws FileNotFoundException {
 		for (Equipment equipment : ItemCheckOutController.getEquipmentToCheckOut()) {
@@ -134,5 +151,9 @@ public class CheckOutFinalController {
 		}
 		
 	}
+=======
+	 
+*/
+>>>>>>> refs/remotes/origin/master
 
 }

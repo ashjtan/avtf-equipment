@@ -31,7 +31,7 @@ import tan.five.model.Equipment;
 import tan.five.model.EquipmentType;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
-import chappelle.five.view.SceneSwitcher;
+import chapman.five.model.ProjectUtilities;
 
 public class ItemCheckOutController  {
 
@@ -110,7 +110,7 @@ public class ItemCheckOutController  {
 	//Method for switching scenes
 	@FXML
 	public void handleBack() throws IOException {
-		SceneSwitcher.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
+		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
 
 	
@@ -122,6 +122,14 @@ public class ItemCheckOutController  {
 	}
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> refs/remotes/origin/master
 
 	//Gets ArrayList<Equipment> of items in cart checking out
 	public static ArrayList<Equipment> getEquipmentToCheckOut() {

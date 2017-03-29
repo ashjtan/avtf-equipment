@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import tan.five.mainApp;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
-import chappelle.five.view.SceneSwitcher;
+import chapman.five.model.ProjectUtilities;
 import chappelle.five.view.StudentWelcomeScreenController;
 
 public class LoginController {
@@ -55,12 +55,12 @@ public class LoginController {
 	private void handleInput() throws IOException {
 		if (isStudentInputValid()) {
 			//Student Scene Switch
-			SceneSwitcher.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");
+			ProjectUtilities.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 		}
 		else if (studentIDField.getText().equals("0123456789")) {
 			//Reveal Admin button
 			btnAdmin.setVisible(true);
-			SceneSwitcher.handleSceneSwitch(btnAdmin, "/chappelle/five/view/AdminWelcomeScreen.fxml");
+			ProjectUtilities.handleSceneSwitch(btnAdmin, "/chappelle/five/view/AdminWelcomeScreen.fxml");
 		}
 		else {errorMessage.setVisible(true);}
 

@@ -26,7 +26,7 @@
       </Label>
       <Button fx:id="btnStudent" layoutX="448.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleInput" text="Login">
          <font>
-            <Font name="Helvetica Neue" size="13.0" />
+            <Font name="Helvetica Neue Thin" size="13.0" />
          </font></Button>
       <Button fx:id="btnAdmin" layoutX="448.0" layoutY="180.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="63.0" text="Login" visible="false" />
    </children>

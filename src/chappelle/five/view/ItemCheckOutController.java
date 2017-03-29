@@ -122,6 +122,15 @@ public class ItemCheckOutController  {
 	}
 
 
+<<<<<<< HEAD
+=======
+
+	public void setMainApp(mainApp mainApp) {
+
+
+>>>>>>> refs/remotes/origin/master
+	}
+>>>>>>> refs/remotes/origin/master
 
 
 	//Gets ArrayList<Equipment> of items in cart checking out

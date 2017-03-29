@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -35,6 +36,7 @@ public class mainApp extends Application{
 
 			this.primaryStage = primaryStage;
 			this.primaryStage.setTitle("AVTF Equipment Manager");	//Sets the title of the Window
+			this.primaryStage.getIcons().add(new Image("file:resources/Camcorder Pro-100.png"));
 
 			//Sets application icon
 			//this.primaryStage.getIcons().add(new Image());

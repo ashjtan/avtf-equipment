@@ -42,7 +42,7 @@ public class ItemCheckInController {
 	
 	//Method for switching scenes
 	@FXML
-	public void backButton() throws IOException {
+	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
 

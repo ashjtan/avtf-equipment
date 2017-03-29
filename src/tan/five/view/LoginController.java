@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import tan.five.mainApp;
 import tan.five.model.Student;
@@ -32,6 +34,8 @@ public class LoginController {
 	private Button btnAdmin;
 	@FXML
 	private Button btnGoBack;
+	@FXML
+	private ImageView imgAppIcon;
 
 	private mainApp mainApp;
 
@@ -45,6 +49,8 @@ public class LoginController {
 	//Initialize
 	@FXML
 	private void initialize(){
+		Image image = new Image("file:resources/Camcorder Pro-100.png");
+		imgAppIcon.setImage(image);
 
 	}
 

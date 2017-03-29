@@ -20,7 +20,7 @@
 			</columns>
 
 		</TableView>
-      <Button layoutX="2.0" layoutY="326.0" mnemonicParsing="false" text="Back">
+      <Button fx:id="btnBackButton" layoutX="2.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleBack" text="Back">
          <font>
             <Font name="Helvetica Neue Thin" size="12.0" />
          </font>

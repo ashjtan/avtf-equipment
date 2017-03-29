@@ -42,6 +42,16 @@
                <font>
                   <Font size="12.0" />
                </font></Button>
+            <Label fx:id="lblMaximumItemsError" layoutX="26.0" layoutY="533.0" text="Can only check out up to six items." textFill="#f80000" visible="false">
+               <font>
+                  <Font name="Helvetica Neue Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNoItemsError" layoutX="36.0" layoutY="533.0" text="No items in cart to check out." textFill="RED" visible="false">
+               <font>
+                  <Font name="Helvetica Neue Bold" size="12.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
   </items>
 </SplitPane>

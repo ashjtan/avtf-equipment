@@ -2,31 +2,33 @@ package tan.five.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
 public class PrintLog {
 
+	private static File log = new File("test.csv");
+
 	public static void main(String[] args) throws FileNotFoundException {
-		PrintWriter pw = new PrintWriter(new File("test.csv"));
+		
+		PrintWriter pw = new PrintWriter(new FileOutputStream(log, true));
 		StringBuilder sb = new StringBuilder();
-		sb.append("DATE / TIME");
+		sb.append("id");
 		sb.append(',');
-		sb.append("CHECK IN / OUT");
-		sb.append(',');
-		sb.append("STUDENT");
-		sb.append(',');
-		sb.append("EQUIPMENT");
+		sb.append("Name");
 		sb.append('\n');
 
-
-
+		sb.append("1");
+		sb.append(',');
+		sb.append("Prashant Ghimire");
 		sb.append('\n');
 
 		pw.write(sb.toString());
 		pw.close();
 		System.out.println("done!");
 	}
+
 
 	public static void updateLog(StringBuilder sb) {
 		sb.append(LocalDateTime.now());

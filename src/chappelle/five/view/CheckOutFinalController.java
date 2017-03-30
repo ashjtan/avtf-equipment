@@ -2,6 +2,7 @@ package chappelle.five.view;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -168,12 +169,14 @@ public class CheckOutFinalController {
 	}
 	
 	@FXML
-	public void handleCheckOut() throws FileNotFoundException {
+	public void handleCheckOut() throws IOException {
 		for (Equipment equipment : equipmentCheckingOut) {
+			PrintLog.setCheckInOrOut(1);
 			equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
-			PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's booleans
+			PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
 			Student.SELECTED_STUDENT.getCheckedOutEquipment().add(equipment);	//Adds equipment to student's ArrayList of held equipment
 			PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
+			PrintLog.setCheckInOrOut(0);
 		}
 	}
 	

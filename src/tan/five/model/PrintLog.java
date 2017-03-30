@@ -1,29 +1,28 @@
 package tan.five.model;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
+
+
 public class PrintLog {
 
 	private static File log = new File("log.csv");
 	private static File equipmentList = new File("Resources/Sample Equipment.csv");
-	private static File equipmentListTest = new File("/Users/ashleytan/Desktop/Sample Equipment.csv");
+	private static int checkInOrOut = 0;					//1 indicates check out, 2 indicates check in
 
-	static List<String> lines = new ArrayList<String>();
-	static String line = null;
-
-	public static void main(String[] args) throws FileNotFoundException {
-
+	public static void main(String[] args) throws IOException {
 
 	}
 
@@ -57,39 +56,50 @@ public class PrintLog {
 	}
 
 
-	public static void alterEquipmentFile(Equipment equipmentCheckingOut) throws FileNotFoundException {
-		try { 
-			FileReader fr = new FileReader(equipmentListTest);
-			FileWriter fw = new FileWriter(equipmentListTest);
-			BufferedReader br = new BufferedReader(fr);
-			BufferedWriter bw = new BufferedWriter(fw);
-
-			while ((line = br.readLine()) != null) {
-				if (line.contains(equipmentCheckingOut.getEquipmentName())){
-					//line = line.replace("IN", "SUCCESS");
-					bw.write(line.replace("IN", "SUCCESS"));
-					bw.write("\n");
-					
+	public static void alterEquipmentFile(Equipment equipmentCheckingOut) throws IOException {
+		//Reads existing file
+		CSVReader reader = new CSVReader(new FileReader(equipmentList));
+		List<String[]> csvBody = reader.readAll();
+		
+		switch (checkInOrOut) {
+		case 1: //Check Out
+			for (int i = 0; i < csvBody.size(); i++) {
+				if (csvBody.get(i)[0].equals(equipmentCheckingOut.getEquipmentName())) {
+					csvBody.get(i)[3] = "OUT";
+					csvBody.get(i)[4] = Student.SELECTED_STUDENT.getStudentID();
 				}
 			}
-			fr.close();
-			br.close();
-			
-			br.close();
-			bw.flush();
-			bw.close();
+			break;
 
-			
-		/*for(String s : lines) {
-				if (line.contains(equipmentCheckingOut.getEquipmentName())){
-					out.write(s);
-					out.write("\n");
+		case 2: //Check In
+			for (int i = 0; i < csvBody.size(); i++) {
+				if (csvBody.get(i)[0].equals(equipmentCheckingIn.getEquipmentName())) {
+					csvBody.get(i)[3] = "IN";
+					csvBody.get(i)[4] = "";
 				}
-			}*/
-		
-
-		} catch (Exception e) {
-			e.printStackTrace();
+			}
+			break;
+		default:
+			break;
 		}
+
+			reader.close();
+
+			//Writes to open file
+			CSVWriter writer = new CSVWriter(new FileWriter(equipmentList));
+			writer.writeAll(csvBody);
+			writer.flush();
+			writer.close();
+		}
+
+
+	//Getters + Setters
+	public static int getCheckInOrOut() {
+		return checkInOrOut;
+	}
+
+
+	public static void setCheckInOrOut(int checkInOrOut) {
+		PrintLog.checkInOrOut = checkInOrOut;
 	}
 }

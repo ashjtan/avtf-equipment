@@ -181,7 +181,7 @@ public class CheckInFinalController {
 					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
 					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
 					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml"
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml");
 				}
 			}
 			else {
@@ -197,7 +197,7 @@ public class CheckInFinalController {
 					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
 					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
 					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml"
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml");
 				}
 			}
 			else {
@@ -213,7 +213,7 @@ public class CheckInFinalController {
 					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
 					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
 					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml"
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml");
 				}
 			}
 			else {
@@ -230,7 +230,7 @@ public class CheckInFinalController {
 					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
 					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
 					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml"
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml");
 
 				}
 			}
@@ -249,7 +249,7 @@ public class CheckInFinalController {
 					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
 					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
 					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml"
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml");
 				}
 			}
 			else {
@@ -268,7 +268,7 @@ public class CheckInFinalController {
 					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
 					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
 					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml"
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckInSuccess.fxml");
 				}
 			}
 			else {
@@ -281,6 +281,11 @@ public class CheckInFinalController {
 
 
 
+	}
+
+	@FXML
+	public void handleBack() throws IOException {
+		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/ItemCheckOut.fxml");
 	}
 
 	public boolean checkCorrectBarcode(TextField barcodeInput, int cartIndex, ImageView checkMark) {

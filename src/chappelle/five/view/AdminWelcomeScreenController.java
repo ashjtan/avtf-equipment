@@ -18,7 +18,9 @@ public class AdminWelcomeScreenController {
 	@FXML
 	private Button btnEquipmentList;
 	@FXML
-	private Button btnGoBack;
+	private Button btnLogOut;
+	
+	
 
 	//So the main can reference itself to the controllers
 	private MainApp mainApp;
@@ -42,6 +44,11 @@ public class AdminWelcomeScreenController {
 	public void equipmentList() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnEquipmentList, "/chappelle/five/view/EquipmentScreen.fxml");
 	}
+	@FXML
+	public void handleLogout() throws IOException {
+		ProjectUtilities.handleSceneSwitch(btnEquipmentList, "/tan/five/view/Login.fxml");
+	}
+	
 
 	// @param mainApp
 	public void setMainApp(MainApp mainApp) {

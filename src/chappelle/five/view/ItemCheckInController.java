@@ -44,6 +44,7 @@ public class ItemCheckInController {
 		
 		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
+		
 	}
 	
 	//Method for switching scenes

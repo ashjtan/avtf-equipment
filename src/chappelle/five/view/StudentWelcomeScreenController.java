@@ -51,7 +51,7 @@ public class StudentWelcomeScreenController  {
 	@FXML
 	private Button btnCheckOut;
 	@FXML
-	private Button btnGoBack;
+	private Button btnLogOut;
 
 	//Main can reference itself to the controllers
 	private MainApp mainApp;
@@ -75,6 +75,10 @@ public class StudentWelcomeScreenController  {
 	@FXML
 	public void checkOut() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/ItemCheckOut.fxml");
+	}
+	@FXML
+	public void handleLogOut() throws IOException {
+		ProjectUtilities.handleSceneSwitch(btnLogOut, "/tan/five/view/Login.fxml");
 	}
 
 	// @param mainApp

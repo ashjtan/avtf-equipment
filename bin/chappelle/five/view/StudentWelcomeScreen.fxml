@@ -27,7 +27,7 @@
             <Font name="Helvetica Neue Thin" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnGoBack" layoutX="271.0" layoutY="287.0" mnemonicParsing="false" onAction="#handleLogOut" text="Log Out">
+      <Button fx:id="btnLogOut" layoutX="271.0" layoutY="287.0" mnemonicParsing="false" onAction="#handleLogOut" text="Log Out">
          <font>
             <Font name="Helvetica Neue UltraLight" size="13.0" />
          </font>

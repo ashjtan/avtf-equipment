@@ -73,7 +73,7 @@ public class CheckOutFinalController {
 	private Button btnCheckOut;
 
 	ArrayList<Equipment> equipmentCheckingOut = ItemCheckOutController.getEquipmentToCheckOut();
-
+	int hoverCase = 0;
 
 	//Add the equipment name to the label
 	@FXML
@@ -83,6 +83,7 @@ public class CheckOutFinalController {
 			lblItem1.setVisible(true);
 			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
 			txtInput1.setVisible(true);
+			hoverCase = 1;
 			break;
 		case 2:
 			lblItem1.setVisible(true);
@@ -92,6 +93,8 @@ public class CheckOutFinalController {
 			lblItem2.setVisible(true);
 			lblItem2.setText(equipmentCheckingOut.get(1).getEquipmentName());
 			txtInput2.setVisible(true);
+			
+			hoverCase = 2;
 			break;
 		case 3:
 			lblItem1.setVisible(true);
@@ -105,6 +108,8 @@ public class CheckOutFinalController {
 			lblItem3.setVisible(true);
 			lblItem3.setText(equipmentCheckingOut.get(2).getEquipmentName());
 			txtInput3.setVisible(true);
+			
+			hoverCase = 3;
 			break;
 		case 4:
 			lblItem1.setVisible(true);
@@ -122,6 +127,8 @@ public class CheckOutFinalController {
 			lblItem4.setVisible(true);
 			lblItem4.setText(equipmentCheckingOut.get(3).getEquipmentName());
 			txtInput4.setVisible(true);
+			
+			hoverCase = 4;
 			break;
 		case 5:
 			lblItem1.setVisible(true);
@@ -143,6 +150,8 @@ public class CheckOutFinalController {
 			lblItem5.setVisible(true);
 			lblItem5.setText(equipmentCheckingOut.get(4).getEquipmentName());
 			txtInput5.setVisible(true);
+			
+			hoverCase = 5;
 			break;
 		case 6:
 			lblItem1.setVisible(true);
@@ -168,6 +177,8 @@ public class CheckOutFinalController {
 			lblItem6.setVisible(true);
 			lblItem6.setText(equipmentCheckingOut.get(5).getEquipmentName());
 			txtInput6.setVisible(true);
+			
+			hoverCase = 6;
 			break;
 		default:
 			break;
@@ -186,6 +197,45 @@ public class CheckOutFinalController {
 		}
 
 	}
+	
+	@FXML
+	public void handleCheckOutHover() {
+		switch (hoverCase) {
+		case 1:
+			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
+			break;
+		case 2:
+			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
+			checkCorrectBarcode(txtInput2, 1, imgCheckMark2);
+			break;
+		case 3:
+			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
+			checkCorrectBarcode(txtInput2, 1, imgCheckMark2);
+			checkCorrectBarcode(txtInput3, 2, imgCheckMark3);
+			break;
+		case 4:
+			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
+			checkCorrectBarcode(txtInput2, 1, imgCheckMark2);
+			checkCorrectBarcode(txtInput3, 2, imgCheckMark3);
+			checkCorrectBarcode(txtInput4, 3, imgCheckMark4);
+			break;
+		case 5:
+			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
+			checkCorrectBarcode(txtInput2, 1, imgCheckMark2);
+			checkCorrectBarcode(txtInput3, 2, imgCheckMark3);
+			checkCorrectBarcode(txtInput4, 3, imgCheckMark4);
+			checkCorrectBarcode(txtInput5, 4, imgCheckMark5);
+			break;
+		case 6:
+			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
+			checkCorrectBarcode(txtInput2, 1, imgCheckMark2);
+			checkCorrectBarcode(txtInput3, 2, imgCheckMark3);
+			checkCorrectBarcode(txtInput4, 3, imgCheckMark4);
+			checkCorrectBarcode(txtInput5, 4, imgCheckMark5);
+			checkCorrectBarcode(txtInput6, 5, imgCheckMark6);
+			break;
+		}
+	}
 
 	@FXML
 	public void handleBack() throws IOException {
@@ -193,4 +243,10 @@ public class CheckOutFinalController {
 	}
 
 
+	
+	public void checkCorrectBarcode(TextField barcodeInput, int cartIndex, ImageView checkMark) {
+		if (barcodeInput.getText().equals(equipmentCheckingOut.get(cartIndex).getEquipmentID()) && !(barcodeInput.getText().equals(null))) {
+			imgCheckMark1.setVisible(true);
+		}
+	}
 }

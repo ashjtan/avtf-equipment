@@ -35,7 +35,7 @@ public class EquipmentScreenController {
 	@FXML
 	private TableColumn<Equipment, Boolean> checkedOut;
 	@FXML 
-	private TableColumn<Equipment, Student> holder;
+	private TableColumn<Equipment, String> holder;
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
 
@@ -46,7 +46,7 @@ public class EquipmentScreenController {
 
 	@FXML
 	public void initialize() {
-		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA()) {
+		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad()) {
 			equipmentTableView.getItems().add(equipment);
 		}
 

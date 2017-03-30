@@ -62,4 +62,12 @@ public class Student {
 	public ObservableList<Equipment> getCheckedOutEquipment() {			//Returns OBSERVABLELIST, not ArrayList
 		return checkedOutEquipment;
 	}
+	
+	
+	
+	
+	//Overwriting toString to return Student's name
+	public String toString() {
+		return firstName + " " + lastName;
+	}
 }

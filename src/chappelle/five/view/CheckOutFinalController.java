@@ -185,12 +185,12 @@ public class CheckOutFinalController {
 				PrintLog.setCheckInOrOut(1);										//Switches alterEquipmentFile to Check Out version
 				equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
 				PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
-				Student.SELECTED_STUDENT.getCheckedOutEquipment().add(equipment);	//Adds equipment to student's ArrayList of held equipment
 				PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
 				ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutSuccess.fxml");
 			}
 		}
 		else {
+			System.out.println("ERROR");
 			///ERROR/// please verify that barcodes are correct
 		}
 

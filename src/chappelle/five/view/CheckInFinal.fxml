@@ -7,20 +7,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.CheckOutFinalController">
+<AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chappelle.five.view.CheckInFinalController">
    <children>
       <Label layoutX="187.0" layoutY="45.0" text="Please enter four-digit barcode.">
          <font>
             <Font name="Helvetica Neue" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtInput1" layoutX="187.0" layoutY="95.0" visible="false" />
+      <TextField fx:id="txtInput1" layoutX="187.0" layoutY="95.0" />
       <TextField fx:id="txtInput2" layoutX="187.0" layoutY="135.0" visible="false" />
       <TextField fx:id="txtInput3" layoutX="187.0" layoutY="175.0" visible="false" />
       <TextField fx:id="txtInput4" layoutX="187.0" layoutY="215.0" visible="false" />
       <TextField fx:id="txtInput5" layoutX="187.0" layoutY="255.0" visible="false" />
       <TextField fx:id="txtInput6" layoutX="187.0" layoutY="295.0" visible="false" />
-      <Label fx:id="lblItem1" layoutX="47.0" layoutY="100.0" prefHeight="17.0" prefWidth="121.0" visible="false">
+      <Label fx:id="lblItem1" layoutX="47.0" layoutY="100.0" prefHeight="17.0" prefWidth="121.0">
          <font>
             <Font name="Helvetica Neue Thin" size="13.0" />
          </font>
@@ -57,7 +57,7 @@
             <Font name="Helvetica Neue Thin" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="513.0" layoutY="316.0" mnemonicParsing="false" text="Check Out">
+      <Button fx:id="btnCheckIn" layoutX="513.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleCheckIn" text="Check In">
          <font>
             <Font name="Helvetica Neue Thin" size="12.0" />
          </font>

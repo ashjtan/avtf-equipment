@@ -78,16 +78,14 @@ public class ItemCheckOutController  {
 	@FXML
 	public void handleAddToCart() {
 		boolean duplicate = false;
-		int itemCount = 0;
 
 		for (String itemInCart : listForCart) {
-			itemCount++;
 			if (readSelectedItem().getEquipmentName().equals(itemInCart)) {
 				duplicate = true;
 			}
 		}
 
-		if (itemCount >= 6) {
+		if (listForCart.size() >= 6) {
 			lblMaximumItemsError.setVisible(true);
 		}
 

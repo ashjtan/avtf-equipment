@@ -13,20 +13,18 @@ public class Student {
 	private SimpleStringProperty lastName = new SimpleStringProperty();
 	private SimpleStringProperty firstName = new SimpleStringProperty();
 	private SimpleStringProperty studentID = new SimpleStringProperty();
-	private ObservableList<Equipment> checkedOutEquipment;
 
 
 	//Default Constructor
 	public Student() {
-		this("", "", "", new ArrayList<Equipment>());
+		this("", "", "");
 	}
 
 	//Overloaded Constructor
-	public Student(String lastName1, String firstName1, String studentID1, ArrayList<Equipment> checkedOutEquipment1) {
+	public Student(String lastName1, String firstName1, String studentID1) {
 		setLastName(lastName1);
 		setFirstName(firstName1);
 		setStudentID(studentID1);
-		setCheckedOutEquipment(checkedOutEquipment1);
 	}
 
 
@@ -55,14 +53,6 @@ public class Student {
 		this.studentID.set(studentID);
 	}
 
-	public void setCheckedOutEquipment(ArrayList<Equipment> checkedOutEquipment1) {		//TENTATIVE: takes + converts ArrayList
-		this.checkedOutEquipment = FXCollections.observableList(checkedOutEquipment1);
-	}
-	
-	public ObservableList<Equipment> getCheckedOutEquipment() {			//Returns OBSERVABLELIST, not ArrayList
-		return checkedOutEquipment;
-	}
-	
 	
 	
 	

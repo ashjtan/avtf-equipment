@@ -57,11 +57,11 @@ public class ItemCheckInController {
 
 	@FXML
 	public void initialize() {
-		//INCOMPLETE
-		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad()) {
-			if (equipment.getHolder().equals(Student.SELECTED_STUDENT)) {
-				Student.SELECTED_STUDENT.getCheckedOutEquipment().add(equipment);
-				equipmentTableView.getItems().add(equipment);
+		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad())  {
+			if (equipment.isCheckedOut()) {													//Prevents NullPointerException
+				if (equipment.getHolder().equals(Student.SELECTED_STUDENT)) {
+					equipmentTableView.getItems().add(equipment);
+				}
 			}
 		}
 
@@ -73,16 +73,14 @@ public class ItemCheckInController {
 	@FXML
 	public void handleAddToList() {
 		boolean duplicate = false;
-		int itemCount = 0;
 
-		for (String itemInCart : listForReturn) {
-			itemCount++;
-			if (readSelectedItem().getEquipmentName().equals(itemInCart)) {
+		for (String itemInList : listForReturn) {
+			if (readSelectedItem().getEquipmentName().equals(itemInList)) {
 				duplicate = true;
 			}
 		}
 
-		if (itemCount >= 6) {
+		if (listForReturn.size() >= 6) {
 			lblMaximumItemsError.setVisible(true);
 		}
 
@@ -99,15 +97,15 @@ public class ItemCheckInController {
 	}
 
 	//Gets ArrayList<Equipment> of items in cart checking out
-	public static ArrayList<Equipment> getEquipmentToCheckOut() {
-		ArrayList<Equipment> equipmentToCheckOut = new ArrayList<Equipment>();
-		for (String itemInCart : listForReturn) {
+	public static ArrayList<Equipment> getEquipmentToCheckIn() {
+		ArrayList<Equipment> equipmentToCheckIn = new ArrayList<Equipment>();
+		for (String itemInList : listForReturn) {
 			for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA())
-				if (itemInCart.equals(equipment.getEquipmentName())) {
-					equipmentToCheckOut.add(equipment);
+				if (itemInList.equals(equipment.getEquipmentName())) {
+					equipmentToCheckIn.add(equipment);
 				}
 		}
-		return equipmentToCheckOut;
+		return equipmentToCheckIn;
 	}
 
 

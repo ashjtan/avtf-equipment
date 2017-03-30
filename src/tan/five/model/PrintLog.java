@@ -52,7 +52,7 @@ public class PrintLog {
 	}
 
 
-	public static void alterEquipmentFile(Equipment equipmentCheckingOut) throws IOException {
+	public static void alterEquipmentFile(Equipment equipmentCheckingInOut) throws IOException {
 		//Reads existing file
 		CSVReader reader = new CSVReader(new FileReader(equipmentList));
 		List<String[]> csvBody = reader.readAll();
@@ -60,24 +60,21 @@ public class PrintLog {
 		switch (checkInOrOut) {
 		case 1: //Check Out
 			for (int i = 0; i < csvBody.size(); i++) {
-				if (csvBody.get(i)[0].equals(equipmentCheckingOut.getEquipmentName())) {
+				if (csvBody.get(i)[0].equals(equipmentCheckingInOut.getEquipmentName())) {
 					csvBody.get(i)[3] = "OUT";
 					csvBody.get(i)[4] = Student.SELECTED_STUDENT.getStudentID();
 				}
-				//for(int j = 0; j < 6; j++) {
-				//	csvBody.get(i)[j](csvBody.get(i)[j].substring(1, csvBody.get(i)[j].length()));
-				//}
 			}
 			break;
 
-		/*case 2: //Check In
+		case 2: //Check In
 			for (int i = 0; i < csvBody.size(); i++) {
-				if (csvBody.get(i)[0].equals(equipmentCheckingIn.getEquipmentName())) {
+				if (csvBody.get(i)[0].equals(equipmentCheckingInOut.getEquipmentName())) {
 					csvBody.get(i)[3] = "IN";
 					csvBody.get(i)[4] = "";
 				}
 			}
-			break;*/
+			break;
 		default:
 			break;
 		}

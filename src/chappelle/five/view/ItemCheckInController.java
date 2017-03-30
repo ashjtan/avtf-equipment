@@ -116,7 +116,7 @@ public class ItemCheckInController {
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
-	
+
 	@FXML
 	public void handleCheckIn() throws IOException {
 		if (listForReturn.size() != 0) {

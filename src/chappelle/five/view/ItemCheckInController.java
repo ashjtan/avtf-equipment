@@ -117,7 +117,7 @@ public class ItemCheckInController {
 
 	@FXML
 	public void handleCheckIn() throws IOException {
-		if (listForReturn.size() != 0) {
+		if (listForReturn.size() > 0) {
 			ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/CheckInFinal.fxml");
 		}
 		else {

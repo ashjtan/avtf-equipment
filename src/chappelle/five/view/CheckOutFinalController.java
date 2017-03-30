@@ -72,6 +72,9 @@ public class CheckOutFinalController {
 	@FXML
 	private Button btnCheckOut;
 
+	@FXML
+	private Label lblIncorrectBarcodeError;
+
 	ArrayList<Equipment> equipmentCheckingOut = ItemCheckOutController.getEquipmentToCheckOut();
 
 	//Add the equipment name to the label
@@ -175,24 +178,110 @@ public class CheckOutFinalController {
 
 	@FXML
 	public void handleCheckOut() throws IOException {
-		if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
-				checkCorrectBarcode(txtInput2, 1, imgCheckMark2) &&
-				checkCorrectBarcode(txtInput3, 2, imgCheckMark3) &&
-				checkCorrectBarcode(txtInput4, 3, imgCheckMark4) &&
-				checkCorrectBarcode(txtInput5, 4, imgCheckMark5) &&
-				checkCorrectBarcode(txtInput6, 5, imgCheckMark6)) {
-			for (Equipment equipment : equipmentCheckingOut) {
-				PrintLog.setCheckInOrOut(1);										//Switches alterEquipmentFile to Check Out version
-				equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
-				PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
-				PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
-				ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutSuccess.fxml");
+		switch (equipmentCheckingOut.size()) {
+		case 1:
+			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1)) {
+				for (Equipment equipment : equipmentCheckingOut) {
+					PrintLog.setCheckInOrOut(1);										//Switches alterEquipmentFile to Check Out version
+					equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
+					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
+					PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutSuccess.fxml");
+				}
 			}
+			else {
+				lblIncorrectBarcodeError.setVisible(true);
+			}
+			break;
+		case 2:
+			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
+					checkCorrectBarcode(txtInput2, 1, imgCheckMark2)) {
+				for (Equipment equipment : equipmentCheckingOut) {
+					PrintLog.setCheckInOrOut(1);										//Switches alterEquipmentFile to Check Out version
+					equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
+					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
+					PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutSuccess.fxml");
+				}
+			}
+			else {
+				lblIncorrectBarcodeError.setVisible(true);
+			}
+			break;
+		case 3:
+			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
+					checkCorrectBarcode(txtInput2, 1, imgCheckMark2) &&
+					checkCorrectBarcode(txtInput3, 2, imgCheckMark3)) {
+				for (Equipment equipment : equipmentCheckingOut) {
+					PrintLog.setCheckInOrOut(1);										//Switches alterEquipmentFile to Check Out version
+					equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
+					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
+					PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutSuccess.fxml");
+				}
+			}
+			else {
+				lblIncorrectBarcodeError.setVisible(true);
+			}
+			break;
+		case 4:
+			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
+					checkCorrectBarcode(txtInput2, 1, imgCheckMark2) &&
+					checkCorrectBarcode(txtInput3, 2, imgCheckMark3) &&
+					checkCorrectBarcode(txtInput4, 3, imgCheckMark4)) {
+				for (Equipment equipment : equipmentCheckingOut) {
+					PrintLog.setCheckInOrOut(1);										//Switches alterEquipmentFile to Check Out version
+					equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
+					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
+					PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutSuccess.fxml");
+				}
+			}
+			else {
+				lblIncorrectBarcodeError.setVisible(true);
+			}
+			break;
+		case 5:
+			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
+					checkCorrectBarcode(txtInput2, 1, imgCheckMark2) &&
+					checkCorrectBarcode(txtInput3, 2, imgCheckMark3) &&
+					checkCorrectBarcode(txtInput4, 3, imgCheckMark4) &&
+					checkCorrectBarcode(txtInput5, 4, imgCheckMark5)) {
+				for (Equipment equipment : equipmentCheckingOut) {
+					PrintLog.setCheckInOrOut(1);										//Switches alterEquipmentFile to Check Out version
+					equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
+					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
+					PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutSuccess.fxml");
+				}
+			}
+			else {
+				lblIncorrectBarcodeError.setVisible(true);
+			}
+			break;
+		case 6:
+			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
+					checkCorrectBarcode(txtInput2, 1, imgCheckMark2) &&
+					checkCorrectBarcode(txtInput3, 2, imgCheckMark3) &&
+					checkCorrectBarcode(txtInput4, 3, imgCheckMark4) &&
+					checkCorrectBarcode(txtInput5, 4, imgCheckMark5) &&
+					checkCorrectBarcode(txtInput6, 5, imgCheckMark6)) {
+				for (Equipment equipment : equipmentCheckingOut) {
+					PrintLog.setCheckInOrOut(1);										//Switches alterEquipmentFile to Check Out version
+					equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
+					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
+					PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
+					ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutSuccess.fxml");
+				}
+			}
+			else {
+				lblIncorrectBarcodeError.setVisible(true);
+			}
+			break;
+		default:
+			break;
 		}
-		else {
-			System.out.println("ERROR");
-			///ERROR/// please verify that barcodes are correct
-		}
+
 
 	}
 
@@ -244,7 +333,7 @@ public class CheckOutFinalController {
 
 	public boolean checkCorrectBarcode(TextField barcodeInput, int cartIndex, ImageView checkMark) {
 		if (barcodeInput.getText().equals(equipmentCheckingOut.get(cartIndex).getEquipmentID()) && !(barcodeInput.getText().equals(null))) {
-			imgCheckMark1.setVisible(true);
+			checkMark.setVisible(true);
 			return true;
 		}
 		else {

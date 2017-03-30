@@ -106,9 +106,10 @@ public class ItemCheckOutController  {
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
+
 	@FXML
 	public void handleCheckOut() throws IOException {
-		if (listForCart.size() != 0) {
+		if (listForCart.size() > 0) {
 			ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutFinal.fxml");
 		}
 		else {

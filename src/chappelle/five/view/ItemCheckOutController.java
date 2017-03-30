@@ -51,6 +51,7 @@ public class ItemCheckOutController  {
 	private ListView<String> equipmentCart;
 
 	private static ObservableList<String> listForCart = FXCollections.observableArrayList();
+	
 
 	private mainApp mainApp;
 
@@ -71,6 +72,15 @@ public class ItemCheckOutController  {
 		}
 		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
+		
+		equipmentName.getStyleClass().add("Helvetica Neue, Thin");
+
+   
+		
+		
+		
+		
+		
 	}
 
 	

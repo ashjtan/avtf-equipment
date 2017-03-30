@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -65,6 +66,9 @@ public class CheckOutFinalController {
 	private TextField txtInput5;
 	@FXML
 	private TextField txtInput6;
+	
+	@FXML
+	private Button btnBackButton;
 	
 	ArrayList<Equipment> equipmentCheckingOut = ItemCheckOutController.getEquipmentToCheckOut();
 
@@ -181,8 +185,8 @@ public class CheckOutFinalController {
 	}
 	
 	@FXML
-	public void handleBack() {
-		
+	public void handleBack() throws IOException {
+		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/ItemCheckOut.fxml");
 	}
 	 
 

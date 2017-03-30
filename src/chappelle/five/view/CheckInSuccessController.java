@@ -11,12 +11,18 @@ public class CheckInSuccessController {
 	
 	@FXML
 	private Button btnBackButton;
+	@FXML 
+	private Button btnBackToMenu;
 	@FXML
 	private Label lblCongrats;
 	
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/tan/five/view/Login.fxml");
+	}
+	@FXML
+	public void handleBackToMenu() throws IOException {
+		ProjectUtilities.handleSceneSwitch(btnBackToMenu, "/chapman/five/view/StudentWelcomeScreen.fxml");
 	}
 	
 	

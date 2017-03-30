@@ -71,14 +71,14 @@ public class PrintLog {
 			}
 			break;
 
-		case 2: //Check In
+		/*case 2: //Check In
 			for (int i = 0; i < csvBody.size(); i++) {
 				if (csvBody.get(i)[0].equals(equipmentCheckingIn.getEquipmentName())) {
 					csvBody.get(i)[3] = "IN";
 					csvBody.get(i)[4] = "";
 				}
 			}
-			break;
+			break;*/
 		default:
 			break;
 		}

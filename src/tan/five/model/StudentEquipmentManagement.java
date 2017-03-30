@@ -40,12 +40,10 @@ public class StudentEquipmentManagement {
 
 	//Student CSV File Loader
 	public static void loadStudentFile() throws IOException {
-
 		studentListA.clear();
+		
 		FileReader file = new FileReader("Resources/AVTF_StudentList2017.csv"); 	
 		BufferedReader reader = new BufferedReader(file);							
-
-
 		String line;
 		while ((line = reader.readLine()) != null) {
 			String[] studentInfo = line.split(",");					//Splits CSV into array by commas
@@ -98,7 +96,6 @@ public class StudentEquipmentManagement {
 		FileReader file = new FileReader("Resources/Sample Equipment.csv");
 		BufferedReader reader = new BufferedReader(file);
 		String line;
-
 		while ((line = reader.readLine()) != null) {
 			String[] equipmentInfo = line.split(",");				//Splits CSV into array by commas
 

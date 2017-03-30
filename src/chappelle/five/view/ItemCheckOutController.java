@@ -72,15 +72,6 @@ public class ItemCheckOutController  {
 		}
 		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
-		
-		equipmentName.getStyleClass().add("Helvetica Neue, Thin");
-
-   
-		
-		
-		
-		
-		
 	}
 
 	

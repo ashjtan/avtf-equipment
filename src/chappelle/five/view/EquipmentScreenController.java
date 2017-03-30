@@ -44,7 +44,6 @@ public class EquipmentScreenController {
 
 	}
 
-	//CURRENTLY HOLDS ALL TABLE INFO BUT ACTUAL CHECKOUT WILL NOT HAVE ALL INFO
 	@FXML
 	public void initialize() {
 		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA()) {

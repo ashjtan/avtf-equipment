@@ -66,10 +66,12 @@ public class CheckOutFinalController {
 	private TextField txtInput5;
 	@FXML
 	private TextField txtInput6;
-	
+
 	@FXML
 	private Button btnBackButton;
-	
+	@FXML
+	private Button btnCheckOut;
+
 	ArrayList<Equipment> equipmentCheckingOut = ItemCheckOutController.getEquipmentToCheckOut();
 
 
@@ -86,7 +88,7 @@ public class CheckOutFinalController {
 			lblItem1.setVisible(true);
 			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
 			txtInput1.setVisible(true);
-			
+
 			lblItem2.setVisible(true);
 			lblItem2.setText(equipmentCheckingOut.get(1).getEquipmentName());
 			txtInput2.setVisible(true);
@@ -95,11 +97,11 @@ public class CheckOutFinalController {
 			lblItem1.setVisible(true);
 			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
 			txtInput1.setVisible(true);
-			
+
 			lblItem2.setVisible(true);
 			lblItem2.setText(equipmentCheckingOut.get(1).getEquipmentName());
 			txtInput2.setVisible(true);
-			
+
 			lblItem3.setVisible(true);
 			lblItem3.setText(equipmentCheckingOut.get(2).getEquipmentName());
 			txtInput3.setVisible(true);
@@ -108,15 +110,15 @@ public class CheckOutFinalController {
 			lblItem1.setVisible(true);
 			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
 			txtInput1.setVisible(true);
-			
+
 			lblItem2.setVisible(true);
 			lblItem2.setText(equipmentCheckingOut.get(1).getEquipmentName());
 			txtInput2.setVisible(true);
-			
+
 			lblItem3.setVisible(true);
 			lblItem3.setText(equipmentCheckingOut.get(2).getEquipmentName());
 			txtInput3.setVisible(true);
-			
+
 			lblItem4.setVisible(true);
 			lblItem4.setText(equipmentCheckingOut.get(3).getEquipmentName());
 			txtInput4.setVisible(true);
@@ -125,19 +127,19 @@ public class CheckOutFinalController {
 			lblItem1.setVisible(true);
 			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
 			txtInput1.setVisible(true);
-			
+
 			lblItem2.setVisible(true);
 			lblItem2.setText(equipmentCheckingOut.get(1).getEquipmentName());
 			txtInput2.setVisible(true);
-			
+
 			lblItem3.setVisible(true);
 			lblItem3.setText(equipmentCheckingOut.get(2).getEquipmentName());
 			txtInput3.setVisible(true);
-			
+
 			lblItem4.setVisible(true);
 			lblItem4.setText(equipmentCheckingOut.get(3).getEquipmentName());
 			txtInput4.setVisible(true);
-			
+
 			lblItem5.setVisible(true);
 			lblItem5.setText(equipmentCheckingOut.get(4).getEquipmentName());
 			txtInput5.setVisible(true);
@@ -146,23 +148,23 @@ public class CheckOutFinalController {
 			lblItem1.setVisible(true);
 			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
 			txtInput1.setVisible(true);
-			
+
 			lblItem2.setVisible(true);
 			lblItem2.setText(equipmentCheckingOut.get(1).getEquipmentName());
 			txtInput2.setVisible(true);
-			
+
 			lblItem3.setVisible(true);
 			lblItem3.setText(equipmentCheckingOut.get(2).getEquipmentName());
 			txtInput3.setVisible(true);
-			
+
 			lblItem4.setVisible(true);
 			lblItem4.setText(equipmentCheckingOut.get(3).getEquipmentName());
 			txtInput4.setVisible(true);
-			
+
 			lblItem5.setVisible(true);
 			lblItem5.setText(equipmentCheckingOut.get(4).getEquipmentName());
 			txtInput5.setVisible(true);
-			
+
 			lblItem6.setVisible(true);
 			lblItem6.setText(equipmentCheckingOut.get(5).getEquipmentName());
 			txtInput6.setVisible(true);
@@ -171,23 +173,25 @@ public class CheckOutFinalController {
 			break;
 		}
 	}
-	
+
 	@FXML
 	public void handleCheckOut() throws IOException {
 		for (Equipment equipment : equipmentCheckingOut) {
-			PrintLog.setCheckInOrOut(1);
+			PrintLog.setCheckInOrOut(1);										//Switches alterEquipmentFile to Check Out version
 			equipment.setCheckedOut(true);										//Sets equipment's checkedOut boolean to true
 			PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
 			Student.SELECTED_STUDENT.getCheckedOutEquipment().add(equipment);	//Adds equipment to student's ArrayList of held equipment
 			PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
-			PrintLog.setCheckInOrOut(0);
+			PrintLog.setCheckInOrOut(0);										//Resets alterEquipmentFile to be set to Check In/Out version
+			ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutSuccess.fxml");
 		}
+
 	}
-	
+
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/ItemCheckOut.fxml");
 	}
-	 
+
 
 }

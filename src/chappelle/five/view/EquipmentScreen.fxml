@@ -10,11 +10,12 @@
    <children>
       <TableView fx:id="equipmentTableView" prefHeight="553.0" prefWidth="800.0">
         <columns>
-          <TableColumn fx:id="equipmentName" prefWidth="160.0" text="Name" />
-          <TableColumn fx:id="equipmentType" prefWidth="160.0" text="Type" />
-            <TableColumn fx:id="equipmentID" prefWidth="160.0" text="Equipment ID" />
-            <TableColumn fx:id="countyID" prefWidth="160.0" text="County ID" />
-            <TableColumn fx:id="checkedOut" prefWidth="160.0" text="Avalibily Status" />
+          <TableColumn fx:id="equipmentName" prefWidth="133.33" text="Name" />
+          <TableColumn fx:id="equipmentType" prefWidth="133.33" text="Type" />
+            <TableColumn fx:id="equipmentID" prefWidth="133.33" text="Equipment ID" />
+            <TableColumn fx:id="countyID" prefWidth="133.33" text="County ID" />
+            <TableColumn fx:id="checkedOut" prefWidth="133.33" text="Avalibily Status" />
+            <TableColumn fx:id="holder" prefWidth="133.33" text="Holder" />
         </columns>
       </TableView>
       <Button fx:id="btnBackButton" layoutX="14.0" layoutY="563.0" mnemonicParsing="false" onAction="#handleBack" text="Back">

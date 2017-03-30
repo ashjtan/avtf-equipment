@@ -11,14 +11,18 @@ import javafx.collections.ObservableList;
 public class StudentEquipmentManagement {
 
 
-///STUDENT///
+	///STUDENT///
 
 	static ArrayList<Student> studentListA = new ArrayList();
 	static ObservableList<Student> studentListO; 
 
-	
+
 	//Student List Getter (ArrayList)
 	public static ArrayList<Student> getStudentListA() {
+		return studentListA;
+	}
+	
+	public static ArrayList<Student> getStudentListLoad() {
 		try {
 			loadStudentFile();
 		} catch (IOException e) {
@@ -26,6 +30,7 @@ public class StudentEquipmentManagement {
 		}
 		return studentListA;
 	}
+	
 
 	//Student List Getter (ObservableList)
 	public static ObservableList<Student> getStudentListO() {
@@ -41,7 +46,7 @@ public class StudentEquipmentManagement {
 	//Student CSV File Loader
 	public static void loadStudentFile() throws IOException {
 		studentListA.clear();
-		
+
 		FileReader file = new FileReader("Resources/AVTF_StudentList2017.csv"); 	
 		BufferedReader reader = new BufferedReader(file);							
 		String line;
@@ -53,7 +58,7 @@ public class StudentEquipmentManagement {
 			student.setLastName(studentInfo[0]);					//Sets fields based on CSV file array
 			student.setFirstName(studentInfo[1]);
 			student.setStudentID(studentInfo[2]);
-
+			
 			studentListA.add(student);
 		}
 		studentListO = FXCollections.observableArrayList(studentListA);
@@ -62,14 +67,18 @@ public class StudentEquipmentManagement {
 
 
 
-	
-/// EQUIPMENT ///
+
+	/// EQUIPMENT ///
 
 	static ArrayList<Equipment> equipmentListA = new ArrayList();
 	static ObservableList<Equipment> equipmentListO; 
 
 	//Equipment List Getter (ArrayList)
 	public static ArrayList<Equipment> getEquipmentListA() {
+		return equipmentListA;
+	}
+	
+	public static ArrayList<Equipment> getEquipmentListLoad() {
 		try {
 			loadEquipmentFile();
 		} catch (IOException e) {
@@ -92,7 +101,7 @@ public class StudentEquipmentManagement {
 	//Equipment CSV File Loader
 	public static void loadEquipmentFile() throws IOException {
 		equipmentListA.clear();
-		
+
 		FileReader file = new FileReader("Resources/Sample Equipment.csv");
 		BufferedReader reader = new BufferedReader(file);
 		String line;

@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import tan.five.mainApp;
 import tan.five.model.Equipment;
 import tan.five.model.EquipmentType;
+import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 import chapman.five.model.ProjectUtilities;
 
@@ -35,6 +36,11 @@ public class ItemCheckInController {
 	@FXML
 	public void initialize() {
 		//INCOMPLETE
+		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad()) {
+			if (equipment.getHolder().equals(Student.SELECTED_STUDENT)) {
+				equipmentTableView.getItems().add(equipment);
+			}
+		}
 		
 		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));

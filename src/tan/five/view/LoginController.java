@@ -74,8 +74,8 @@ public class LoginController {
 
 	//Tests if student ID is correct
 	@FXML	
-	private boolean isStudentInputValid(){
-		for (Student student : StudentEquipmentManagement.getStudentListA()) {
+	private boolean isStudentInputValid() {
+		for (Student student : StudentEquipmentManagement.getStudentListLoad()) {
 			if (studentIDField.getText().equals(student.getStudentID())) {
 				Student.SELECTED_STUDENT = student;
 				return true;

@@ -182,7 +182,6 @@ public class CheckOutFinalController {
 			PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
 			Student.SELECTED_STUDENT.getCheckedOutEquipment().add(equipment);	//Adds equipment to student's ArrayList of held equipment
 			PrintLog.updateLog(false, equipment);								//Prints equipment checkout to log
-			PrintLog.setCheckInOrOut(0);										//Resets alterEquipmentFile to be set to Check In/Out version
 			ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutSuccess.fxml");
 		}
 

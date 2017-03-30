@@ -65,7 +65,7 @@ public class ItemCheckOutController  {
 	@FXML
 	public void initialize() {
 
-		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA()) {
+		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad()) {
 			if (equipment.isCheckedOut() == false) {
 				equipmentTableView.getItems().add(equipment);
 			}

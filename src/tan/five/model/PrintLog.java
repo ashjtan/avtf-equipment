@@ -22,10 +22,6 @@ public class PrintLog {
 	private static File equipmentList = new File("Resources/Sample Equipment.csv");
 	private static int checkInOrOut = 0;					//1 indicates check out, 2 indicates check in
 
-	public static void main(String[] args) throws IOException {
-
-	}
-
 
 	public static void updateLog(Boolean checkIn, Equipment equipment) throws FileNotFoundException {
 		PrintWriter pw = new PrintWriter(new FileOutputStream(log, true));
@@ -68,6 +64,9 @@ public class PrintLog {
 					csvBody.get(i)[3] = "OUT";
 					csvBody.get(i)[4] = Student.SELECTED_STUDENT.getStudentID();
 				}
+				//for(int j = 0; j < 6; j++) {
+				//	csvBody.get(i)[j](csvBody.get(i)[j].substring(1, csvBody.get(i)[j].length()));
+				//}
 			}
 			break;
 
@@ -82,11 +81,11 @@ public class PrintLog {
 		default:
 			break;
 		}
-
 			reader.close();
+			checkInOrOut = 0;										//Resets alterEquipmentFile to be set to Check In/Out version
 
 			//Writes to open file
-			CSVWriter writer = new CSVWriter(new FileWriter(equipmentList));
+			CSVWriter writer = new CSVWriter(new FileWriter(equipmentList),  CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER);
 			writer.writeAll(csvBody);
 			writer.flush();
 			writer.close();

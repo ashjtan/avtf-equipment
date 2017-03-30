@@ -20,9 +20,15 @@ public class PrintLog {
 
 	private static File log = new File("log.csv");
 	private static File equipmentList = new File("Resources/Sample Equipment.csv");
-	private static int checkInOrOut = 0;					//1 indicates check out, 2 indicates check in
+	private static int checkInOrOut = 0;					//For switch: 1 indicates check out, 2 indicates check in
 
 
+
+	//Updates Log + writes to CSV
+	/**
+	 * @param checkIn - switch depending on if item checked in or out
+	 * @param equipment - equipment checked in/out
+	 */
 	public static void updateLog(Boolean checkIn, Equipment equipment) throws FileNotFoundException {
 		PrintWriter pw = new PrintWriter(new FileOutputStream(log, true));
 		StringBuilder sb = new StringBuilder();
@@ -51,12 +57,12 @@ public class PrintLog {
 
 	}
 
-
+	//Edits CSV file when equipment checked in/out
 	public static void alterEquipmentFile(Equipment equipmentCheckingInOut) throws IOException {
 		//Reads existing file
 		CSVReader reader = new CSVReader(new FileReader(equipmentList));
 		List<String[]> csvBody = reader.readAll();
-		
+
 		switch (checkInOrOut) {
 		case 1: //Check Out
 			for (int i = 0; i < csvBody.size(); i++) {
@@ -66,7 +72,6 @@ public class PrintLog {
 				}
 			}
 			break;
-
 		case 2: //Check In
 			for (int i = 0; i < csvBody.size(); i++) {
 				if (csvBody.get(i)[0].equals(equipmentCheckingInOut.getEquipmentName())) {
@@ -78,22 +83,23 @@ public class PrintLog {
 		default:
 			break;
 		}
-			reader.close();
-			checkInOrOut = 0;										//Resets alterEquipmentFile to be set to Check In/Out version
+		reader.close();
+		checkInOrOut = 0;										//Resets alterEquipmentFile to be set to Check In/Out version
 
-			//Writes to open file
-			CSVWriter writer = new CSVWriter(new FileWriter(equipmentList),  CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER);
-			writer.writeAll(csvBody);
-			writer.flush();
-			writer.close();
-		}
+		//Writes to open CSV file
+		CSVWriter writer = new CSVWriter(new FileWriter(equipmentList),  CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER);
+		writer.writeAll(csvBody);
+		writer.flush();
+		writer.close();
+	}
+
+
 
 
 	//Getters + Setters
 	public static int getCheckInOrOut() {
 		return checkInOrOut;
 	}
-
 
 	public static void setCheckInOrOut(int checkInOrOut) {
 		PrintLog.checkInOrOut = checkInOrOut;

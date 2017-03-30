@@ -9,11 +9,13 @@ import javafx.scene.control.Label;
 
 public class CheckInSuccessController {
 	
+	//Fields
 	@FXML
 	private Button btnBackButton;
 	@FXML
 	private Label lblCongrats;
 	
+	//Scene Switch Method
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/tan/five/view/Login.fxml");

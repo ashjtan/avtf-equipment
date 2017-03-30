@@ -21,9 +21,8 @@ import chapman.five.model.ProjectUtilities;
 
 public class EquipmentScreenController {
 
-	@FXML
-	private Button btnBackButton;
-
+	//Fields
+	//Displays CSV-loaded equipment info
 	@FXML
 	private TableView<Equipment> equipmentTableView;
 	@FXML
@@ -38,7 +37,13 @@ public class EquipmentScreenController {
 	private TableColumn<Equipment, String> holder;
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
+	
+	//Switches scene
+	@FXML
+	private Button btnBackButton;
 
+	
+	
 
 	public void start(Stage primaryStage) {
 
@@ -46,11 +51,10 @@ public class EquipmentScreenController {
 
 	@FXML
 	public void initialize() {
-		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad()) {
+		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad()) {		//Loads equipment info from CSV file
 			equipmentTableView.getItems().add(equipment);
 		}
-
-		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
+		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));		//Sets info into correct table columns
 		equipmentID.setCellValueFactory(new PropertyValueFactory<>("equipmentID"));
 		countyID.setCellValueFactory(new PropertyValueFactory<>("countyID"));
 		checkedOut.setCellValueFactory(new PropertyValueFactory<>("checkedOut"));
@@ -58,16 +62,12 @@ public class EquipmentScreenController {
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
 	}
 
+	
+	
+	
 	//Switches scenes
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/AdminWelcomeScreen.fxml");
 	}
-	
-
-	public void setMainApp(mainApp mainApp) {
-
-
-	}
-
 }

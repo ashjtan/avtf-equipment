@@ -10,9 +10,12 @@ import chapman.five.model.ProjectUtilities;
 
 public class AdminWelcomeScreenController {
 
-	//Controls
+	//Fields
+	//Welcome
 	@FXML
 	private Label lblHello;
+	
+	//Switch scenes
 	@FXML
 	private Button btnStudentInfo;
 	@FXML
@@ -20,41 +23,45 @@ public class AdminWelcomeScreenController {
 	@FXML
 	private Button btnLogOut;
 	
-	
-
-	//So the main can reference itself to the controllers
+	//Enables main to reference itself to controllers
 	private MainApp mainApp;
 
+	
+	
+	
+	//Constructor needed for loader
 	public AdminWelcomeScreenController() {
-		//loader needs this
+		
 	}
 
-	//to initialize anything on start
+	//Called right after FXML file loaded
 	@FXML 
 	private void initialize() throws IOException{
 
 	}
 
-	//Methods for switching scenes
+	
+	
+	
+	//Scene Switch Methods
 	@FXML
-	public void studentInfo() throws IOException {
+	public void studentInfo() throws IOException {		//View Student List
 		ProjectUtilities.handleSceneSwitch(btnStudentInfo, "/chappelle/five/view/StudentDataScreen.fxml");
 	}
 	@FXML
-	public void equipmentList() throws IOException {
+	public void equipmentList() throws IOException {	//View Equipment List
 		ProjectUtilities.handleSceneSwitch(btnEquipmentList, "/chappelle/five/view/EquipmentScreen.fxml");
 	}
 	@FXML
-	public void handleLogout() throws IOException {
+	public void handleLogout() throws IOException {		//Returns to Login screen
 		ProjectUtilities.handleSceneSwitch(btnEquipmentList, "/tan/five/view/Login.fxml");
 	}
 	
-
-	// @param mainApp
+	
+	
+	
+	//Allows mainApp to have pointer to itself
 	public void setMainApp(MainApp mainApp) {
-
-		//This sets the field for this controller to the application passed in:  
-		//This allows the main application to have a pointer to itself by setting its own pointer into the controller's field
 		this.mainApp = mainApp;
 	}
 }

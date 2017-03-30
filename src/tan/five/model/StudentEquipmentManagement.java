@@ -9,9 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class StudentEquipmentManagement {
-
-
-	///STUDENT///
+///STUDENT///
 
 	static ArrayList<Student> studentListA = new ArrayList();
 	static ObservableList<Student> studentListO; 
@@ -22,7 +20,7 @@ public class StudentEquipmentManagement {
 		return studentListA;
 	}
 	
-	public static ArrayList<Student> getStudentListLoad() {
+	public static ArrayList<Student> getStudentListLoad() {		//Loads CSV file from scratch
 		try {
 			loadStudentFile();
 		} catch (IOException e) {
@@ -31,7 +29,7 @@ public class StudentEquipmentManagement {
 		return studentListA;
 	}
 	
-
+	
 	//Student List Getter (ObservableList)
 	public static ObservableList<Student> getStudentListO() {
 		try {
@@ -68,7 +66,9 @@ public class StudentEquipmentManagement {
 
 
 
-	/// EQUIPMENT ///
+	
+	
+/// EQUIPMENT ///
 
 	static ArrayList<Equipment> equipmentListA = new ArrayList();
 	static ObservableList<Equipment> equipmentListO; 
@@ -78,7 +78,7 @@ public class StudentEquipmentManagement {
 		return equipmentListA;
 	}
 	
-	public static ArrayList<Equipment> getEquipmentListLoad() {
+	public static ArrayList<Equipment> getEquipmentListLoad() {		//Loads CSV file from scratch
 		try {
 			loadEquipmentFile();
 		} catch (IOException e) {
@@ -87,6 +87,7 @@ public class StudentEquipmentManagement {
 		return equipmentListA;
 	}
 
+	
 	//Equipment List Getter (ObservableList)
 	public static ObservableList<Equipment> getEquipmentListO() {
 		try {

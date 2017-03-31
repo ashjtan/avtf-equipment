@@ -14,7 +14,7 @@
           <TableColumn fx:id="equipmentType" prefWidth="133.33" text="Type" />
             <TableColumn fx:id="equipmentID" prefWidth="133.33" text="Equipment ID" />
             <TableColumn fx:id="countyID" prefWidth="133.33" text="County ID" />
-            <TableColumn fx:id="checkedOut" prefWidth="133.33" text="Availability" />
+            <TableColumn fx:id="checkedOut" prefWidth="133.33" text="Checked Out" />
             <TableColumn fx:id="holder" prefWidth="133.33" text="Holder" />
         </columns>
       </TableView>

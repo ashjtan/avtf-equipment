@@ -13,25 +13,27 @@ import javafx.stage.Stage;
 
 public class ProjectUtilities {
 
-	//To load the checkmark image
-		public static void handleUpdateImage(Label lbl, ImageView img) {
-			Image checkMark = new Image("file:resources/checkmark.png");
-			img.setImage(checkMark);
-		}
-		
-		//Method for switching scenes
-		public static void handleSceneSwitch(Button btn, String filePath) throws IOException{
-			Stage stage; 
-			Parent root;
-			//Setting the scene to the check in menu
-			//get reference to the button's stage         
-			stage=(Stage) btn.getScene().getWindow();
-			//load up OTHER FXML document
-			root = FXMLLoader.load(ProjectUtilities.class.getResource(filePath));		//String name of FXML file location
-			Scene scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		}	
-		
-	
+	//Loads check mark image
+	/**
+	 * @param img - image file to load onto scene
+	 */
+	public static void handleUpdateImage(ImageView img) {
+		Image checkMark = new Image("file:resources/checkmark.png");
+		img.setImage(checkMark);
+	}
+
+	//Switches scenes
+	/**
+	 * @param btn - button to click, bound to handleSceneSwitch
+	 * @param filePath - String name of file location
+	 */
+	public static void handleSceneSwitch(Button btn, String filePath) throws IOException {		
+		Stage stage; 																//Sets up stage
+		Parent root;
+		stage=(Stage) btn.getScene().getWindow();									//References button's stage         
+		root = FXMLLoader.load(ProjectUtilities.class.getResource(filePath));		//Loads FXML document to switch to
+		Scene scene = new Scene(root);
+		stage.setScene(scene);														//Sets new scene on referenced stage
+		stage.show();
+	}	
 }

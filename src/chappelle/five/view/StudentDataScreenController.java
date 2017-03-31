@@ -38,10 +38,9 @@ import chapman.five.model.ProjectUtilities;
 
 public class StudentDataScreenController extends Application {
 
-	//fields
-	@FXML
-	private Button btnBackButton;
+	//Fields
 
+	//Displays CSV-loaded student info
 	@FXML
 	private TableView<Student> studentTableView;
 	@FXML
@@ -50,7 +49,13 @@ public class StudentDataScreenController extends Application {
 	private TableColumn<Student, String> lastName;
 	@FXML
 	private TableColumn<Student, String> ID;
+	
+	//Switches scene
+	@FXML
+	private Button btnBackButton;
 
+	
+	
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -59,24 +64,22 @@ public class StudentDataScreenController extends Application {
 
 	@FXML
 	public void initialize() {
-		for (Student student : StudentEquipmentManagement.getStudentListA()) {
+		for (Student student : StudentEquipmentManagement.getStudentListA()) {		//Loads student info from CSV file
 			studentTableView.getItems().add(student);
 		}
 		
-		firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+		firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));		//Sets info into correct table columns
 		lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
 		ID.setCellValueFactory(new PropertyValueFactory<>("studentID"));
 	}
 
-	//Switching scenes
+	
+	
+	
+	//Switches scenes
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/AdminWelcomeScreen.fxml");
 	}
 
-
-	public void setMainApp(mainApp mainApp) {
-		
-
-	}
 }

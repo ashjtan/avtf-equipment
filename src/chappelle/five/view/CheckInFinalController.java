@@ -18,6 +18,7 @@ import tan.five.model.Student;
 public class CheckInFinalController {
 
 	//Fields
+	//Displayed by correct user barcode inputs
 	@FXML
 	private ImageView imgCheckMark1;
 	@FXML
@@ -32,6 +33,7 @@ public class CheckInFinalController {
 	private ImageView imgCheckMark6;
 	Image checkMark = new Image("file:resources/checkmark.png");
 
+	//Set to names of items being checked in
 	@FXML
 	private Label lblItem1;
 	@FXML
@@ -45,9 +47,7 @@ public class CheckInFinalController {
 	@FXML
 	private Label lblItem6;
 
-
-	@FXML
-	private ListView<String> equipmentCart;
+	//Read user barcode inputs
 	@FXML
 	private TextField txtInput1;
 	@FXML
@@ -61,21 +61,26 @@ public class CheckInFinalController {
 	@FXML
 	private TextField txtInput6;
 
+	//Switch scenes
 	@FXML
 	private Button btnBackButton;
 	@FXML
 	private Button btnCheckIn;
 
 	@FXML
-	private Label lblIncorrectBarcodeError;
+	private Label lblIncorrectBarcodeError;		//Error displayed if barcode inputs incorrect
 
-	ArrayList<Equipment> equipmentCheckingIn = ItemCheckInController.getEquipmentToCheckIn();
+	@FXML
+	private ListView<String> equipmentReturn;	//ItemCheckIn's right-side viewable list of items selected to return
+	ArrayList<Equipment> equipmentCheckingIn = ItemCheckInController.getEquipmentToCheckIn();	//Equipment selected from list to return
 
 
-	//Add the equipment name to the label
+
+
+	//Adds equipment name to Label + sets TextField/Label to visible
 	@FXML
 	private void initialize() {
-		switch (equipmentCheckingIn.size()) {
+		switch (equipmentCheckingIn.size()) {		//Generates depending on number of items returning
 		case 1:
 			lblItem1.setVisible(true);
 			lblItem1.setText(equipmentCheckingIn.get(0).getEquipmentName());
@@ -171,9 +176,13 @@ public class CheckInFinalController {
 		}
 	}
 
+
+
+	//Event Handlers
+	//Checks for correct barcode + switches to Success screen + edits equipment file
 	@FXML
 	public void handleCheckIn() throws IOException {
-		switch (equipmentCheckingIn.size()) {
+		switch (equipmentCheckingIn.size()) {		//Checks depending on number of items returning
 		case 1:
 			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1)) {
 				for (Equipment equipment : equipmentCheckingIn) {
@@ -278,18 +287,27 @@ public class CheckInFinalController {
 		default:
 			break;
 		}
-
-
-
 	}
 
+	
+	//Scene Switch Method
 	@FXML
 	public void handleBack() throws IOException {
-		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/ItemCheckOut.fxml");
+		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/ItemCheckIn.fxml");
 	}
 
-	public boolean checkCorrectBarcode(TextField barcodeInput, int cartIndex, ImageView checkMark) {
-		if (barcodeInput.getText().equals(equipmentCheckingIn.get(cartIndex).getEquipmentID()) && !(barcodeInput.getText().equals(null))) {
+	
+	
+	
+	//Helper Methods
+	//Checks if barcode input correct
+	/**
+	 * @param barcodeInput - Textfield to check
+	 * @param listIndex - which item in list of items returning to compare barcode
+	 * @param checkMark - image to display
+	 */
+	public boolean checkCorrectBarcode(TextField barcodeInput, int listIndex, ImageView checkMark) {
+		if (barcodeInput.getText().equals(equipmentCheckingIn.get(listIndex).getEquipmentID()) && !(barcodeInput.getText().equals(null))) {
 			checkMark.setVisible(true);
 			return true;
 		}

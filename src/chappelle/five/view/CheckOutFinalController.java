@@ -24,6 +24,7 @@ import chapman.five.model.ProjectUtilities;
 public class CheckOutFinalController {
 
 	//Fields
+	//Displayed by correct user barcode inputs
 	@FXML
 	private ImageView imgCheckMark1;
 	@FXML
@@ -38,6 +39,7 @@ public class CheckOutFinalController {
 	private ImageView imgCheckMark6;
 	Image checkMark = new Image("file:resources/checkmark.png");
 
+	//Set to names of items being checked out
 	@FXML
 	private Label lblItem1;
 	@FXML
@@ -51,9 +53,7 @@ public class CheckOutFinalController {
 	@FXML
 	private Label lblItem6;
 
-
-	@FXML
-	private ListView<String> equipmentCart;
+	//Read user barcode inputs
 	@FXML
 	private TextField txtInput1;
 	@FXML
@@ -67,20 +67,26 @@ public class CheckOutFinalController {
 	@FXML
 	private TextField txtInput6;
 
+	//Switch scenes
 	@FXML
 	private Button btnBackButton;
 	@FXML
 	private Button btnCheckOut;
 
 	@FXML
-	private Label lblIncorrectBarcodeError;
+	private Label lblIncorrectBarcodeError;	//Error displayed if barcode inputs incorrect
 
-	ArrayList<Equipment> equipmentCheckingOut = ItemCheckOutController.getEquipmentToCheckOut();
+	@FXML
+	private ListView<String> equipmentCart;	//ItemCheckOut's right-side viewable list of items selected to check out
+	ArrayList<Equipment> equipmentCheckingOut = ItemCheckOutController.getEquipmentToCheckOut();	//Equipment selected from list to return
 
-	//Add the equipment name to the label
+
+
+
+	//Adds equipment name to Label + sets TextField/Label to visible
 	@FXML
 	private void initialize() {
-		switch (equipmentCheckingOut.size()) {
+		switch (equipmentCheckingOut.size()) {		//Generates depending on number of items returning
 		case 1:
 			lblItem1.setVisible(true);
 			lblItem1.setText(equipmentCheckingOut.get(0).getEquipmentName());
@@ -176,6 +182,11 @@ public class CheckOutFinalController {
 		}
 	}
 
+
+
+
+	//Event Handlers
+	//Checks for correct barcode + switches to Success screen + edits equipment file
 	@FXML
 	public void handleCheckOut() throws IOException {
 		switch (equipmentCheckingOut.size()) {
@@ -281,49 +292,10 @@ public class CheckOutFinalController {
 		default:
 			break;
 		}
-
-
 	}
 
-	@FXML
-	public void handleCheckOutHover() {
-		switch (equipmentCheckingOut.size()) {
-		case 1:
-			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
-			break;
-		case 2:
-			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
-			checkCorrectBarcode(txtInput2, 1, imgCheckMark2);
-			break;
-		case 3:
-			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
-			checkCorrectBarcode(txtInput2, 1, imgCheckMark2);
-			checkCorrectBarcode(txtInput3, 2, imgCheckMark3);
-			break;
-		case 4:
-			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
-			checkCorrectBarcode(txtInput2, 1, imgCheckMark2);
-			checkCorrectBarcode(txtInput3, 2, imgCheckMark3);
-			checkCorrectBarcode(txtInput4, 3, imgCheckMark4);
-			break;
-		case 5:
-			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
-			checkCorrectBarcode(txtInput2, 1, imgCheckMark2);
-			checkCorrectBarcode(txtInput3, 2, imgCheckMark3);
-			checkCorrectBarcode(txtInput4, 3, imgCheckMark4);
-			checkCorrectBarcode(txtInput5, 4, imgCheckMark5);
-			break;
-		case 6:
-			checkCorrectBarcode(txtInput1, 0, imgCheckMark1);
-			checkCorrectBarcode(txtInput2, 1, imgCheckMark2);
-			checkCorrectBarcode(txtInput3, 2, imgCheckMark3);
-			checkCorrectBarcode(txtInput4, 3, imgCheckMark4);
-			checkCorrectBarcode(txtInput5, 4, imgCheckMark5);
-			checkCorrectBarcode(txtInput6, 5, imgCheckMark6);
-			break;
-		}
-	}
 
+	//Scene Switch Method
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/ItemCheckOut.fxml");
@@ -331,6 +303,13 @@ public class CheckOutFinalController {
 
 
 
+	//Helper Methods
+	//Checks if barcode input correct
+	/**
+	 * @param barcodeInput - Textfield to check
+	 * @param cartIndex - which item in list of items returning to compare barcode
+	 * @param checkMark - image to display
+	 */
 	public boolean checkCorrectBarcode(TextField barcodeInput, int cartIndex, ImageView checkMark) {
 		if (barcodeInput.getText().equals(equipmentCheckingOut.get(cartIndex).getEquipmentID()) && !(barcodeInput.getText().equals(null))) {
 			checkMark.setVisible(true);

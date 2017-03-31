@@ -25,16 +25,8 @@ import chapman.five.model.ProjectUtilities;
 
 public class ItemCheckOutController  {
 
-
-	@FXML
-	private Button btnBackButton;
-	@FXML
-	private Button btnAddToCart;
-	@FXML 
-	private Button btnClearCart;
-	@FXML
-	private Button btnCheckOut;
-
+	//Fields
+	//Displays CSV-loaded equipment info
 	@FXML
 	private TableView<Equipment> equipmentTableView;
 	@FXML
@@ -42,18 +34,28 @@ public class ItemCheckOutController  {
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
 
+	//Allows user capability in selecting items
+	@FXML
+	private Button btnAddToCart;
+	@FXML 
+	private Button btnClearCart;
+	@FXML
+	private Button btnCheckOut;
+
+	//Switches scene
+	@FXML
+	private Button btnBackButton;
+
+	//Errors displayed to user
 	@FXML
 	private Label lblMaximumItemsError;
 	@FXML
 	private Label lblNoItemsError;
 
 	@FXML
-	private ListView<String> equipmentCart;
+	private ListView<String> equipmentCart;		//Right-side viewable list of items selected to check out
 
-	private static ObservableList<String> listForCart = FXCollections.observableArrayList();
-	
-
-	private mainApp mainApp;
+	private static ObservableList<String> listForCart = FXCollections.observableArrayList();	//Backs equipmentCart view
 
 
 
@@ -65,16 +67,20 @@ public class ItemCheckOutController  {
 	@FXML
 	public void initialize() {
 
-		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad()) {
-			if (equipment.isCheckedOut() == false) {
+		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad()) {		//Loads equipment list from CSV file
+			if (equipment.isCheckedOut() == false) {										//Only loads equipment that is not currently checked out
 				equipmentTableView.getItems().add(equipment);
 			}
 		}
-		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
+		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));		//Sets info into correct table columns
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
 	}
 
-	
+
+
+
+	//Event Handlers
+	//Adds item to list to check out
 	@FXML
 	public void handleAddToCart() {
 		boolean duplicate = false;
@@ -84,44 +90,33 @@ public class ItemCheckOutController  {
 				duplicate = true;
 			}
 		}
-
 		if (listForCart.size() >= 6) {
 			lblMaximumItemsError.setVisible(true);
 		}
-
 		else if (!duplicate) {
 			listForCart.add(readSelectedItem().getEquipmentName());
 			equipmentCart.setItems(listForCart);
-
 		}
-
 	}
 
 
 
 
-
-	//Method for switching scenes
-	@FXML
-	public void handleBack() throws IOException {
-		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
-	}
-
+	//Moves to check out items added to list to check out
 	@FXML
 	public void handleCheckOut() throws IOException {
-		if (listForCart.size() > 0) {
+		if (listForCart.size() > 0) {						//Checks that there are items to be checked out
 			ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/CheckOutFinal.fxml");
 		}
 		else {
-			if (lblMaximumItemsError.isVisible()) {
+			if (lblMaximumItemsError.isVisible()) {			//Displays error if needed
 				lblMaximumItemsError.setVisible(false);
 			}
 			lblNoItemsError.setVisible(true);
 		}
 	}
 
-
-
+	//Clears list of items to check out
 	@FXML
 	public void handleClear() {
 		listForCart.clear();
@@ -129,6 +124,16 @@ public class ItemCheckOutController  {
 	}
 
 
+	//Switches scene
+	@FXML
+	public void handleBack() throws IOException {
+		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
+	}
+
+
+
+
+	//Helper Methods
 	//Gets ArrayList<Equipment> of items in cart checking out
 	public static ArrayList<Equipment> getEquipmentToCheckOut() {
 		ArrayList<Equipment> equipmentToCheckOut = new ArrayList<Equipment>();
@@ -141,20 +146,10 @@ public class ItemCheckOutController  {
 		return equipmentToCheckOut;
 	}
 
-
-
-
-
-
-	//HELPER METHODS
-	//Reads item clicked/selected in equipmentTableView
+	//Reads item selected in TableView
 	@FXML
 	public Equipment readSelectedItem() {
 		Equipment equipment = equipmentTableView.getSelectionModel().getSelectedItem();
 		return equipment;
-	}
-
-	public void setMainApp(mainApp mainApp) {
-		this.mainApp = mainApp;
 	}
 }

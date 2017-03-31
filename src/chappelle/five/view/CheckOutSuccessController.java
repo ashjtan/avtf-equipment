@@ -10,6 +10,7 @@ import chapman.five.model.ProjectUtilities;
 
 public class CheckOutSuccessController {
 	
+	//Fields
 	@FXML
 	private Button btnBackButton;
 	@FXML
@@ -17,6 +18,7 @@ public class CheckOutSuccessController {
 	@FXML 
 	private Button btnBackToMenu;
 	
+	//Scene Switch Method
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/tan/five/view/Login.fxml");

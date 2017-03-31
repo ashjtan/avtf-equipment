@@ -23,16 +23,9 @@ import chapman.five.model.ProjectUtilities;
 
 public class ItemCheckInController {
 
+	//Fields
 
-	@FXML
-	private Button btnBackButton;
-	@FXML
-	private Button btnAddToList;
-	@FXML
-	private Button btnCheckIn;
-	@FXML
-	private Button btnClearList;
-
+	//Displays CSV-loaded equipment info
 	@FXML
 	private TableView<Equipment> equipmentTableView;
 	@FXML
@@ -40,15 +33,30 @@ public class ItemCheckInController {
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
 
+	//Allows user capability in selecting items
+	@FXML
+	private Button btnAddToList;
+	@FXML
+	private Button btnCheckIn;
+	@FXML
+	private Button btnClearList;
+
+	//Switches scene
+	@FXML
+	private Button btnBackButton;
+
+	//Errors displayed to user
 	@FXML
 	private Label lblMaximumItemsError;
 	@FXML
 	private Label lblNoItemsError;
 
 	@FXML
-	private ListView<String> equipmentReturn;
+	private ListView<String> equipmentReturn;		//Right-side viewable list of items selected to return
 
-	private static ObservableList<String> listForReturn = FXCollections.observableArrayList();
+	private static ObservableList<String> listForReturn = FXCollections.observableArrayList();	//Backs equipmentReturn view
+
+
 
 
 	public void start(Stage primaryStage) {
@@ -57,46 +65,72 @@ public class ItemCheckInController {
 
 	@FXML
 	public void initialize() {
-		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad())  {
+		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad())  {	//Loads equipment list from CSV file
 			if (equipment.isCheckedOut()) {													//Prevents NullPointerException
-				if (equipment.getHolder().equals(Student.SELECTED_STUDENT)) {
+				if (equipment.getHolder().equals(Student.SELECTED_STUDENT)) {				//Only loads equipment that student currently has checked out
 					equipmentTableView.getItems().add(equipment);
 				}
 			}
 		}
-
-		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));
+		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));		//Sets info into correct table columns
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
-
 	}
 
+
+
+
+	//Event Handlers
+	//Adds item to list to return
 	@FXML
-	public void handleAddToList() {
+	public void handleAddToList() {		
 		boolean duplicate = false;
 
-		for (String itemInList : listForReturn) {
+		for (String itemInList : listForReturn) {								//Checks for duplicate error
 			if (readSelectedItem().getEquipmentName().equals(itemInList)) {
 				duplicate = true;
 			}
 		}
-
-		if (listForReturn.size() >= 6) {
+		if (listForReturn.size() >= 6) {										//Checks for maximum number of items in list (6)
 			lblMaximumItemsError.setVisible(true);
 		}
-
 		else if (!duplicate) {
 			listForReturn.add(readSelectedItem().getEquipmentName());
 			equipmentReturn.setItems(listForReturn);
 		}
 	}
 
+	//Moves to check in items added to list to return
 	@FXML
-	public void handleClear() {
+	public void handleCheckIn() throws IOException {
+		if (listForReturn.size() > 0) {					//Checks that there are items to be returned
+			ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/CheckInFinal.fxml");
+		}
+		else {
+			if (lblMaximumItemsError.isVisible()) {		//Displays error if needed
+				lblMaximumItemsError.setVisible(false);
+			}
+			lblNoItemsError.setVisible(true);
+		}
+	}
+	
+	//Clears list of items to return
+	@FXML
+	public void handleClear() {			
 		listForReturn.clear();
 		equipmentReturn.setItems(listForReturn);
 	}
 
-	//Gets ArrayList<Equipment> of items in cart checking out
+
+	//Switches scene
+	@FXML
+	public void handleBack() throws IOException {
+		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
+	}
+
+
+
+	//Helper Methods
+	//Gets ArrayList<Equipment> of items in list checking in
 	public static ArrayList<Equipment> getEquipmentToCheckIn() {
 		ArrayList<Equipment> equipmentToCheckIn = new ArrayList<Equipment>();
 		for (String itemInList : listForReturn) {
@@ -108,34 +142,10 @@ public class ItemCheckInController {
 		return equipmentToCheckIn;
 	}
 
-
-	//Method for switching scenes
-	@FXML
-	public void handleBack() throws IOException {
-		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
-	}
-
-	@FXML
-	public void handleCheckIn() throws IOException {
-		if (listForReturn.size() > 0) {
-			ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/CheckInFinal.fxml");
-		}
-		else {
-			if (lblMaximumItemsError.isVisible()) {
-				lblMaximumItemsError.setVisible(false);
-			}
-			lblNoItemsError.setVisible(true);
-		}
-	}
-
+	//Reads item selected in TableView
 	@FXML
 	public Equipment readSelectedItem() {
 		Equipment equipment = equipmentTableView.getSelectionModel().getSelectedItem();
 		return equipment;
 	}
-
-	public void setMainApp(mainApp mainApp) {
-
-	}
-
 }

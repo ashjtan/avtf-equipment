@@ -43,9 +43,12 @@ import javafx.beans.value.ChangeListener;
 
 public class StudentWelcomeScreenController  {
 
-	//Controls
+	//Fields
+	//Welcome
 	@FXML
 	private Label lblHello;
+	
+	//Switch scenes
 	@FXML
 	private Button btnCheckIn;
 	@FXML
@@ -53,39 +56,41 @@ public class StudentWelcomeScreenController  {
 	@FXML
 	private Button btnLogOut;
 
-	//Main can reference itself to the controllers
+	//Enables main to reference itself to controllers
 	private MainApp mainApp;
-
+	
+	
+	
+	//Constructor needed for loader
 	public StudentWelcomeScreenController() {
-		//Loader needs this
+		
 	}
 
-	//Initializes anything on start
+	//Called right after FXML file loaded
 	@FXML 
 	private void initialize() throws IOException{
-		//Sets the Hello, statement to add their name 
-		lblHello.setText(("Hello, "  + Student.SELECTED_STUDENT.getFirstName()));
+		lblHello.setText(("Hello, "  + Student.SELECTED_STUDENT.getFirstName()));	//Sets the Hello, statement to add student's name 
 	}
 
-	//Methods for switching scenes
+	//Scene Switch Methods
 	@FXML
-	public void checkIn() throws IOException {
+	public void checkIn() throws IOException {		//Check In Equipment
 		ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/ItemCheckIn.fxml");
 	}
 	@FXML
-	public void checkOut() throws IOException {
+	public void checkOut() throws IOException {		//Check Out Equipment
 		ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/ItemCheckOut.fxml");
 	}
 	@FXML
-	public void handleLogOut() throws IOException {
+	public void handleLogOut() throws IOException {	//Returns to Login screen
 		ProjectUtilities.handleSceneSwitch(btnLogOut, "/tan/five/view/Login.fxml");
 	}
 
-	// @param mainApp
-	public void setMainApp(MainApp mainApp) {
 
-		//This sets the field for this controller to the application passed in:  
-		//This allows the main application to have a pointer to itself by setting its own pointer into the controller's field
+	
+	
+	//Allows mainApp to have pointer to itself
+	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
 	}
 }

@@ -80,8 +80,7 @@ public class Equipment {
 		this.holder = holder;
 	}
 
-	public void setHolder(String holder) {	
-		//WRITTEN FROM SCRATCH FOR INSTANTIATION FROM CSV	
+	public void setHolder(String holder) {						//WRITTEN FROM SCRATCH FOR INSTANTIATION FROM CSV	
 		for (Student student : StudentEquipmentManagement.getStudentListA()) {
 			if (holder.equals(student.getStudentID())) {			
 				this.holder = student;
@@ -133,10 +132,4 @@ public class Equipment {
 	public void setEquipmentType(EquipmentType equipmentType) {
 		this.equipmentType = equipmentType;
 	}
-
 }
-
-
-
-
-

@@ -39,32 +39,28 @@ import javafx.beans.value.ChangeListener;
 
 
 public class RootLayoutController {
-
-	//Controls
-
-
-
-	//So the main can reference itself to the controllers
+	//Allows main to reference itself to controllers
 	private tan.five.mainApp mainApp;
 
-
+	
+	
+	
+	//Constructor needed for loader
 	public RootLayoutController() {
-		//loader needs this
+
 	}
 
 	@FXML 
 	private void initialize(){
 
-
 	}
 
+	
+	
 
-	// @param mainApp
-	public void setMainApp(tan.five.mainApp mainApp2) {
-
-		//This sets the field for this controller to the application passed in:  
-		//This allows the main application to have a pointer to itself by setting its own pointer into the controller's field
-		this.mainApp = mainApp2;
+	//Allows mainApp to have pointer to itself
+	public void setMainApp(tan.five.mainApp mainApp) {
+		this.mainApp = mainApp;
 	}
 }
 

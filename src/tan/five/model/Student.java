@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 
 public class Student {
 
+	//Field of logged-in student
 	public static Student SELECTED_STUDENT = new Student();
 
 	//Fields
@@ -14,7 +15,7 @@ public class Student {
 	private SimpleStringProperty firstName = new SimpleStringProperty();
 	private SimpleStringProperty studentID = new SimpleStringProperty();
 
-
+	
 	//Default Constructor
 	public Student() {
 		this("", "", "");
@@ -56,7 +57,7 @@ public class Student {
 	
 	
 	
-	//Overwriting toString to return Student's name
+	//Overwriting toString to return Student's name (for visibility)
 	public String toString() {
 		return firstName + " " + lastName;
 	}

@@ -34,7 +34,7 @@ public class EquipmentScreenController {
 	@FXML
 	private TableColumn<Equipment, Boolean> checkedOut;
 	@FXML 
-	private TableColumn<Equipment, String> holder;
+	private TableColumn<Equipment, Student> holder;
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
 	

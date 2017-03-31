@@ -36,6 +36,4 @@ public class ProjectUtilities {
 		stage.setScene(scene);														//Sets new scene on referenced stage
 		stage.show();
 	}	
-
-
 }

@@ -34,16 +34,18 @@ public class EquipmentScreenController {
 	@FXML
 	private TableColumn<Equipment, Boolean> checkedOut;
 	@FXML 
-	private TableColumn<Equipment, Student> holder;
+	private TableColumn<Equipment, String> holder;
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
-	
+
 	//Switches scene
 	@FXML
 	private Button btnBackButton;
 
-	
-	
+
+
+
+
 
 	public void start(Stage primaryStage) {
 
@@ -52,19 +54,22 @@ public class EquipmentScreenController {
 	@FXML
 	public void initialize() {
 		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad()) {		//Loads equipment info from CSV file
+			if (equipment.getHolder()!= null) {
+				equipment.setHolderName(equipment.getHolder().toString());
+			}
 			equipmentTableView.getItems().add(equipment);
 		}
 		equipmentName.setCellValueFactory(new PropertyValueFactory<>("equipmentName"));		//Sets info into correct table columns
 		equipmentID.setCellValueFactory(new PropertyValueFactory<>("equipmentID"));
 		countyID.setCellValueFactory(new PropertyValueFactory<>("countyID"));
 		checkedOut.setCellValueFactory(new PropertyValueFactory<>("checkedOut"));
-		holder.setCellValueFactory(new PropertyValueFactory<>("holder"));
+		holder.setCellValueFactory(new PropertyValueFactory<>("holderName"));
 		equipmentType.setCellValueFactory(new PropertyValueFactory<>("equipmentType"));
 	}
 
-	
-	
-	
+
+
+
 	//Switches scenes
 	@FXML
 	public void handleBack() throws IOException {

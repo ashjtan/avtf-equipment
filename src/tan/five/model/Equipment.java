@@ -11,8 +11,11 @@ public class Equipment {
 	private SimpleStringProperty countyID = new SimpleStringProperty();
 	private SimpleBooleanProperty checkedOut = new SimpleBooleanProperty();
 	private Student holder;
+	private SimpleStringProperty holderName = new SimpleStringProperty();
 	private EquipmentType equipmentType;
 
+	
+	
 
 	//Default Constructor
 	public Equipment(){
@@ -79,6 +82,14 @@ public class Equipment {
 	public void setHolder(Student holder) {						
 		this.holder = holder;
 	}
+	
+	public String getHolderName() {								//Returns String
+		return holderName.get();
+	}
+
+	public void setHolderName(String holderName) {				//Takes String
+		this.holderName.set(holderName);
+	}
 
 	public void setHolder(String holder) {						//WRITTEN FROM SCRATCH FOR INSTANTIATION FROM CSV	
 		for (Student student : StudentEquipmentManagement.getStudentListA()) {
@@ -86,7 +97,6 @@ public class Equipment {
 				this.holder = student;
 			}
 		}
-
 	}
 
 	public EquipmentType getEquipmentType() {					

@@ -127,6 +127,8 @@ public class ItemCheckOutController  {
 	//Switches scene
 	@FXML
 	public void handleBack() throws IOException {
+		listForCart.clear();
+		equipmentCart.setItems(listForCart);
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
 

@@ -35,15 +35,18 @@
             <Font name="Helvetica Neue Thin" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblItem4" layoutX="47.0" layoutY="220.0" prefHeight="17.0" prefWidth="121.0" visible="false" />
+      <Label fx:id="lblItem4" layoutX="47.0" layoutY="220.0" prefHeight="17.0" prefWidth="121.0" visible="false">
+         <font>
+            <Font name="Helvetica Neue Thin" size="13.0" />
+         </font></Label>
       <Label fx:id="lblItem5" layoutX="47.0" layoutY="260.0" prefHeight="17.0" prefWidth="121.0" visible="false">
          <font>
-            <Font name="Helvetica Neue" size="13.0" />
+            <Font name="Helvetica Neue Thin" size="13.0" />
          </font>
       </Label>
       <Label fx:id="lblItem6" layoutX="47.0" layoutY="300.0" prefHeight="17.0" prefWidth="121.0" visible="false">
          <font>
-            <Font name="Helvetica Neue" size="13.0" />
+            <Font name="Helvetica Neue Thin" size="13.0" />
          </font>
       </Label>
       <ImageView fx:id="imgCheckMark1" fitHeight="36.0" fitWidth="42.0" layoutX="372.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />

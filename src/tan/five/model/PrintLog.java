@@ -18,7 +18,7 @@ import com.opencsv.CSVWriter;
 
 public class PrintLog {
 
-	private static File log = new File("log.csv");
+	private static File log = new File("Resources/log.csv");
 	private static File equipmentList = new File("Resources/Sample Equipment.csv");
 	private static int checkInOrOut = 0;					//For switch: 1 indicates check out, 2 indicates check in
 

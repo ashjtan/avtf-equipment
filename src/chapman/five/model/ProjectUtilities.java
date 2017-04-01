@@ -6,16 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class ProjectUtilities {
 
-	//Loads check mark image
 	/**
-	 * Updates check mark image
+	 * Loads the check mark image.
 	 * @param img - image file to load onto scene
 	 */
 	public static void handleUpdateImage(ImageView img) {
@@ -23,14 +21,10 @@ public class ProjectUtilities {
 		img.setImage(checkMark);
 	}
 
-	//Switches scenes
 	/**
-	 * Sets up stage
-	 * References button's stage 
-	 * Loads FXML document to switch to
-	 * Sets new scene on referenced stage
-	 * @param btn - button to click, bound to handleSceneSwitch
-	 * @param filePath - String name of file location
+	 * Switches from one scene to another.
+	 * @param btn - the button to click that is bound to the handleSceneSwitch method.
+	 * @param filePath - String name of the filepath.
 	 */
 	public static void handleSceneSwitch(Button btn, String filePath) throws IOException {		
 		Stage stage; 																//Sets up stage

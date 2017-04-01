@@ -3,84 +3,77 @@
  * PSET 4-0
  * December 7, 2016
  */
-
 package chappelle.five.view;
 
-import javafx.beans.value.ObservableValue;
-
-import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-import tan.five.model.Student;
 import java.io.IOException;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
+import tan.five.model.Student;
 import chapman.five.model.ProjectUtilities;
 import chapman.five.MainApp;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Slider;
-import javafx.beans.value.ChangeListener;
-
-
 
 public class StudentWelcomeScreenController  {
 
 	//Fields
-	//Welcome
+	/**
+	 * Shows "Hello, " and the Student's first name on the scene.
+	 * Bound to the hello label in the .fxml file.
+	 */
 	@FXML
 	private Label lblHello;
-	
-	//Switch scenes
+
+	/**
+	 * Switches to scene where the Student can check in currently held equipment.
+	 * Bound to the check in Button in the .fxml file.
+	 */
 	@FXML
 	private Button btnCheckIn;
+	/**
+	 * Switches to scene where the Student can check out available equipment.
+	 * Bound to the check out Button in the .fxml file.
+	 */
 	@FXML
 	private Button btnCheckOut;
+	/**
+	 * Logs the Student out of the program.
+	 * Bound to the Log Out Button in the .fxml file.
+	 */
 	@FXML
 	private Button btnLogOut;
 
-	//Enables main to reference itself to controllers
-	private MainApp mainApp;
-	
-	
 	/**
-	 * Constructor needed for loader
+	 * Enables the mainApp to reference itself to the controllers.
 	 */
-	//Constructor needed for loader
+	private MainApp mainApp;
+
+
+
+
+	/**
+	 * An empty constructor needed for the loader.
+	 */
 	public StudentWelcomeScreenController() {
-		
+
 	}
 
 	/**
-	 * Called right after FXML file loaded
+	 * Called right after the FXML file is loaded to set up the scene.
+	 * Sets the "Hello, " statement on the Label to the Student's first name.
 	 * @throws IOException
 	 */
-	//Called right after FXML file loaded
 	@FXML 
 	private void initialize() throws IOException{
-		lblHello.setText(("Hello, "  + Student.SELECTED_STUDENT.getFirstName()));	//Sets the Hello, statement to add student's name 
+		lblHello.setText(("Hello, "  + Student.SELECTED_STUDENT.getFirstName()));
 	}
 
-	//Scene Switch Methods
+
+
+
 	/**
-	 * Loads ItemCheckIn
+	 * Switches scene to ItemCheckIn.
 	 * @throws IOException
 	 */
 	@FXML
@@ -88,7 +81,7 @@ public class StudentWelcomeScreenController  {
 		ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/ItemCheckIn.fxml");
 	}
 	/**
-	 * Loads ItemCheckOut
+	 * Switches scene to ItemCheckOut.
 	 * @throws IOException
 	 */
 	@FXML
@@ -96,7 +89,7 @@ public class StudentWelcomeScreenController  {
 		ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/ItemCheckOut.fxml");
 	}
 	/**
-	 * Loads Login Screen
+	 * Logs user out and switches back to Login screen.
 	 * @throws IOException
 	 */
 	@FXML
@@ -104,11 +97,13 @@ public class StudentWelcomeScreenController  {
 		ProjectUtilities.handleSceneSwitch(btnLogOut, "/tan/five/view/Login.fxml");
 	}
 
+
+
+
 	/**
-	 * Allows mainApp to have pointer to itself
-	 * @param mainApp
+	 * Gives the mainApp a pointer to itself.
+	 * @param mainApp - the main application for this controller to access.
 	 */
-	//Allows mainApp to have pointer to itself
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
 	}

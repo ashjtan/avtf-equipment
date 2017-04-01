@@ -20,42 +20,76 @@ import chappelle.five.view.StudentWelcomeScreenController;
 public class LoginController {
 
 	//Fields
+	/**
+	 * Shows "Welcome!" on the scene.
+	 */
 	@FXML
-	private Label welcome;
+	private Label welcome;	
+	/**
+	 * Instructs the student to type in their student ID in order to log in.
+	 */
 	@FXML
 	private Label askStudentID;
-	@FXML
-	private TextField studentIDField;
+	/**
+	 * Displays an error when the user enters an incorrect student ID.
+	 */
 	@FXML
 	private Label errorMessage;
+
+	/**
+	 * Reads the user's student ID input to log in.
+	 */
+	@FXML
+	private TextField studentIDField;
+
+	/**
+	 * Login button that switches to the StudentWelcomeScreen when a valid student ID is entered.
+	 */
 	@FXML
 	private Button btnStudent;
+	/**
+	 * Login button that switches to the AdminWelcomeScreen when the admin key is entered.
+	 */
 	@FXML
 	private Button btnAdmin;
-	@FXML
-	private Button btnGoBack;
+
+	/**
+	 * The application icon displayed beside the window title.
+	 */
 	@FXML
 	private ImageView imgAppIcon;
 
+	/**
+	 * Enables the mainApp to reference itself to controllers.
+	 */
 	private mainApp mainApp;
 
 
 
 	//Empty Constructor
+	/**
+	 * An empty constructor needed for the loader.
+	 */
 	public LoginController(){
 
 	}
 
 	//Initialize
+	/**
+	 * Called right after the FXML file is loaded to set up the scene.
+	 */
 	@FXML
 	private void initialize(){
-		
 
 	}
 
 
 
 	//Event Handlers
+	/**
+	 * Switches scene to the StudentWelcomeScreen or the AdminWelcomeScreen depending on the user's input when button is clicked.
+	 * @throws IOException
+	 */
 	@FXML
 	private void handleInput() throws IOException {
 		if (isStudentInputValid()) {
@@ -63,7 +97,7 @@ public class LoginController {
 			ProjectUtilities.handleSceneSwitch(btnStudent, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 		}
 		else if (studentIDField.getText().equals("0123456789")) {
-			//Reveal Admin button
+			//Reveals Admin button
 			btnAdmin.setVisible(true);
 			ProjectUtilities.handleSceneSwitch(btnAdmin, "/chappelle/five/view/AdminWelcomeScreen.fxml");
 		}
@@ -73,6 +107,10 @@ public class LoginController {
 
 
 	//Tests if student ID is correct
+	/**
+	 * Checks if the user's input is a valid student ID.
+	 * @return the user's input as a valid student ID.
+	 */
 	@FXML	
 	private boolean isStudentInputValid() {
 		for (Student student : StudentEquipmentManagement.getStudentListLoad()) {
@@ -85,9 +123,11 @@ public class LoginController {
 	}
 
 
+	/**
+	 * Gives the mainApp a pointer to itself.
+	 * @param mainApp - the main application for this controller to access.
+	 */
 	public void setMainApp(tan.five.mainApp mainApp) {
-		//Sets the field for this controller to the application passed in:  
-		//Allows the main application to have a pointer to itself by setting its own pointer into the controller's field
 		this.mainApp = mainApp;
 	}
 }

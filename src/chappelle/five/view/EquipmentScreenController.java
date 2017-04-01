@@ -2,47 +2,62 @@ package chappelle.five.view;
 
 import java.io.IOException;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import tan.five.mainApp;
+
 import tan.five.model.Equipment;
 import tan.five.model.EquipmentType;
-import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 import chapman.five.model.ProjectUtilities;
 
 public class EquipmentScreenController {
 
 	//Fields
-	//Displays CSV-loaded equipment info
+	/**
+	 * Table of Equipment information loaded from CSV file, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableView<Equipment> equipmentTableView;
+	/**
+	 * Table column displaying the title of the Equipment, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableColumn<Equipment, String> equipmentName;
+	/**
+	 * Table column displaying the four-digit barcode number of the Equipment, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableColumn<Equipment, String> equipmentID;
+	/**
+	 * Table column displaying the county ID of the Equipment, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableColumn<Equipment, String> countyID;
+	/**
+	 * Table column displaying if the Equipment is checked out, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableColumn<Equipment, Boolean> checkedOut;
+	/**
+	 * Table column displaying the Student (if any) in possession of the Equipment, able to bind to JavaFX.
+	 */
 	@FXML 
 	private TableColumn<Equipment, String> holder;
+	/**
+	 * Table column displaying the category of AVTF equipment this piece falls into, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
 
-	//Switches scene
+	/**
+	 * Bound to the back button in the .fxml file.
+	 */
 	@FXML
 	private Button btnBackButton;
-
-
 
 
 
@@ -50,9 +65,10 @@ public class EquipmentScreenController {
 	public void start(Stage primaryStage) {
 
 	}
+
 	/**
-	 * Loads equipment info from CSV file
-	 * Sets info into correct table columns
+	 * Loads Equipment information from the equipment CSV file and sets the information 
+	 * into its respective table column when the scene is loaded.
 	 */
 	@FXML
 	public void initialize() {
@@ -72,11 +88,12 @@ public class EquipmentScreenController {
 
 
 
+
+	//Event Handlers
 	/**
-	 * Loads Admin Welcome Screen
+	 * Switches scene back to the AdminWelcomeScreen.
 	 * @throws IOException
 	 */
-	//Switches scenes
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/AdminWelcomeScreen.fxml");

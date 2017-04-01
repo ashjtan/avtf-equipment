@@ -1,6 +1,7 @@
 package chappelle.five.view;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
@@ -13,7 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import tan.five.mainApp;
+
 import tan.five.model.Equipment;
 import tan.five.model.EquipmentType;
 import tan.five.model.Student;
@@ -24,37 +25,66 @@ import chapman.five.model.ProjectUtilities;
 public class ItemCheckInController {
 
 	//Fields
-
-	//Displays CSV-loaded equipment info
+	/**
+	 * Table of Equipment loaded from CSV file, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableView<Equipment> equipmentTableView;
+	/**
+	 * Table column displaying the title of the Equipment, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableColumn<Equipment, String> equipmentName;
+	/**
+	 * Table column displaying the category of AVTF equipment this piece falls into, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
 
-	//Allows user capability in selecting items
+
+	/**
+	 * Bound to the Add to List button in the .fxml file.
+	 */
 	@FXML
 	private Button btnAddToList;
+	/**
+	 * Bound to the Check In button in the .fxml file.
+	 */
 	@FXML
 	private Button btnCheckIn;
+	/**
+	 * Bound to the Clear button in the .fxml file.
+	 */
 	@FXML
 	private Button btnClearList;
 
-	//Switches scene
+	/**
+	 * Bound to the Back button in the .fxml file.
+	 */
 	@FXML
 	private Button btnBackButton;
 
-	//Errors displayed to user
+
+	/**
+	 * Error shown if the user tries to add more than six items to his list to check in.
+	 */
 	@FXML
 	private Label lblMaximumItemsError;
+	/**
+	 * Error shown if the user tries to check in with no items in his list to return.
+	 */
 	@FXML
 	private Label lblNoItemsError;
 
+	/**
+	 * Right-side viewable list of items selected to return, able to bind to JavaFX.
+	 */
 	@FXML
-	private ListView<String> equipmentReturn;		//Right-side viewable list of items selected to return
-
-	private static ObservableList<String> listForReturn = FXCollections.observableArrayList();	//Backs equipmentReturn view
+	private ListView<String> equipmentReturn;		
+	/**
+	 * List backing the equipmentReturn ListView, able to bind to JavaFX.
+	 */
+	private static ObservableList<String> listForReturn = FXCollections.observableArrayList();	
 
 
 
@@ -64,9 +94,8 @@ public class ItemCheckInController {
 	}
 
 	/**
-	 * Loads equipment list from CSV file
-	 * Prevents NullPointerException
-	 * Only loads equipment that student currently has checked out
+	 * Loads Equipment currently in possession of the user from the equipment CSV file 
+	 * and sets the name and type into their respective table columns when the scene is loaded.
 	 */
 	@FXML
 	public void initialize() {
@@ -87,11 +116,10 @@ public class ItemCheckInController {
 
 	//Event Handlers
 	/**
-	 * Adds item to list to return
-	 * Checks for duplicate error
-	 * Checks for maximum number of items in list (6)
+	 * Prevents duplicates of an item into the list to return.
+	 * Displays an error when the user tries to add more than six items in his list to return.
+	 * Adds the selected item to the list to return if there are no errors.
 	 */
-	//Adds item to list to return
 	@FXML
 	public void handleAddToList() {		
 		boolean duplicate = false;
@@ -111,27 +139,25 @@ public class ItemCheckInController {
 	}
 
 	/**
-	 * Moves to check in items added to list to return
+	 * Displays an error if the user tries to check in items without any in his list to return.
+	 * Switches scene to CheckInFinal if there are no errors.
 	 */
-	//Moves to check in items added to list to return
 	@FXML
 	public void handleCheckIn() throws IOException {
-		if (listForReturn.size() > 0) {					//Checks that there are items to be returned
+		if (listForReturn.size() > 0) {											//Checks that there are items to be returned
 			ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/CheckInFinal.fxml");
 		}
 		else {
-			if (lblMaximumItemsError.isVisible()) {		//Displays error if needed
+			if (lblMaximumItemsError.isVisible()) {								//Displays error if needed
 				lblMaximumItemsError.setVisible(false);
 			}
 			lblNoItemsError.setVisible(true);
 		}
 	}
-	
+
 	/**
-	 * Clears list of items to return
-	 * equipmentReturn
+	 * Clears list of items to return.
 	 */
-	//Clears list of items to return
 	@FXML
 	public void handleClear() {			
 		listForReturn.clear();
@@ -139,9 +165,9 @@ public class ItemCheckInController {
 	}
 
 	/**
-	 * Switches scene to StudentWelcomeScreen
+	 * Switches scene back to the StudentWelcomeScreen and cancels item check-in.
+	 * @throws IOException
 	 */
-	//Switches scene
 	@FXML
 	public void handleBack() throws IOException {
 		handleClear();
@@ -150,12 +176,12 @@ public class ItemCheckInController {
 
 
 
+	
 	//Helper Methods
 	/**
-	 * Gets ArrayList<Equipment> of items in list checking in
-	 * @return
+	 * Gets ArrayList<Equipment> of items in list checking in.
+	 * @return Equipment in list to check in.
 	 */
-	//Gets ArrayList<Equipment> of items in list checking in
 	public static ArrayList<Equipment> getEquipmentToCheckIn() {
 		ArrayList<Equipment> equipmentToCheckIn = new ArrayList<Equipment>();
 		for (String itemInList : listForReturn) {
@@ -168,10 +194,9 @@ public class ItemCheckInController {
 	}
 
 	/**
-	 * Reads item selected in TableView
-	 * @return
+	 * Reads item selected in TableView.
+	 * @return Equipment highlighted in table.
 	 */
-	//Reads item selected in TableView
 	@FXML
 	public Equipment readSelectedItem() {
 		Equipment equipment = equipmentTableView.getSelectionModel().getSelectedItem();

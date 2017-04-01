@@ -1,7 +1,9 @@
 package chappelle.five.view;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
 import tan.five.model.Equipment;
 import tan.five.model.EquipmentType;
 import tan.five.model.StudentEquipmentManagement;
@@ -20,36 +23,67 @@ import chapman.five.model.ProjectUtilities;
 public class ItemCheckOutController  {
 
 	//Fields
-	//Displays CSV-loaded equipment info
+	/**
+	 * Table of Equipment that the Student is holding loaded from CSV file, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableView<Equipment> equipmentTableView;
+	/**
+	 * Table column displaying the title of the Equipment, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableColumn<Equipment, String> equipmentName;
+	/**
+	 * Table column displaying the category of AVTF equipment this piece falls into, able to bind to JavaFX.
+	 */
 	@FXML
 	private TableColumn<Equipment, EquipmentType> equipmentType;
 
-	//Allows user capability in selecting items
+
+	/**
+	 * Bound to the Add to Cart button in the .fxml file.
+	 */
 	@FXML
 	private Button btnAddToCart;
-	@FXML 
-	private Button btnClearCart;
+	/**
+	 * Bound to the Check Out button in the .fxml file.
+	 */
 	@FXML
 	private Button btnCheckOut;
+	/**
+	 * Bound to the Clear button in the .fxml file.
+	 */
+	@FXML 
+	private Button btnClearCart;
 
-	//Switches scene
+
+	/**
+	 * Bound to the Back button in the .fxml file.
+	 */
 	@FXML
 	private Button btnBackButton;
 
-	//Errors displayed to user
+
+	/**
+	 * Error shown if the user tries to add more than six items to his cart.
+	 */
 	@FXML
 	private Label lblMaximumItemsError;
+	/**
+	 * Error shown if the user tries to check in with no items in his cart.
+	 */
 	@FXML
 	private Label lblNoItemsError;
 
+	/**
+	 * Right-side viewable list of items selected to check out, able to bind to JavaFX.
+	 */
 	@FXML
-	private ListView<String> equipmentCart;		//Right-side viewable list of items selected to check out
-
-	private static ObservableList<String> listForCart = FXCollections.observableArrayList();	//Backs equipmentCart view
+	private ListView<String> equipmentCart;		
+	/**
+	 * List backing the equipmentCart ListView, able to bind to JavaFX.
+	 */
+	private static ObservableList<String> listForCart = FXCollections.observableArrayList();	
 
 
 
@@ -57,11 +91,10 @@ public class ItemCheckOutController  {
 	public void start(Stage primaryStage) {
 
 	}
-	
+
 	/**
-	 * Loads equipment list from CSV file
-	 * Only loads equipment that is not currently checked out
-	 * Sets info into correct table columns
+	 * Loads Equipment currently available from the equipment CSV file 
+	 * and sets the name and type into their respective table columns when the scene is loaded.
 	 */
 	@FXML
 	public void initialize() {
@@ -80,10 +113,10 @@ public class ItemCheckOutController  {
 
 	//Event Handlers
 	/**
-	 * Adds item to list to check out
-	 * Adds lblMaximumItems error if # of items is > 6
+	 * Prevents duplicates of an item into the cart.
+	 * Displays an error when the user tries to add more than six items in his cart.
+	 * Adds the selected item to the cart if there are no errors.
 	 */
-	//Adds item to list to check out
 	@FXML
 	public void handleAddToCart() {
 		boolean duplicate = false;
@@ -104,11 +137,10 @@ public class ItemCheckOutController  {
 
 
 	/**
-	 * Moves to check out items added to list to check out
-	 * Checks that there are items to be checked out
-	 * Displays error if needed
+	 * Displays an error if the user tries to check out items without any in his cart.
+	 * Switches scene to CheckOutFinal if there are no errors.
 	 */
-	//Moves to check out items added to list to check out
+
 	@FXML
 	public void handleCheckOut() throws IOException {
 		if (listForCart.size() > 0) {						//Checks that there are items to be checked out
@@ -122,9 +154,8 @@ public class ItemCheckOutController  {
 		}
 	}
 
-	//Clears list of items to check out
 	/**
-	 * Clears list of items to check out
+	 * Clears list of items to check out.
 	 */
 	@FXML
 	public void handleClear() {
@@ -132,10 +163,8 @@ public class ItemCheckOutController  {
 		equipmentCart.setItems(listForCart);
 	}
 
-
-	//Switches scene
 	/**
-	 * Loads Student Welcome Screen
+	 * Switches scene back to the StudentWelcomeScreen and cancels item checkout.
 	 * @throws IOException
 	 */
 	@FXML
@@ -149,10 +178,9 @@ public class ItemCheckOutController  {
 
 	//Helper Methods
 	/**
-	 * Gets ArrayList<Equipment> of items in cart checking out
-	 * @return
+	 * Gets ArrayList<Equipment> of items in cart checking out.
+	 * @return Equipment in cart to check out.
 	 */
-	//Gets ArrayList<Equipment> of items in cart checking out
 	public static ArrayList<Equipment> getEquipmentToCheckOut() {
 		ArrayList<Equipment> equipmentToCheckOut = new ArrayList<Equipment>();
 		for (String itemInCart : listForCart) {
@@ -165,10 +193,9 @@ public class ItemCheckOutController  {
 	}
 
 	/**
-	 * Reads item selected in TableView
-	 * @return
+	 * Reads item selected in TableView.
+	 * @return Equipment highlighted in table.
 	 */
-	//Reads item selected in TableView
 	@FXML
 	public Equipment readSelectedItem() {
 		Equipment equipment = equipmentTableView.getSelectionModel().getSelectedItem();

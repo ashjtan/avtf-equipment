@@ -18,16 +18,28 @@ import com.opencsv.CSVWriter;
 
 public class PrintLog {
 
+	/**
+	 * The CSV file of the log to print equipment movements to.
+	 */
 	private static File log = new File("Resources/log.csv");
+	/**
+	 * The CSV file of the list of equipment to load equipment from.
+	 */
 	private static File equipmentList = new File("Resources/Sample Equipment.csv");
+	/**
+	 * A switch for updating the equipment CSV file for checkouts vs check-ins.
+	 */
 	private static int checkInOrOut = 0;					//For switch: 1 indicates check out, 2 indicates check in
 
 
 
-	//Updates Log + writes to CSV
+
 	/**
-	 * @param checkIn - switch depending on if item checked in or out
-	 * @param equipment - equipment checked in/out
+	 * Writes in the log the date and time of the equipment transaction, whether the equipment is being checked in or out,
+	 * the name of the student making the transaction, the ID of the student, and the name of the equipment that
+	 * is affected.
+	 * @param checkIn - whether the item is being checked in.
+	 * @param equipment - the equipment that is being checked in or out.
 	 */
 	public static void updateLog(Boolean checkIn, Equipment equipment) throws FileNotFoundException {
 		PrintWriter pw = new PrintWriter(new FileOutputStream(log, true));
@@ -57,10 +69,15 @@ public class PrintLog {
 
 	}
 
-	//Edits CSV file when equipment checked in/out
+
+	/**
+	 * Edits the equipment CSV file when a piece of equipment is checked in or out depending
+	 * on its updated status.
+	 * @param equipmentCheckingInOut - the piece of equipment being checked in or out.
+	 * @throws IOException
+	 */
 	public static void alterEquipmentFile(Equipment equipmentCheckingInOut) throws IOException {
-		//Reads existing file
-		CSVReader reader = new CSVReader(new FileReader(equipmentList));
+		CSVReader reader = new CSVReader(new FileReader(equipmentList));					//Reads existing file
 		List<String[]> csvBody = reader.readAll();
 
 		switch (checkInOrOut) {
@@ -84,10 +101,10 @@ public class PrintLog {
 			break;
 		}
 		reader.close();
-		checkInOrOut = 0;										//Resets alterEquipmentFile to be set to Check In/Out version
+		checkInOrOut = 0;																	//Resets alterEquipmentFile to be set to Check In/Out version
 
-		//Writes to open CSV file
-		CSVWriter writer = new CSVWriter(new FileWriter(equipmentList),  CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER);
+		CSVWriter writer = new CSVWriter(new FileWriter(equipmentList),  					//Writes to open CSV file
+				CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER);	
 		writer.writeAll(csvBody);
 		writer.flush();
 		writer.close();
@@ -97,10 +114,17 @@ public class PrintLog {
 
 
 	//Getters + Setters
+	/**
+	 * Gets the switch for updating the equipment CSV file for checkouts vs check-ins.
+	 * @return the switch for updating the equipment CSV file for checkouts vs check-ins.
+	 */
 	public static int getCheckInOrOut() {
 		return checkInOrOut;
 	}
-
+	/**
+	 * Sets the switch for updating the equipment CSV file for checkouts vs check-ins.
+	 * @param checkInOrOut - "1" if the equipment is being checked out, "2" if it is being checked in.
+	 */
 	public static void setCheckInOrOut(int checkInOrOut) {
 		PrintLog.checkInOrOut = checkInOrOut;
 	}

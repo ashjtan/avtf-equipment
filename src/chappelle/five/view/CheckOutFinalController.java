@@ -1,10 +1,7 @@
 package chappelle.five.view;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
@@ -16,74 +13,163 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import tan.five.model.Equipment;
 import tan.five.model.PrintLog;
-import tan.five.model.Student;
-import tan.five.model.StudentEquipmentManagement;
+
 import chappelle.five.view.ItemCheckOutController;
 import chapman.five.model.ProjectUtilities;
 
 public class CheckOutFinalController {
 
 	//Fields
-	//Displayed by correct user barcode inputs
+	/**
+	 * Bound to the first check mark picture in the .fxml file.
+	 */
 	@FXML
 	private ImageView imgCheckMark1;
+	/**
+	 * Bound to the second check mark picture in the .fxml file.
+	 */
 	@FXML
 	private ImageView imgCheckMark2;
+	/**
+	 * Bound to the third check mark picture in the .fxml file.
+	 */
 	@FXML
 	private ImageView imgCheckMark3;
+	/**
+	 * Bound to the fourth check mark picture in the .fxml file.
+	 */
 	@FXML
 	private ImageView imgCheckMark4;
+	/**
+	 * Bound to the fifth check mark picture in the .fxml file.
+	 */
 	@FXML
 	private ImageView imgCheckMark5;
+	/**
+	 * Bound to the sixth check mark picture in the .fxml file.
+	 */
 	@FXML
 	private ImageView imgCheckMark6;
+	/**
+	 * Sets the check mark variable to the resource.
+	 */
 	Image checkMark = new Image("file:resources/checkmark.png");
 
-	//Set to names of items being checked out
+
+	/**
+	 * Sets to the name of the first item being checked out.
+	 * Bound to the first item label in the .fxml file.
+	 */
 	@FXML
 	private Label lblItem1;
+	/**
+	 * Sets to the name of the second item being checked out.
+	 * Bound to the second item label in the .fxml file.
+	 */
 	@FXML
 	private Label lblItem2;
+	/**
+	 * Sets to the name of the third item being checked out.
+	 * Bound to the third item label in the .fxml file.
+	 */
 	@FXML
 	private Label lblItem3;
+	/**
+	 * Sets to the name of the fourth item being checked out.
+	 * Bound to the fourth item label in the .fxml file.
+	 */
 	@FXML
 	private Label lblItem4;
+	/**
+	 * Sets to the name of the fifth item being checked out.
+	 * Bound to the fifth item label in the .fxml file.
+	 */
 	@FXML
 	private Label lblItem5;
+	/**
+	 * Sets to the name of the sixth item being checked out.
+	 * Bound to the sixth item label in the .fxml file.
+	 */
 	@FXML
 	private Label lblItem6;
 
-	//Read user barcode inputs
+
+	/**
+	 * Reads the user's barcode input for the first item being checked in.
+	 * Bound to the first user input text field in the .fxml file.
+	 */
 	@FXML
 	private TextField txtInput1;
+	/**
+	 * Reads the user's barcode input for the second item being checked out.
+	 * Bound to the second user input text field in the .fxml file.
+	 */
 	@FXML
 	private TextField txtInput2;
+	/**
+	 * Reads the user's barcode input for the third item being checked out.
+	 * Bound to the third user input text field in the .fxml file.
+	 */
 	@FXML
 	private TextField txtInput3;
+	/**
+	 * Reads the user's barcode input for the fourth item being checked out.
+	 * Bound to the fourth user input text field in the .fxml file.
+	 */
 	@FXML
 	private TextField txtInput4;
+	/**
+	 * Reads the user's barcode input for the fifth item being checked out.
+	 * Bound to the fifth user input text field in the .fxml file.
+	 */
 	@FXML
 	private TextField txtInput5;
+	/**
+	 * Reads the user's barcode input for the sixth item being checked out.
+	 * Bound to the sixth user input text field in the .fxml file.
+	 */
 	@FXML
 	private TextField txtInput6;
 
-	//Switch scenes
+
+	/**
+	 * Switches back to ItemCheckOut scene and cancels item checkout.
+	 * Bound to the back button in the .fxml file.
+	 */
 	@FXML
 	private Button btnBackButton;
+
+	/**
+	 * Checks out items.
+	 * Bound to the checkout button in the .fxml file.
+	 */
 	@FXML
 	private Button btnCheckOut;
 
-	@FXML
-	private Label lblIncorrectBarcodeError;	//Error displayed if barcode inputs incorrect
 
+	/**
+	 * Displayed if barcode inputs are incorrect.
+	 * Bound to the incorrect barcode error in the .fxml file.
+	 */
 	@FXML
-	private ListView<String> equipmentCart;	//ItemCheckOut's right-side viewable list of items selected to check out
-	ArrayList<Equipment> equipmentCheckingOut = ItemCheckOutController.getEquipmentToCheckOut();	//Equipment selected from list to return
+	private Label lblIncorrectBarcodeError;	
+
+
+	/**
+	 * The ItemCheckOut's right-side viewable list of items selected to check out, bound to JavaFX.
+	 */
+	@FXML
+	private ListView<String> equipmentCart;	
+	/**
+	 * List of the equipment selected from available equipment to check out.
+	 */
+	ArrayList<Equipment> equipmentCheckingOut = ItemCheckOutController.getEquipmentToCheckOut();	
 
 
 
 	/**
-	 * Adds equipment name to Label + sets TextField/Label to visible
+	 * Generates Labels and TextFields depending on the number of items being checked out.
+	 * Sets the Label text to the equipment name.
 	 */
 	//Adds equipment name to Label + sets TextField/Label to visible
 	@FXML
@@ -186,16 +272,14 @@ public class CheckOutFinalController {
 
 
 
-	/**
-	 * Checks for correct barcode + switches to Success screen + edits equipment file
-	 * Switches alterEquipmentFile to Check Out version
-	 * Sets equipment's checkedOut boolean to true
-	 * Alters equipment file's IN/OUT + holder studentID
-	 * Prints equipment checkout to log
-	 * Does all of this depending on the number of items in the cart
-	 */
+
 	//Event Handlers
-	//Checks for correct barcode + switches to Success screen + edits equipment file
+	/**
+	 * When the check out button is clicked, if the barcode inputs are correct, 
+	 * edits the equipment file, updates the log, and switches scenes to the
+	 * CheckOutSuccess screen.
+	 * @throws IOException
+	 */
 	@FXML
 	public void handleCheckOut() throws IOException {
 		switch (equipmentCheckingOut.size()) {
@@ -305,11 +389,9 @@ public class CheckOutFinalController {
 	}
 
 	/**
-	 * Loads ItemCheckOut
-	 * @param btnBackButton
+	 * Switches scenes back to the ItemCheckOut and cancels item checkout.
 	 * @throws IOException
 	 */
-	//Scene Switch Method
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/ItemCheckOut.fxml");
@@ -317,12 +399,12 @@ public class CheckOutFinalController {
 
 
 
+
 	//Helper Methods
-	//Checks if barcode input correct
 	/**
-	 * @param barcodeInput - Textfield to check
-	 * @param cartIndex - which item in list of items returning to compare barcode
-	 * @param checkMark - image to display
+	 * @param barcodeInput - Textfield to check for correct barcode input.
+	 * @param cartIndex - which item in list of items returning to compare barcode.
+	 * @param checkMark - image to display when barcode is correct.
 	 */
 	public boolean checkCorrectBarcode(TextField barcodeInput, int cartIndex, ImageView checkMark) {
 		if (barcodeInput.getText().equals(equipmentCheckingOut.get(cartIndex).getEquipmentID()) && !(barcodeInput.getText().equals(null))) {

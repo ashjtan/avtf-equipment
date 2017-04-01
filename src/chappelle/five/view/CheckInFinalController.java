@@ -1,9 +1,9 @@
 package chappelle.five.view;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
-import chapman.five.model.ProjectUtilities;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,153 +11,168 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 import tan.five.model.Equipment;
 import tan.five.model.PrintLog;
-import tan.five.model.Student;
+import chapman.five.model.ProjectUtilities;
 
 public class CheckInFinalController {
 
 	//Fields
-	//Displayed by correct user barcode inputs
 	/**
-	 * Link to check mark picture in the .fxml file
-	 * 
+	 * Bound to the first check mark picture in the .fxml file.
 	 */
 	@FXML
 	private ImageView imgCheckMark1;
 	/**
-	 * Link to check mark picture in the .fxml file
+	 * Bound to the second check mark picture in the .fxml file.
 	 */
 	@FXML
 	private ImageView imgCheckMark2;
 	/**
-	 * Link to check mark picture in the .fxml file
+	 * Bound to the third check mark picture in the .fxml file.
 	 */
 	@FXML
 	private ImageView imgCheckMark3;
 	/**
-	 * Link to check mark picture in the .fxml file
+	 * Bound to the fourth check mark picture in the .fxml file.
 	 */
 	@FXML
 	private ImageView imgCheckMark4;
 	/**
-	 * Link to check mark picture in the .fxml file
+	 * Bound to the fifth check mark picture in the .fxml file.
 	 */
 	@FXML
 	private ImageView imgCheckMark5;
 	/**
-	 * Link to check mark picture in the .fxml file
+	 * Bound to the sixth check mark picture in the .fxml file.
 	 */
 	@FXML
 	private ImageView imgCheckMark6;
 	/**
-	 * Sets the check mark variable to the resource 
+	 * Sets the check mark variable to the resource.
 	 */
 	Image checkMark = new Image("file:resources/checkmark.png");
 
-	//Set to names of items being checked in
+
 	/**
-	 * Link to item label in the .fxml file
+	 * Sets to the name of the first item being checked in.
+	 * Bound to the first item label in the .fxml file.
 	 */
 	@FXML
 	private Label lblItem1;
 	/**
-	 * Link to item label in the .fxml file
+	 * Sets to the name of the second item being checked in.
+	 * Bound to the second item label in the .fxml file.
 	 */
 	@FXML
 	private Label lblItem2;
 	/**
-	 * Link to item label in the .fxml file
+	 * Sets to the name of the third item being checked in.
+	 * Bound to the third item label in the .fxml file.
 	 */
 	@FXML
 	private Label lblItem3;
 	/**
-	 * Link to item label in the .fxml file
+	 * Sets to the name of the fourth item being checked in.
+	 * Bound to the fourth item label in the .fxml file.
 	 */
 	@FXML
 	private Label lblItem4;	
 	/**
-	 * Link to item label in the .fxml file
+	 * Sets to the name of the fifth item being checked in.
+	 * Bound to the fifth item label in the .fxml file.
 	 */
 	@FXML
 	private Label lblItem5;
 	/**
-	 * Link to item label in the .fxml file
+	 * Sets to the name of the sixth item being checked in.
+	 * Bound to the sixth item label in the .fxml file.
 	 */
 	@FXML
 	private Label lblItem6;
 
-	//Read user barcode inputs
+
 	/**
-	 * Link to user input text field in the .fxml file
+	 * Reads the user's barcode input for the first item being checked in.
+	 * Bound to the first user input text field in the .fxml file.
 	 */
 	@FXML
 	private TextField txtInput1;
 	/**
-	 * Link to user input text field in the .fxml file
+	 * Reads the user's barcode input for the second item being checked in.
+	 * Bound to the second user input text field in the .fxml file.
 	 */
 	@FXML
 	private TextField txtInput2;
 	/**
-	 * Link to user input text field in the .fxml file
+	 * Reads the user's barcode input for the third item being checked in.
+	 * Bound to the third user input text field in the .fxml file.
 	 */
 	@FXML
 	private TextField txtInput3;
 	/**
-	 * Link to user input text field in the .fxml file
+	 * Reads the user's barcode input for the fourth item being checked in.
+	 * Bound to the fourth user input text field in the .fxml file.
 	 */
 	@FXML
 	private TextField txtInput4;
 	/**
-	 * Link to user input text field in the .fxml file
+	 * Reads the user's barcode input for the fifth item being checked in.
+	 * Bound to the fifth user input text field in the .fxml file.
 	 */
 	@FXML
 	private TextField txtInput5;
 	/**
-	 * Link to user input text field in the .fxml file
+	 * Reads the user's barcode input for the sixth item being checked in.
+	 * Bound to the sixth user input text field in the .fxml file.
 	 */
 	@FXML
 	private TextField txtInput6;
 
-	//Switch scenes
+
 	/**
-	 * Link to back button in the .fxml file
+	 * Switches back to ItemCheckIn scene and cancels item check-in.
+	 * Bound to the back button in the .fxml file.
 	 */
 	@FXML
 	private Button btnBackButton;
 	/**
-	 * Link to check in button in the .fxml file
+	 * Checks in items.
+	 * Bound to the check-in button in the .fxml file.
 	 */
 	@FXML
 	private Button btnCheckIn;
+
+
 	/**
-	 * Link to incorrect barcode error in the .fxml file
+	 * Displayed if barcode inputs are incorrect.
+	 * Bound to the incorrect barcode error in the .fxml file.
 	 */
 	@FXML
-	private Label lblIncorrectBarcodeError;		//Error displayed if barcode inputs incorrect
+	private Label lblIncorrectBarcodeError;		
+
+
 	/**
-	 * ItemCheckIn's right-side viewable list of items selected to return
+	 * The ItemCheckIn's right-side viewable list of items selected to return, bound to JavaFX.
 	 */
 	@FXML
-	private ListView<String> equipmentReturn;	//ItemCheckIn's right-side viewable list of items selected to return
+	private ListView<String> equipmentReturn;	
 	/**
-	 * Equipment selected from list to return
+	 * List of the equipment selected from equipment currently in possession to return.
 	 */
-	ArrayList<Equipment> equipmentCheckingIn = ItemCheckInController.getEquipmentToCheckIn();	//Equipment selected from list to return
+	ArrayList<Equipment> equipmentCheckingIn = ItemCheckInController.getEquipmentToCheckIn();	
 
 
 
 
-	//Adds equipment name to Label + sets TextField/Label to visible
 	/**
-	 * 	Adds equipment name to Label + sets TextField/Label to visible
+	 * Generates Labels and TextFields depending on the number of items being checked back in.
+	 * Sets the Label text to the equipment name.
 	 */
 	@FXML
 	private void initialize() {
-		/**
-		 * Generates depending on number of items returning
-		 */
-		switch (equipmentCheckingIn.size()) {		//Generates depending on number of items returning
+		switch (equipmentCheckingIn.size()) {		
 		case 1:
 			lblItem1.setVisible(true);
 			lblItem1.setText(equipmentCheckingIn.get(0).getEquipmentName());
@@ -255,20 +270,17 @@ public class CheckInFinalController {
 
 
 
+
 	//Event Handlers
-	
-	//Checks for correct barcode + switches to Success screen + edits equipment file
 	/**
-	 * Checks for correct barcode + switches to Success screen + edits equipment file
+	 * When the check-in button is clicked, if the barcode inputs are correct, 
+	 * edits the equipment file, updates the log, and switches scenes to the
+	 * CheckInSuccess screen.
 	 * @throws IOException
-	 * Switches alterEquipmentFile to Check In version
-	 * Sets equipment's checkedOut boolean to false
-	 * Alters equipment file's IN/OUT + holder studentID
-	 * Prints equipment checkin to log
 	 */
 	@FXML
 	public void handleCheckIn() throws IOException {
-		switch (equipmentCheckingIn.size()) {		//Checks depending on number of items returning
+		switch (equipmentCheckingIn.size()) {											//Checks depending on number of items returning
 		case 1:
 			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1)) {
 				for (Equipment equipment : equipmentCheckingIn) {
@@ -283,7 +295,6 @@ public class CheckInFinalController {
 				lblIncorrectBarcodeError.setVisible(true);
 			}
 			break;
-
 		case 2:
 			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
 					checkCorrectBarcode(txtInput2, 1, imgCheckMark2)) {
@@ -375,9 +386,8 @@ public class CheckInFinalController {
 	}
 
 
-	//Scene Switch Method
 	/**
-	 * Loads ItemCheckIn
+	 * Switches scenes back to the ItemCheckIn and cancels item check-in.
 	 * @throws IOException
 	 */
 	@FXML
@@ -389,9 +399,11 @@ public class CheckInFinalController {
 
 
 	//Helper Methods
-	//Checks if barcode input correct
 	/**
-	 * Checks if barcode input correct
+	 * Checks if the barcode inputs are correct.
+	 * @param barcodeInput - Textfield to check for correct barcode input.
+	 * @param cartIndex - which item in list of items returning to compare barcode.
+	 * @param checkMark - image to display when barcode is correct.
 	 */
 	public boolean checkCorrectBarcode(TextField barcodeInput, int listIndex, ImageView checkMark) {
 		if (barcodeInput.getText().equals(equipmentCheckingIn.get(listIndex).getEquipmentID()) && !(barcodeInput.getText().equals(null))) {

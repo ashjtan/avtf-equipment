@@ -39,6 +39,9 @@ import javafx.beans.value.ChangeListener;
 
 
 public class RootLayoutController {
+	/**
+	 * 	//Allows main to reference itself to controllers
+	 */
 	//Allows main to reference itself to controllers
 	private tan.five.mainApp mainApp;
 
@@ -46,6 +49,9 @@ public class RootLayoutController {
 	
 	
 	//Constructor needed for loader
+	/**
+	 * Constructor needed for loader
+	 */
 	public RootLayoutController() {
 
 	}
@@ -59,6 +65,10 @@ public class RootLayoutController {
 	
 
 	//Allows mainApp to have pointer to itself
+	/**
+	 * //Allows mainApp to have pointer to itself
+	 * @param mainApp
+	 */
 	public void setMainApp(tan.five.mainApp mainApp) {
 		this.mainApp = mainApp;
 	}

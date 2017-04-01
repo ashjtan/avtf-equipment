@@ -63,6 +63,11 @@ public class ItemCheckInController {
 
 	}
 
+	/**
+	 * Loads equipment list from CSV file
+	 * Prevents NullPointerException
+	 * Only loads equipment that student currently has checked out
+	 */
 	@FXML
 	public void initialize() {
 		handleClear();
@@ -81,6 +86,11 @@ public class ItemCheckInController {
 
 
 	//Event Handlers
+	/**
+	 * Adds item to list to return
+	 * Checks for duplicate error
+	 * Checks for maximum number of items in list (6)
+	 */
 	//Adds item to list to return
 	@FXML
 	public void handleAddToList() {		
@@ -100,6 +110,9 @@ public class ItemCheckInController {
 		}
 	}
 
+	/**
+	 * Moves to check in items added to list to return
+	 */
 	//Moves to check in items added to list to return
 	@FXML
 	public void handleCheckIn() throws IOException {
@@ -114,6 +127,10 @@ public class ItemCheckInController {
 		}
 	}
 	
+	/**
+	 * Clears list of items to return
+	 * equipmentReturn
+	 */
 	//Clears list of items to return
 	@FXML
 	public void handleClear() {			
@@ -121,7 +138,9 @@ public class ItemCheckInController {
 		equipmentReturn.setItems(listForReturn);
 	}
 
-
+	/**
+	 * Switches scene to StudentWelcomeScreen
+	 */
 	//Switches scene
 	@FXML
 	public void handleBack() throws IOException {
@@ -132,6 +151,10 @@ public class ItemCheckInController {
 
 
 	//Helper Methods
+	/**
+	 * Gets ArrayList<Equipment> of items in list checking in
+	 * @return
+	 */
 	//Gets ArrayList<Equipment> of items in list checking in
 	public static ArrayList<Equipment> getEquipmentToCheckIn() {
 		ArrayList<Equipment> equipmentToCheckIn = new ArrayList<Equipment>();
@@ -144,6 +167,10 @@ public class ItemCheckInController {
 		return equipmentToCheckIn;
 	}
 
+	/**
+	 * Reads item selected in TableView
+	 * @return
+	 */
 	//Reads item selected in TableView
 	@FXML
 	public Equipment readSelectedItem() {

@@ -50,7 +50,10 @@ public class EquipmentScreenController {
 	public void start(Stage primaryStage) {
 
 	}
-
+	/**
+	 * Loads equipment info from CSV file
+	 * Sets info into correct table columns
+	 */
 	@FXML
 	public void initialize() {
 		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad()) {		//Loads equipment info from CSV file
@@ -69,7 +72,10 @@ public class EquipmentScreenController {
 
 
 
-
+	/**
+	 * Loads Admin Welcome Screen
+	 * @throws IOException
+	 */
 	//Switches scenes
 	@FXML
 	public void handleBack() throws IOException {

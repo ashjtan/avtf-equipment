@@ -82,7 +82,9 @@ public class CheckOutFinalController {
 
 
 
-
+	/**
+	 * Adds equipment name to Label + sets TextField/Label to visible
+	 */
 	//Adds equipment name to Label + sets TextField/Label to visible
 	@FXML
 	private void initialize() {
@@ -184,7 +186,14 @@ public class CheckOutFinalController {
 
 
 
-
+	/**
+	 * Checks for correct barcode + switches to Success screen + edits equipment file
+	 * Switches alterEquipmentFile to Check Out version
+	 * Sets equipment's checkedOut boolean to true
+	 * Alters equipment file's IN/OUT + holder studentID
+	 * Prints equipment checkout to log
+	 * Does all of this depending on the number of items in the cart
+	 */
 	//Event Handlers
 	//Checks for correct barcode + switches to Success screen + edits equipment file
 	@FXML
@@ -295,7 +304,11 @@ public class CheckOutFinalController {
 		}
 	}
 
-
+	/**
+	 * Loads ItemCheckOut
+	 * @param btnBackButton
+	 * @throws IOException
+	 */
 	//Scene Switch Method
 	@FXML
 	public void handleBack() throws IOException {

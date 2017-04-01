@@ -59,6 +59,6 @@ public class Student {
 	
 	//Overwriting toString to return Student's name (for visibility)
 	public String toString() {
-		return firstName + " " + lastName;
+		return firstName.get() + " " + lastName.get();
 	}
 }

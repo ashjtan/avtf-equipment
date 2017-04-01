@@ -65,6 +65,7 @@ public class ItemCheckInController {
 
 	@FXML
 	public void initialize() {
+		handleClear();
 		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListLoad())  {	//Loads equipment list from CSV file
 			if (equipment.isCheckedOut()) {													//Prevents NullPointerException
 				if (equipment.getHolder().equals(Student.SELECTED_STUDENT)) {				//Only loads equipment that student currently has checked out
@@ -124,6 +125,7 @@ public class ItemCheckInController {
 	//Switches scene
 	@FXML
 	public void handleBack() throws IOException {
+		handleClear();
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/StudentWelcomeScreen.fxml");
 	}
 

@@ -18,10 +18,18 @@ public class CheckInSuccessController {
 	private Label lblCongrats;
 	
 	//Scene Switch Method
+	/**
+	 * Loads Login Screen
+	 * @throws IOException
+	 */
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/tan/five/view/Login.fxml");
 	}
+	/**
+	 * Loads Student Welcome Screen
+	 * @throws IOException
+	 */
 	@FXML
 	public void handleBackToMenu() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackToMenu, "/chapman/five/view/StudentWelcomeScreen.fxml");

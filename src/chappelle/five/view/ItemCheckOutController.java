@@ -57,7 +57,12 @@ public class ItemCheckOutController  {
 	public void start(Stage primaryStage) {
 
 	}
-
+	
+	/**
+	 * Loads equipment list from CSV file
+	 * Only loads equipment that is not currently checked out
+	 * Sets info into correct table columns
+	 */
 	@FXML
 	public void initialize() {
 		handleClear();
@@ -74,6 +79,10 @@ public class ItemCheckOutController  {
 
 
 	//Event Handlers
+	/**
+	 * Adds item to list to check out
+	 * Adds lblMaximumItems error if # of items is > 6
+	 */
 	//Adds item to list to check out
 	@FXML
 	public void handleAddToCart() {
@@ -94,8 +103,11 @@ public class ItemCheckOutController  {
 	}
 
 
-
-
+	/**
+	 * Moves to check out items added to list to check out
+	 * Checks that there are items to be checked out
+	 * Displays error if needed
+	 */
 	//Moves to check out items added to list to check out
 	@FXML
 	public void handleCheckOut() throws IOException {
@@ -111,6 +123,9 @@ public class ItemCheckOutController  {
 	}
 
 	//Clears list of items to check out
+	/**
+	 * Clears list of items to check out
+	 */
 	@FXML
 	public void handleClear() {
 		listForCart.clear();
@@ -119,6 +134,10 @@ public class ItemCheckOutController  {
 
 
 	//Switches scene
+	/**
+	 * Loads Student Welcome Screen
+	 * @throws IOException
+	 */
 	@FXML
 	public void handleBack() throws IOException {
 		handleClear();
@@ -129,6 +148,10 @@ public class ItemCheckOutController  {
 
 
 	//Helper Methods
+	/**
+	 * Gets ArrayList<Equipment> of items in cart checking out
+	 * @return
+	 */
 	//Gets ArrayList<Equipment> of items in cart checking out
 	public static ArrayList<Equipment> getEquipmentToCheckOut() {
 		ArrayList<Equipment> equipmentToCheckOut = new ArrayList<Equipment>();
@@ -141,6 +164,10 @@ public class ItemCheckOutController  {
 		return equipmentToCheckOut;
 	}
 
+	/**
+	 * Reads item selected in TableView
+	 * @return
+	 */
 	//Reads item selected in TableView
 	@FXML
 	public Equipment readSelectedItem() {

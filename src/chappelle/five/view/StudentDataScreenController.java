@@ -62,6 +62,10 @@ public class StudentDataScreenController extends Application {
 
 	}
 
+	/**
+	 * Loads student info from CSV file
+	 * Sets info into correct table columns
+	 */
 	@FXML
 	public void initialize() {
 		for (Student student : StudentEquipmentManagement.getStudentListA()) {		//Loads student info from CSV file
@@ -77,6 +81,10 @@ public class StudentDataScreenController extends Application {
 	
 	
 	//Switches scenes
+	/**
+	 * Loads Student Welcome Screen
+	 * @throws IOException
+	 */
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/AdminWelcomeScreen.fxml");

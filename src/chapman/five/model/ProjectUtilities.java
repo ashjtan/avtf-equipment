@@ -15,6 +15,7 @@ public class ProjectUtilities {
 
 	//Loads check mark image
 	/**
+	 * Updates check mark image
 	 * @param img - image file to load onto scene
 	 */
 	public static void handleUpdateImage(ImageView img) {
@@ -24,6 +25,10 @@ public class ProjectUtilities {
 
 	//Switches scenes
 	/**
+	 * Sets up stage
+	 * References button's stage 
+	 * Loads FXML document to switch to
+	 * Sets new scene on referenced stage
 	 * @param btn - button to click, bound to handleSceneSwitch
 	 * @param filePath - String name of file location
 	 */

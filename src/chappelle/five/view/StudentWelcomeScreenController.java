@@ -60,12 +60,18 @@ public class StudentWelcomeScreenController  {
 	private MainApp mainApp;
 	
 	
-	
+	/**
+	 * Constructor needed for loader
+	 */
 	//Constructor needed for loader
 	public StudentWelcomeScreenController() {
 		
 	}
 
+	/**
+	 * Called right after FXML file loaded
+	 * @throws IOException
+	 */
 	//Called right after FXML file loaded
 	@FXML 
 	private void initialize() throws IOException{
@@ -73,22 +79,35 @@ public class StudentWelcomeScreenController  {
 	}
 
 	//Scene Switch Methods
+	/**
+	 * Loads ItemCheckIn
+	 * @throws IOException
+	 */
 	@FXML
 	public void checkIn() throws IOException {		//Check In Equipment
 		ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/ItemCheckIn.fxml");
 	}
+	/**
+	 * Loads ItemCheckOut
+	 * @throws IOException
+	 */
 	@FXML
 	public void checkOut() throws IOException {		//Check Out Equipment
 		ProjectUtilities.handleSceneSwitch(btnCheckOut, "/chappelle/five/view/ItemCheckOut.fxml");
 	}
+	/**
+	 * Loads Login Screen
+	 * @throws IOException
+	 */
 	@FXML
 	public void handleLogOut() throws IOException {	//Returns to Login screen
 		ProjectUtilities.handleSceneSwitch(btnLogOut, "/tan/five/view/Login.fxml");
 	}
 
-
-	
-	
+	/**
+	 * Allows mainApp to have pointer to itself
+	 * @param mainApp
+	 */
 	//Allows mainApp to have pointer to itself
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;

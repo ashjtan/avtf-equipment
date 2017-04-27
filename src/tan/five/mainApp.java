@@ -1,12 +1,15 @@
 package tan.five;
 
 import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import tan.five.model.StudentEquipmentManagement;
 import tan.five.view.LoginController;
 
 public class mainApp extends Application{
@@ -33,9 +36,13 @@ public class mainApp extends Application{
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			StudentEquipmentManagement.loadStudentFile();
+			StudentEquipmentManagement.loadEquipmentFile();
+			
 			this.primaryStage = primaryStage;
-			this.primaryStage.setTitle("AVTF Equipment Manager");	//Sets the title of the Window
+			this.primaryStage.setTitle("AVTF Equipment Manager");	
 			this.primaryStage.getIcons().add(new Image("file:resources/Camcorder Pro-100.png"));
+			this.primaryStage.setResizable(false);
 
 			initRootLayout();
 

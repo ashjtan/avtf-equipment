@@ -76,8 +76,8 @@ public class LoginController {
 	 * Called right after the FXML file is loaded to set up the scene.
 	 */
 	@FXML
-	private void initialize(){
-
+	private void initialize() {
+	
 	}
 
 
@@ -110,7 +110,7 @@ public class LoginController {
 	 */
 	@FXML	
 	private boolean isStudentInputValid() {
-		for (Student student : StudentEquipmentManagement.getStudentListLoad()) {
+		for (Student student : StudentEquipmentManagement.getStudentListA()) {
 			if (studentIDField.getText().equals(student.getStudentID())) {
 				Student.SELECTED_STUDENT = student;
 				return true;

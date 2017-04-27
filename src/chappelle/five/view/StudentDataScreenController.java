@@ -3,13 +3,17 @@ package chappelle.five.view;
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import tan.five.model.Equipment;
 import tan.five.model.Student;
 import tan.five.model.StudentEquipmentManagement;
 import chapman.five.model.ProjectUtilities;
@@ -38,12 +42,23 @@ public class StudentDataScreenController extends Application {
 	@FXML
 	private TableColumn<Student, String> ID;
 
-	
+
 	/**
 	 * Bound to the back button in the .fxml file.
 	 */
 	@FXML
 	private Button btnBackButton;
+
+
+	/**
+	 * Right-side viewable list of items held by selected Student, able to bind to JavaFX.
+	 */
+	@FXML
+	private ListView<String> heldEquipment;	
+	/**
+	 * List backing the heldEquipment ListView, able to bind to JavaFX.
+	 */
+	private static ObservableList<String> listForHeldEquipment = FXCollections.observableArrayList();	
 
 
 
@@ -69,6 +84,23 @@ public class StudentDataScreenController extends Application {
 
 
 
+	//Event Handlers
+	@FXML
+	public void handleSelect() {
+		Student selectedStudent = readSelectedStudent();
+		listForHeldEquipment.clear();
+		for (Equipment equipment : StudentEquipmentManagement.getEquipmentListA()) {
+			if (equipment.getHolder()!= null) {
+				if (equipment.getHolder().equals(selectedStudent)) {
+					listForHeldEquipment.add(equipment.getEquipmentName());
+				}
+			}
+		}
+		heldEquipment.setItems(listForHeldEquipment);
+	}
+
+
+
 
 	/**
 	 * Switches scene back to the AdminWelcomeScreen.
@@ -77,5 +109,19 @@ public class StudentDataScreenController extends Application {
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/chappelle/five/view/AdminWelcomeScreen.fxml");
+	}
+
+
+
+
+	//Helper Methods
+	/**
+	 * Reads student selected in TableView.
+	 * @return Student highlighted in table.
+	 */
+	@FXML
+	public Student readSelectedStudent() {
+		Student student = studentTableView.getSelectionModel().getSelectedItem();
+		return student;
 	}
 }

@@ -69,7 +69,7 @@ public class StudentEquipmentManagement {
 	public static void loadStudentFile() throws IOException {
 		studentListA.clear();
 
-		FileReader file = new FileReader("Resources/AVTF_StudentList2017.csv"); 	
+		FileReader file = new FileReader("Resources/StudentList.csv"); 	
 		BufferedReader reader = new BufferedReader(file);							
 		String line;
 		while ((line = reader.readLine()) != null) {
@@ -151,7 +151,7 @@ public class StudentEquipmentManagement {
 	public static void loadEquipmentFile() throws IOException {
 		equipmentListA.clear();
 
-		FileReader file = new FileReader("Resources/Sample Equipment.csv");
+		FileReader file = new FileReader("Resources/EquipmentList.csv");
 		BufferedReader reader = new BufferedReader(file);
 		String line;
 		while ((line = reader.readLine()) != null) {

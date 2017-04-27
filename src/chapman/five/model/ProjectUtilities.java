@@ -21,6 +21,7 @@ public class ProjectUtilities {
 		img.setImage(checkMark);
 	}
 
+	
 	/**
 	 * Switches from one scene to another.
 	 * @param btn - the button to click that is bound to the handleSceneSwitch method.

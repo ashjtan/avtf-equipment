@@ -7,25 +7,25 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
 
-public class PrintLog {
+public class PrintToFile {
 
 	/**
 	 * The CSV file of the log to print equipment movements to.
 	 */
-	private static File log = new File("Resources/log.csv");
+	private static File log = new File("Resources/Log.csv");
 	/**
 	 * The CSV file of the list of equipment to load equipment from.
 	 */
-	private static File equipmentList = new File("Resources/Sample Equipment.csv");
+	private static File equipmentList = new File("Resources/EquipmentList.csv");
 	/**
 	 * A switch for updating the equipment CSV file for checkouts vs check-ins.
 	 */
@@ -40,6 +40,7 @@ public class PrintLog {
 	 * is affected.
 	 * @param checkIn - whether the item is being checked in.
 	 * @param equipment - the equipment that is being checked in or out.
+	 * @throws FileNotFoundException
 	 */
 	public static void updateLog(Boolean checkIn, Equipment equipment) throws FileNotFoundException {
 		PrintWriter pw = new PrintWriter(new FileOutputStream(log, true));
@@ -126,6 +127,6 @@ public class PrintLog {
 	 * @param checkInOrOut - "1" if the equipment is being checked out, "2" if it is being checked in.
 	 */
 	public static void setCheckInOrOut(int checkInOrOut) {
-		PrintLog.checkInOrOut = checkInOrOut;
+		PrintToFile.checkInOrOut = checkInOrOut;
 	}
 }

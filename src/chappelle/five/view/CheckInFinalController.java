@@ -3,6 +3,8 @@ package chappelle.five.view;
 import java.io.IOException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import tan.five.model.Equipment;
-import tan.five.model.PrintLog;
+import tan.five.model.PrintToFile;
 import chapman.five.model.ProjectUtilities;
 
 public class CheckInFinalController {
@@ -164,6 +166,20 @@ public class CheckInFinalController {
 	ArrayList<Equipment> equipmentCheckingIn = ItemCheckInController.getEquipmentToCheckIn();	
 
 
+	/**
+	 * List of Labels for items being checked in.
+	 */
+	List<Label> labels = new ArrayList<Label>();
+	/**
+	 * List of TextFields for barcodes of items being checked in.
+	 */
+	List<TextField> textFields = new ArrayList<TextField>();
+	/**
+	 * List of check mark Images to be displayed when checking barcodes.
+	 */
+	List<ImageView> checkMarks = new ArrayList<ImageView>();
+
+
 
 
 	/**
@@ -172,99 +188,14 @@ public class CheckInFinalController {
 	 */
 	@FXML
 	private void initialize() {
-		switch (equipmentCheckingIn.size()) {		
-		case 1:
-			lblItem1.setVisible(true);
-			lblItem1.setText(equipmentCheckingIn.get(0).getEquipmentName());
-			txtInput1.setVisible(true);
-			break;
-		case 2:
-			lblItem1.setVisible(true);
-			lblItem1.setText(equipmentCheckingIn.get(0).getEquipmentName());
-			txtInput1.setVisible(true);
+		labels.addAll(Arrays.asList(new Label[]{lblItem1, lblItem2, lblItem3, lblItem4, lblItem5, lblItem6}));
+		textFields.addAll(Arrays.asList(new TextField[]{txtInput1, txtInput2, txtInput3, txtInput4, txtInput5, txtInput6}));
+		checkMarks.addAll(Arrays.asList(new ImageView[]{imgCheckMark1, imgCheckMark2, imgCheckMark3, imgCheckMark4, imgCheckMark5, imgCheckMark6}));
 
-			lblItem2.setVisible(true);
-			lblItem2.setText(equipmentCheckingIn.get(1).getEquipmentName());
-			txtInput2.setVisible(true);
-			break;
-		case 3:
-			lblItem1.setVisible(true);
-			lblItem1.setText(equipmentCheckingIn.get(0).getEquipmentName());
-			txtInput1.setVisible(true);
-
-			lblItem2.setVisible(true);
-			lblItem2.setText(equipmentCheckingIn.get(1).getEquipmentName());
-			txtInput2.setVisible(true);
-
-			lblItem3.setVisible(true);
-			lblItem3.setText(equipmentCheckingIn.get(2).getEquipmentName());
-			txtInput3.setVisible(true);
-			break;
-		case 4:
-			lblItem1.setVisible(true);
-			lblItem1.setText(equipmentCheckingIn.get(0).getEquipmentName());
-			txtInput1.setVisible(true);
-
-			lblItem2.setVisible(true);
-			lblItem2.setText(equipmentCheckingIn.get(1).getEquipmentName());
-			txtInput2.setVisible(true);
-
-			lblItem3.setVisible(true);
-			lblItem3.setText(equipmentCheckingIn.get(2).getEquipmentName());
-			txtInput3.setVisible(true);
-
-			lblItem4.setVisible(true);
-			lblItem4.setText(equipmentCheckingIn.get(3).getEquipmentName());
-			txtInput4.setVisible(true);
-			break;
-		case 5:
-			lblItem1.setVisible(true);
-			lblItem1.setText(equipmentCheckingIn.get(0).getEquipmentName());
-			txtInput1.setVisible(true);
-
-			lblItem2.setVisible(true);
-			lblItem2.setText(equipmentCheckingIn.get(1).getEquipmentName());
-			txtInput2.setVisible(true);
-
-			lblItem3.setVisible(true);
-			lblItem3.setText(equipmentCheckingIn.get(2).getEquipmentName());
-			txtInput3.setVisible(true);
-
-			lblItem4.setVisible(true);
-			lblItem4.setText(equipmentCheckingIn.get(3).getEquipmentName());
-			txtInput4.setVisible(true);
-
-			lblItem5.setVisible(true);
-			lblItem5.setText(equipmentCheckingIn.get(4).getEquipmentName());
-			txtInput5.setVisible(true);
-			break;
-		case 6:
-			lblItem1.setVisible(true);
-			lblItem1.setText(equipmentCheckingIn.get(0).getEquipmentName());
-			txtInput1.setVisible(true);
-
-			lblItem2.setVisible(true);
-			lblItem2.setText(equipmentCheckingIn.get(1).getEquipmentName());
-			txtInput2.setVisible(true);
-
-			lblItem3.setVisible(true);
-			lblItem3.setText(equipmentCheckingIn.get(2).getEquipmentName());
-			txtInput3.setVisible(true);
-
-			lblItem4.setVisible(true);
-			lblItem4.setText(equipmentCheckingIn.get(3).getEquipmentName());
-			txtInput4.setVisible(true);
-
-			lblItem5.setVisible(true);
-			lblItem5.setText(equipmentCheckingIn.get(4).getEquipmentName());
-			txtInput5.setVisible(true);
-
-			lblItem6.setVisible(true);
-			lblItem6.setText(equipmentCheckingIn.get(5).getEquipmentName());
-			txtInput6.setVisible(true);
-			break;
-		default:
-			break;
+		for(int i = 0; i < equipmentCheckingIn.size(); i++) {
+			labels.get(i).setVisible(true);
+			labels.get(i).setText(equipmentCheckingIn.get(i).getEquipmentName());
+			textFields.get(i).setVisible(true);
 		}
 	}
 
@@ -280,108 +211,17 @@ public class CheckInFinalController {
 	 */
 	@FXML
 	public void handleCheckIn() throws IOException {
-		switch (equipmentCheckingIn.size()) {											//Checks depending on number of items returning
-		case 1:
-			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1)) {
-				for (Equipment equipment : equipmentCheckingIn) {
-					PrintLog.setCheckInOrOut(2);										//Switches alterEquipmentFile to Check In version
-					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
-					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
-					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-				}
-				ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/CheckInSuccess.fxml");
+		if (checkAllBarcodes()) {
+			for (int i = 0; i < equipmentCheckingIn.size(); i++) {
+				PrintToFile.setCheckInOrOut(2);										//Switches alterEquipmentFile to Check In version
+				equipmentCheckingIn.get(i).setCheckedOut(false);					//Sets equipment's checkedOut boolean to false
+				PrintToFile.alterEquipmentFile(equipmentCheckingIn.get(i));			//Alters equipment file's IN/OUT + holder studentID
+				PrintToFile.updateLog(true, equipmentCheckingIn.get(i));		
 			}
-			else {
-				lblIncorrectBarcodeError.setVisible(true);
-			}
-			break;
-		case 2:
-			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
-					checkCorrectBarcode(txtInput2, 1, imgCheckMark2)) {
-				for (Equipment equipment : equipmentCheckingIn) {
-					PrintLog.setCheckInOrOut(2);										//Switches alterEquipmentFile to Check In version
-					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
-					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
-					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-				}
-				ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/CheckInSuccess.fxml");
-			}
-			else {
-				lblIncorrectBarcodeError.setVisible(true);
-			}
-			break;
-		case 3:
-			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
-					checkCorrectBarcode(txtInput2, 1, imgCheckMark2) &&
-					checkCorrectBarcode(txtInput3, 2, imgCheckMark3)) {
-				for (Equipment equipment : equipmentCheckingIn) {
-					PrintLog.setCheckInOrOut(2);										//Switches alterEquipmentFile to Check In version
-					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
-					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
-					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-				}
-				ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/CheckInSuccess.fxml");
-			}
-			else {
-				lblIncorrectBarcodeError.setVisible(true);
-			}
-			break;
-		case 4:
-			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
-					checkCorrectBarcode(txtInput2, 1, imgCheckMark2) &&
-					checkCorrectBarcode(txtInput3, 2, imgCheckMark3) &&
-					checkCorrectBarcode(txtInput4, 3, imgCheckMark4)){
-				for (Equipment equipment : equipmentCheckingIn) {
-					PrintLog.setCheckInOrOut(2);										//Switches alterEquipmentFile to Check In version
-					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
-					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
-					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-				}
-				ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/CheckInSuccess.fxml");
-			}
-			else {
-				lblIncorrectBarcodeError.setVisible(true);
-			}
-			break;
-		case 5:
-			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
-					checkCorrectBarcode(txtInput2, 1, imgCheckMark2) &&
-					checkCorrectBarcode(txtInput3, 2, imgCheckMark3) &&
-					checkCorrectBarcode(txtInput4, 3, imgCheckMark4) &&
-					checkCorrectBarcode(txtInput5, 4, imgCheckMark5)) {
-				for (Equipment equipment : equipmentCheckingIn) {
-					PrintLog.setCheckInOrOut(2);										//Switches alterEquipmentFile to Check In version
-					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
-					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
-					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-				}
-				ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/CheckInSuccess.fxml");
-			}
-			else {
-				lblIncorrectBarcodeError.setVisible(true);
-			}
-			break;
-		case 6:
-			if (checkCorrectBarcode(txtInput1, 0, imgCheckMark1) &&
-					checkCorrectBarcode(txtInput2, 1, imgCheckMark2) &&
-					checkCorrectBarcode(txtInput3, 2, imgCheckMark3) &&
-					checkCorrectBarcode(txtInput4, 3, imgCheckMark4) &&
-					checkCorrectBarcode(txtInput5, 4, imgCheckMark5) &&
-					checkCorrectBarcode(txtInput6, 5, imgCheckMark6)) {
-				for (Equipment equipment : equipmentCheckingIn) {
-					PrintLog.setCheckInOrOut(2);										//Switches alterEquipmentFile to Check In version
-					equipment.setCheckedOut(false);										//Sets equipment's checkedOut boolean to false
-					PrintLog.alterEquipmentFile(equipment);								//Alters equipment file's IN/OUT + holder studentID
-					PrintLog.updateLog(true, equipment);								//Prints equipment checkin to log
-				}
-				ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/CheckInSuccess.fxml");
-			}
-			else {
-				lblIncorrectBarcodeError.setVisible(true);
-			}
-			break;
-		default:
-			break;
+			ProjectUtilities.handleSceneSwitch(btnCheckIn, "/chappelle/five/view/CheckInSuccess.fxml");
+		}
+		else {
+			lblIncorrectBarcodeError.setVisible(true);
 		}
 	}
 
@@ -400,18 +240,31 @@ public class CheckInFinalController {
 
 	//Helper Methods
 	/**
-	 * Checks if the barcode inputs are correct.
-	 * @param barcodeInput - Textfield to check for correct barcode input.
+	 * Checks the user input for the correct equipment barcode.
 	 * @param cartIndex - which item in list of items returning to compare barcode.
-	 * @param checkMark - image to display when barcode is correct.
 	 */
-	public boolean checkCorrectBarcode(TextField barcodeInput, int listIndex, ImageView checkMark) {
-		if (barcodeInput.getText().equals(equipmentCheckingIn.get(listIndex).getEquipmentID()) && !(barcodeInput.getText().equals(null))) {
-			checkMark.setVisible(true);
+	public boolean checkCorrectBarcode(int cartIndex) {
+		if (textFields.get(cartIndex).getText().equals(equipmentCheckingIn.get(cartIndex).getEquipmentID()) && !(textFields.get(cartIndex).getText().equals(null))) {
+			textFields.get(cartIndex).setEditable(false);
+			ProjectUtilities.handleUpdateImage(checkMarks.get(cartIndex));
 			return true;
 		}
 		else {
 			return false;
 		}
+	}
+
+	/**
+	 * Checks all user inputs for correct equipment barcodes.
+	 * @return whether or not all barcodes are correct.
+	 */
+	public boolean checkAllBarcodes() {
+		boolean allBarcodesCorrect = true;
+		for (int i = 0; i < equipmentCheckingIn.size(); i++) {
+			if (!checkCorrectBarcode(i)) {
+				allBarcodesCorrect = false;
+			}
+		}
+		return allBarcodesCorrect;
 	}
 }

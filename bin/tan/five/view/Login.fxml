@@ -6,19 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tan.five.view.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tan.five.view.LoginController">
    <children>
-      <Label fx:id="welcome" layoutX="247.0" layoutY="54.0" text="Welcome!">
+      <Label fx:id="welcome" layoutX="241.0" layoutY="53.0" stylesheets="@DarkTheme.css" text="Welcome!">
          <font>
             <Font name="Helvetica Neue Thin" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="askStudentID" layoutX="198.0" layoutY="105.0" text="Please enter your student ID:">
+      <Label fx:id="askStudentID" layoutX="141.0" layoutY="107.0" text="Please enter your student ID:">
          <font>
             <Font name="Helvetica Neue Thin" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="studentIDField" layoutX="146.0" layoutY="187.0" prefHeight="27.0" prefWidth="295.0" promptText="Student ID">
+      <TextField fx:id="studentIDField" layoutX="116.0" layoutY="188.0" prefHeight="27.0" prefWidth="295.0" promptText="Student ID" styleClass="TextField" stylesheets="@DarkTheme.css">
          <font>
             <Font name="Helvetica Neue" size="13.0" />
          </font></TextField>
@@ -27,7 +27,7 @@
             <Font name="Helvetica Neue Bold" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="btnStudent" layoutX="448.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleInput" text="Login">
+      <Button fx:id="btnStudent" layoutX="421.0" layoutY="189.0" mnemonicParsing="false" onAction="#handleInput" text="Login">
          <font>
             <Font name="Helvetica Neue Thin" size="13.0" />
          </font></Button>

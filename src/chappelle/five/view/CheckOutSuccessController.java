@@ -1,41 +1,52 @@
 package chappelle.five.view;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-import java.io.IOException;
-
 import chapman.five.model.ProjectUtilities;
 
 public class CheckOutSuccessController {
-	
+
 	//Fields
-	@FXML
-	private Button btnBackButton;
+	/**
+	 * Displays "Congratulations! You checked something out!" on the scene.
+	 */
 	@FXML
 	private Label lblCongrats;
-	@FXML 
+	
+	/**
+	 * Bound to the back button in the .fxml file.
+	 */
+	@FXML
+	private Button btnBackButton;
+	/**
+	 * Bound to the back-to-menu button in the .fxml file.
+	 */
+	@FXML
 	private Button btnBackToMenu;
 	
-	//Scene Switch Method
+	
+	
+
+	//Event Handlers
 	/**
-	 * Loads Login Screen
+	 * Logs user out and switches scene back to LoginScreen after a successful item checkout.
 	 * @throws IOException
 	 */
 	@FXML
 	public void handleBack() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackButton, "/tan/five/view/Login.fxml");
 	}
+	
 	/**
-	 * Loads Student Welcome Screen
+	 * Switches scene back to StudentWelcomeScreen after a successful item checkout.
 	 * @throws IOException
 	 */
 	@FXML
 	public void handleBackToMenu() throws IOException {
 		ProjectUtilities.handleSceneSwitch(btnBackToMenu, "/chapman/five/view/StudentWelcomeScreen.fxml");
 	}
-	
-	
-	
 }
